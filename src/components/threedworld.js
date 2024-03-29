@@ -20,9 +20,16 @@ export default function Threed() {
       <perspectiveCamera
           fov={1000}
          
-          position={[0, 0, 0]}
+          position={[0,2, 0]}
           ></perspectiveCamera>
-      <OrbitControls />
+      <OrbitControls
+  minAzimuthAngle={-Math.PI / 2}
+  maxAzimuthAngle={Math.PI / 2}
+  minPolarAngle={Math.PI / 5}
+  maxPolarAngle={Math.PI / 0}
+  minDistance={2} // Set your minimum distance here
+  maxDistance={100} // Set your maximum distance here
+/>
 <color args={['#000000']} attach="background"></color>
         <Suspense fallback={<Loader/>}>
           
