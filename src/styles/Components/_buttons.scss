@@ -1,0 +1,32 @@
+.iconButton{
+    border-radius: 100px;
+    background-color: #3936364f;
+    height: 42px;
+    width: 42px;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid grey;
+    transition: ease-in-out .3s ;
+    transform: scale(1);
+
+
+  
+    &:hover{
+        border: 1px solid orangered;
+        transform: scale(1.1);
+        filter: drop-shadow(0px 0px 15px orangered) ;
+
+
+        // &::before{
+        //     content: "zoom in";
+            
+        //     position: absolute;
+        //     top:-60px;
+        // }
+    
+    }
+
+
+}
