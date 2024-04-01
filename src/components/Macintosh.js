@@ -29,7 +29,8 @@ const Macintosh = ({ setCameraPosition }) => {
             TWEEN.update(); // Update tween.js on every frame
         
             // Define target camera position and duration based on the 'active' state
-            const targetCameraPosition = zoomactive ? [0, 2, 10] : [0, 0, 22];
+            const targetCameraPosition = zoomactive ? [0, 2, 10] : [0, 1, 24];
+            
             const duration = 1000; // Duration of the tween animation in milliseconds
         
             // Create a new tween animation for the camera position
@@ -38,6 +39,16 @@ const Macintosh = ({ setCameraPosition }) => {
               .to({ x: targetCameraPosition[0], y: targetCameraPosition[1], z: targetCameraPosition[2] }, duration)
               .easing(TWEEN.Easing.Quadratic.Out) // Define easing function
               .start(); // Start the tween animation
+
+              // const targetCameraRotation = zoomactive ? [0, 0, 2] : [0, 0, 0];
+
+              // new TWEEN.Tween(camera.rotation)
+            
+              // .to({ x: targetCameraRotation[0], y: targetCameraRotation[1], z: targetCameraRotation[2] }, duration)
+              // .easing(TWEEN.Easing.Quadratic.Out) // Define easing function
+              // .start(); // Start the tween animation
+
+              // console.log(camera.rotation.z)
           });
 
           const togglezoomactive = () => {
@@ -90,9 +101,12 @@ useFrame(() => {
 
 
           <PresentationControls 
-          
+             snap={ false}
+             azimuth={[-Math.PI / 3, Math.PI / 3]}
           global
           config={{mass:2, tension:300}}
+          polar={[-Math.PI / 12, Math.PI / 4]}
+
           >
     <group ref={mesh} 
      position={[0,0,0]}

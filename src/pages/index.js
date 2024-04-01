@@ -4,6 +4,7 @@ import Head from "next/head";
 import { Canvas } from "react-three-fiber";
 import Threed from "@/components/threedworld";
 
+
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
