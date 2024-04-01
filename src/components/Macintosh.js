@@ -3,36 +3,53 @@ import { useGLTF, useTexture,Html } from '@react-three/drei';
 import { Bloom, DepthOfField, EffectComposer, Glitch, Noise, Vignette } from '@react-three/postprocessing';
 import * as THREE from 'three';
 import { useFrame } from "react-three-fiber";
-import { useRef,useState } from 'react';
+import { useRef,useState,useEffect } from 'react';
 import { OrbitControls } from '@react-three/drei';
 import { TransformControls, PivotControls,Environment } from '@react-three/drei';
 import { useControls } from 'leva';
 import { useLoader } from 'react-three-fiber';
 import { PresentationControls } from '@react-three/drei';
-import {BlendFunction} from 'postprocessing'
+import { BlendFunction } from 'postprocessing';
+import * as TWEEN from '@tweenjs/tween.js'
 
-const Macintosh = (props,ref) => {
+const Macintosh = ({ setCameraPosition }) => {
   const mesh = useRef();
-  const [active, setActive] = useState(false);
+  const [zoomactive, setzoomactive] = useState(false);
 
   const { nodes } = useGLTF('/MacintoshCell.glb');
-console.log(nodes)
  
   const bakedTexture=useTexture('/BAKEDMACINTOSH2.jpg')
   const bakedPlaneTexture=useTexture('/planebaked.jpg')
-          // position={[0,  active ? 4:5.8, 8]}
 
+       
 
+         
 
+          useFrame(({ camera }) => {
+            TWEEN.update(); // Update tween.js on every frame
+        
+            // Define target camera position and duration based on the 'active' state
+            const targetCameraPosition = zoomactive ? [0, 2, 10] : [0, 0, 22];
+            const duration = 1000; // Duration of the tween animation in milliseconds
+        
+            // Create a new tween animation for the camera position
+            new TWEEN.Tween(camera.position)
+            
+              .to({ x: targetCameraPosition[0], y: targetCameraPosition[1], z: targetCameraPosition[2] }, duration)
+              .easing(TWEEN.Easing.Quadratic.Out) // Define easing function
+              .start(); // Start the tween animation
+          });
+
+          const togglezoomactive = () => {
+            setzoomactive(prevzoomActive => !prevzoomActive);
+          };
+          
 useFrame(() => {
-  mesh.current.position.set(0,  active ? -2:0, active ? -3 :-13);
+
+  // mesh.current.position.set(0,  active ? -2:0, active ? -3 :-13);
 });
 
-useFrame((state,delta) => {
-  // const angle=state.clock.elapsedTime
-  // state.camera.position.x=Math.sin(angle)*12;
-  // state.camera.position.z=Math.cos(angle)*12;
-});
+
 
   return (
     <>
@@ -78,7 +95,7 @@ useFrame((state,delta) => {
           config={{mass:2, tension:300}}
           >
     <group ref={mesh} 
-     position={[0,0,-13]}
+     position={[0,0,0]}
      >
 
     {/* <mesh  scale={1.2} position={[1,1,1]}   geometry={nodes.screen.geometry}
@@ -106,12 +123,12 @@ useFrame((state,delta) => {
           style={{userSelect:"none",WebkitUserSelect:"none"}}
           transform
           wrapperClass='htmlScreen'
-         position={[0, active ? 5.3:6.2,active ?7.1:8.4]}
+         position={[0, zoomactive ? 4:6.2,zoomactive ?7.4:8.4]}
           // position={[0,  active ? 4:5.8, 8]}
           >
             
-          <button className='iconButton' style={{color:"white"}} onClick={() => setActive(!active)}>
-            {active ?
+          <button className={zoomactive?'iconButton-sm':'iconButton'} style={{color:"white"}} onClick={togglezoomactive}>
+            {zoomactive ?
          <svg
          xmlns="http://www.w3.org/2000/svg"
          fill="none"

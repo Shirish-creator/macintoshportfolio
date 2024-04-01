@@ -2,12 +2,13 @@ import { Canvas, useThree } from "react-three-fiber";
 import { Suspense } from "react";
 import Loader from "./Loader";
 import Macintosh from "./Macintosh"
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { useFrame } from "react-three-fiber";
 import * as Three from 'three';
 
 export default function Threed() {
 
+  // const [cameraPosition, setCameraPosition] = useState(); // Initial camera position
 
 return (
     <>
@@ -22,7 +23,7 @@ return (
           fov:95,
           near:0.1,
           far:1000,
-          position:[0,1,8]
+          // position: cameraPosition, // Use state for camera position
         }}
       >
        
@@ -30,7 +31,7 @@ return (
         <color args={['#000000']} attach="background" />
         <Suspense fallback={<Loader/>}>
      
-          <Macintosh />
+          <Macintosh  />
         </Suspense>
       </Canvas>
     </>
