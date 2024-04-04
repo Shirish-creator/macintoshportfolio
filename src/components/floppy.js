@@ -46,11 +46,12 @@ const Floppy = ({ onPortfolioActivate }) => {
  
    
   const handleClick = () => {
+    setIsVisible(false)
+
     actions.rotate.play();
     setTimeout(() => {
         actions.rotate.stop(); // Stop the animation
         onPortfolioActivate(true); // Pass true to indicate portfolio activation
-        setIsVisible(false)
       }, 4500); // Reset the animation to its initial state and play it
 
     // const initialPosition = { x: 5.5, y: -7.3, z: 5 };

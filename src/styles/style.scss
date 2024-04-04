@@ -8,3 +8,7 @@ body{
     background-color: none!important;
     
 }
+
+canvas{
+    touch-action: none;
+}
