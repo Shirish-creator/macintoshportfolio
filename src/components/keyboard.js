@@ -10,7 +10,7 @@ const Keyboard = () => {
   
    
     const { nodes } = useGLTF('/MacintoshCell.glb');
-     const bakedKeyboard=useTexture('/keyboardfinebaked.jpg')
+     const bakedKeyboard=useTexture('/Keyboardfinebaked.jpg')
  
 
   
