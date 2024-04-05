@@ -32,14 +32,14 @@ const Computer = ({ isPortfolioActive,orbitControlsActive,standardCameraPosition
       x: targetPosition.x,
       y: targetPosition.y,
       z: targetPosition.z,
-      duration: 2, // Duration of the animation in seconds
+      duration: 1, // Duration of the animation in seconds
       ease: "power2.out" // Easing function
     });
     gsap.to(camera.rotation, {
       x: targetRotation.x,
       y: targetRotation.y,
       z: targetRotation.z,
-      duration: 2, // Duration of the animation in seconds
+      duration: 1, // Duration of the animation in seconds
       ease: "power2.out" // Easing function
     });
   };

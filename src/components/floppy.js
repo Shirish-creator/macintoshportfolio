@@ -40,7 +40,7 @@ const Floppy = ({ onPortfolioActivate,orbitControlsActive,standardCameraPosition
         x: targetPosition.x,
         y: targetPosition.y,
         z: targetPosition.z,
-        duration: 2, // Duration of the animation in seconds
+        duration: 1.5, // Duration of the animation in seconds
         ease: "power2.out" // Easing function
       });
       // if(zoomactive){
@@ -49,20 +49,27 @@ const Floppy = ({ onPortfolioActivate,orbitControlsActive,standardCameraPosition
         x: targetRotation.x,
         y: targetRotation.y,
         z: targetRotation.z,
-        duration: 2, // Duration of the animation in seconds
+        duration: 1.5, // Duration of the animation in seconds
         ease: "power2.out" // Easing function
       });
      
     };
     
 
- 
+    
    
   const handleClick = () => {
     setIsVisible(false)
 
     actions.rotate.play();
     setTimeout(() => {
+     
+      const sound = new Audio('/booted.mp3'); // Replace 'path_to_your_sound_clip.mp3' with the actual path to your sound clip
+      sound.play();
+    }, 3000);
+
+    setTimeout(() => {
+     
         actions.rotate.stop(); // Stop the animation
         onPortfolioActivate(true); // Pass true to indicate portfolio activation
       }, 4500); // Reset the animation to its initial state and play it
