@@ -1,5 +1,5 @@
 import React from 'react';
-import { useGLTF, useTexture,Html } from '@react-three/drei';
+import { useGLTF, useTexture,Html, RenderCubeTexture } from '@react-three/drei';
 import { Bloom, DepthOfField, EffectComposer, Glitch, Noise, Vignette } from '@react-three/postprocessing';
 import * as THREE from 'three';
 import { useFrame } from "react-three-fiber";
@@ -17,7 +17,11 @@ import { Iphone } from './Iphone';
 import { Playstation } from './Playstation';
 import { useThree } from 'react-three-fiber';
 import { PerspectiveCamera } from '@react-three/drei';
-
+import { Halant } from 'next/font/google';
+import { ChromaticAberration } from '@react-three/postprocessing'
+import { Grid } from '@react-three/postprocessing'
+import { SSAO } from '@react-three/postprocessing'
+import { ToneMapping } from '@react-three/postprocessing'
 
 const Scene = ({ orbitControlsActive, handleOrbitControlsToggle,handleUiControlsToggle,showUiControls }) => {
   const mesh = useRef();
@@ -72,6 +76,38 @@ const Scene = ({ orbitControlsActive, handleOrbitControlsToggle,handleUiControls
           
           blendFunction={BlendFunction.MULTIPLY}
           />
+          <ChromaticAberration
+    blendFunction={BlendFunction.NORMAL} // blend mode
+    offset={[0.0015, 0.001]} // color offset
+  />
+   <Grid
+    blendFunction={BlendFunction.OVERLAY} // blend mode
+    scale={2.0} // grid pattern scale
+    lineWidth={0.0} // grid pattern line width
+    // size={{ 10, height }} // overrides the default pass width and height
+  />
+   <SSAO
+    blendFunction={BlendFunction.NORMAL} // blend mode
+    samples={20} // amount of samples per pixel (shouldn't be a multiple of the ring count)
+    rings={4} // amount of rings in the occlusion sampling pattern
+    distanceThreshold={1.0} // global distance threshold at which the occlusion effect starts to fade out. min: 0, max: 1
+    distanceFalloff={3.0} // distance falloff. min: 0, max: 1
+    rangeThreshold={0.5} // local occlusion range threshold at which the occlusion starts to fade out. min: 0, max: 1
+    rangeFalloff={0.1} // occlusion range falloff. min: 0, max: 1
+    luminanceInfluence={3.9} // how much the luminance of the scene influences the ambient occlusion
+    radius={50} // occlusion sampling radius
+    scale={100.5} // scale of the ambient occlusion
+    bias={4.5} // occlusion bias
+  />
+   <ToneMapping
+    blendFunction={BlendFunction.NORMAL} // blend mode
+    adaptive={true} // toggle adaptive luminance map usage
+    resolution={2400} // texture resolution of the luminance map
+    middleGrey={20.6} // middle grey factor
+    maxLuminance={1000.0} // maximum luminance
+    averageLuminance={500.0} // average luminance
+    adaptationRate={1.0} // luminance adaptation rate
+  />
         </EffectComposer>
 
           
