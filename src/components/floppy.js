@@ -9,7 +9,7 @@ import { useThree } from 'react-three-fiber';
 import gsap from "gsap";
 
 
-const Floppy = ({ onPortfolioActivate }) => {
+const Floppy = ({ onPortfolioActivate,orbitControlsActive,standardCameraPosition,standardCameraRotation }) => {
   const [zoomactive, setZoomActive] = useState(false);
   const { camera } = useThree();
 
@@ -30,8 +30,9 @@ const Floppy = ({ onPortfolioActivate }) => {
       setZoomActive(!zoomactive);
   
       // Define the target camera position based on the zoomactive state
-      const targetPosition = { x: 0, y:zoomactive ?1:-2, z: zoomactive ? 20 : 11.5 };
-  
+      const targetPosition = { x: zoomactive ?0:12.5, y:zoomactive ?standardCameraPosition.y:-5, z: zoomactive ? standardCameraPosition.z : 6 };
+      const targetRotation = { x: 0, y:zoomactive ?standardCameraRotation.y:1.5, z: 0 };
+
       // Tween the camera position
       gsap.to(camera.position, {
         x: targetPosition.x,
@@ -40,6 +41,16 @@ const Floppy = ({ onPortfolioActivate }) => {
         duration: 2, // Duration of the animation in seconds
         ease: "power2.out" // Easing function
       });
+      // if(zoomactive){
+      // camera.lookAt(groupRef.current.position)}
+      gsap.to(camera.rotation, {
+        x: targetRotation.x,
+        y: targetRotation.y,
+        z: targetRotation.z,
+        duration: 2, // Duration of the animation in seconds
+        ease: "power2.out" // Easing function
+      });
+     
     };
     
 
@@ -101,10 +112,10 @@ useFrame(() => {
     return (
         <>
 
-         {isVisible && (
+         {isVisible & !orbitControlsActive && (
         <Html
           occlude
-          position={[2, -3, 8]}
+          position={[2, -2, 9]}
           
           scale={1}
           style={{ userSelect: "none", WebkitUserSelect: "none" }}
@@ -113,43 +124,27 @@ useFrame(() => {
         >
           <button className='iconButton' style={{ color: "white" }} onClick={handleClick}>
           <svg
-  width={24}
-  height={28}
-  viewBox="0 0 24 28"
-  fill="none"
   xmlns="http://www.w3.org/2000/svg"
+  width={24}
+  height={24}
+  fill="currentColor"
+  className="bi bi-floppy"
+  viewBox="0 0 16 16"
 >
-  <path
-    d="M3.75 16.5776C3.75 15.7063 4.45634 15 5.32765 15H18.5039C19.3752 15 20.0815 15.7063 20.0815 16.5776V25.1441H3.75V16.5776Z"
-    stroke="#F7F7F7"
-    strokeWidth="0.88983"
-  />
-  <path
-    d="M16.6914 9.38095L7.30863 9.38095C6.78971 9.38095 6.36905 8.96029 6.36905 8.44137L6.36905 2.61905L17.25 2.61905C17.4604 2.61905 17.631 2.78961 17.631 3L17.631 8.44137C17.631 8.96029 17.2103 9.38095 16.6914 9.38095Z"
-    stroke="#F7F7F7"
-    strokeWidth="0.738098"
-  />
-  <path
-    d="M13.5 5.05863C13.5 4.33589 14.0859 3.75 14.8086 3.75C15.5314 3.75 16.1173 4.33589 16.1173 5.05863V6.69441C16.1173 7.41714 15.5314 8.00304 14.8086 8.00304C14.0859 8.00304 13.5 7.41715 13.5 6.69441V5.05863Z"
-    stroke="#F7F7F7"
-    strokeWidth="0.738098"
-  />
-  <path
-    d="M1.94492 24.7747V3.03882C1.94492 2.84889 2.09889 2.69492 2.28882 2.69492H18.148C18.2367 2.69492 18.322 2.7292 18.386 2.79061L21.2373 5.52499C21.305 5.58985 21.3432 5.6795 21.3432 5.7732V24.7747C21.3432 24.9647 21.1892 25.1186 20.9993 25.1186H2.28882C2.09889 25.1186 1.94492 24.9647 1.94492 24.7747Z"
-    stroke="#F7F7F7"
-    strokeWidth="0.88983"
-  />
+  <path d="M11 2H9v3h2z" />
+  <path d="M1.5 0h11.586a1.5 1.5 0 0 1 1.06.44l1.415 1.414A1.5 1.5 0 0 1 16 2.914V14.5a1.5 1.5 0 0 1-1.5 1.5h-13A1.5 1.5 0 0 1 0 14.5v-13A1.5 1.5 0 0 1 1.5 0M1 1.5v13a.5.5 0 0 0 .5.5H2v-4.5A1.5 1.5 0 0 1 3.5 9h9a1.5 1.5 0 0 1 1.5 1.5V15h.5a.5.5 0 0 0 .5-.5V2.914a.5.5 0 0 0-.146-.353l-1.415-1.415A.5.5 0 0 0 13.086 1H13v4.5A1.5 1.5 0 0 1 11.5 7h-7A1.5 1.5 0 0 1 3 5.5V1H1.5a.5.5 0 0 0-.5.5m3 4a.5.5 0 0 0 .5.5h7a.5.5 0 0 0 .5-.5V1H4zM3 15h10v-4.5a.5.5 0 0 0-.5-.5h-9a.5.5 0 0 0-.5.5z" />
 </svg>
+
 
           </button>
         </Html>
         
       )}
-{isVisible && (
+{isVisible & !orbitControlsActive && (
       <Html
           occlude
-          position={[5.5, -3, 5]}
-          rotation={[0,1.5,0]}
+          position={zoomactive?[5.5, -3,5]:[5, -3, 10]}
+          rotation={zoomactive?[0,1.5,0]:[0, 0, 0]}
           scale={1}
           style={{ userSelect: "none", WebkitUserSelect: "none" }}
           transform

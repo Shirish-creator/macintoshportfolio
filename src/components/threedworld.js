@@ -5,7 +5,7 @@ import React, { useRef, useState } from "react";
 import { useFrame } from "react-three-fiber";
 import * as Three from 'three';
 
-export default function Threed() {
+export default function Threed({ orbitControlsActive,handleOrbitControlsToggle}) {
 const standardCameraPosition=[0, 1, 20];
 
 return (
@@ -20,11 +20,11 @@ return (
         style={{ height: "100vh" }}
         className="w-full h-screen "
         camera={{
-          fov:102,
+          fov:110,
           near:0.5,
           far:1000,
           
-          position: [0, 1, 20]        }}
+          position: [0, 1, 22]        }}
       >
        
        
@@ -32,7 +32,8 @@ return (
         
         <Suspense>
      
-          <Scene standardCameraPosition={standardCameraPosition}  />
+          <Scene orbitControlsActive={orbitControlsActive}
+          handleOrbitControlsToggle={handleOrbitControlsToggle}  />
         </Suspense>
       </Canvas>
     </>
