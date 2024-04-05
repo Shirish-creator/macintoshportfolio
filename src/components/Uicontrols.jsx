@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState,useEffect,useRef } from 'react'
 
-export default function Uicontrols({orbitControlsActive,handleOrbitControlsToggle}) {
+export default function Uicontrols({orbitControlsActive,handleOrbitControlsToggle,showUiControls}) {
 
     const [time, setTime] = useState('');
     useEffect(() => {
@@ -16,7 +16,7 @@ export default function Uicontrols({orbitControlsActive,handleOrbitControlsToggl
         return () => clearInterval(interval);
       }, []);
   return (
-    <div className='flex fixed flex-col gap-2' style={{top:0,zIndex:100,top:"64px",left:"84px"}}>
+    <div className={`controlHeader-${showUiControls ? "active" : "inactive"} fixed flex flex-col gap-2`}    style={{top:0,zIndex:100,top:"64px",left:"84px"}}>
         <div className='controlHeader flex flex-row justify-center items-center' style={{fontFamily:'Monument Extended Bold',fontSize:"16px"}}>SHIRISH SHAKYA</div>
         <div className='controlHeader flex flex-row justify-center items-center'>Product Designer/ Creative Developer/ Product Manager</div>
         <div className='controlHeader gap-2 flex flex-row items-center justify-center'>

@@ -7,7 +7,7 @@ import Keyboard from './keyboard';
 import gsap from "gsap";
 import { useThree } from 'react-three-fiber';
 
-const Computer = ({ isPortfolioActive,orbitControlsActive,standardCameraPosition,standardCameraRotation }) => {
+const Computer = ({ isPortfolioActive,orbitControlsActive,standardCameraPosition,standardCameraRotation,handleUiControlsToggle,showUiControls }) => {
   const mesh = useRef();
   const [zoomactive, setZoomActive] = useState(false);
   const { camera } = useThree();
@@ -18,6 +18,8 @@ const Computer = ({ isPortfolioActive,orbitControlsActive,standardCameraPosition
   const handleButtonClick = () => {
     // Toggle the zoomactive state
     setZoomActive(!zoomactive);
+    handleUiControlsToggle();
+
 
     // Define the target camera position based on the zoomactive state
     const targetPosition = { x: 0, y:zoomactive?standardCameraPosition.y: 3, z: zoomactive ? standardCameraPosition.z : 15 };

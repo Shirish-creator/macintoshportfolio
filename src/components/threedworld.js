@@ -6,7 +6,7 @@ import { useFrame } from "react-three-fiber";
 import * as Three from 'three';
 import Loader from "./Loader";
 
-export default function Threed({ orbitControlsActive,handleOrbitControlsToggle}) {
+export default function Threed({ orbitControlsActive,handleOrbitControlsToggle,handleUiControlsToggle,showUiControls}) {
 const standardCameraPosition=[0, 1, 20];
 
 return (
@@ -34,6 +34,8 @@ return (
         <Suspense fallback={<Loader/>} >
      
           <Scene orbitControlsActive={orbitControlsActive}
+          handleUiControlsToggle={handleUiControlsToggle}
+          showUiControls={showUiControls}
           handleOrbitControlsToggle={handleOrbitControlsToggle}  />
         </Suspense>
       </Canvas>

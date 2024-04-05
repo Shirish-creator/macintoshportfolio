@@ -9,7 +9,7 @@ import { useThree } from 'react-three-fiber';
 import gsap from "gsap";
 
 
-const Floppy = ({ onPortfolioActivate,orbitControlsActive,standardCameraPosition,standardCameraRotation }) => {
+const Floppy = ({ onPortfolioActivate,orbitControlsActive,standardCameraPosition,standardCameraRotation,handleUiControlsToggle,showUiControls }) => {
   const [zoomactive, setZoomActive] = useState(false);
   const { camera } = useThree();
 
@@ -28,7 +28,7 @@ const Floppy = ({ onPortfolioActivate,orbitControlsActive,standardCameraPosition
     const handleButtonClick = () => {
       // Toggle the zoomactive state
       setZoomActive(!zoomactive);
-  
+      handleUiControlsToggle();
       // Define the target camera position based on the zoomactive state
       const targetPosition = { x: zoomactive ?0:12.5, y:zoomactive ?standardCameraPosition.y:-5, z: zoomactive ? standardCameraPosition.z : 6 };
       const targetRotation = { x: 0, y:zoomactive ?standardCameraRotation.y:1.5, z: 0 };

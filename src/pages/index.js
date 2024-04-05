@@ -10,9 +10,15 @@ import Uicontrols from "@/components/Uicontrols";
 
 export default function Home() {
   const [orbitControlsActive, setOrbitControlsActive] = useState(false);
+  const [showUiControls, setUiControls] = useState(true);
+
   const handleOrbitControlsToggle = () => {
     setOrbitControlsActive(!orbitControlsActive);
   };
+
+  const handleUiControlsToggle=()=>{
+    setUiControls(!showUiControls)
+  }
 
   return (
     <>
@@ -21,9 +27,10 @@ export default function Home() {
     </Head>
     
     <section className="w-full h-screen flex   relative">
-    <Uicontrols orbitControlsActive={orbitControlsActive} handleOrbitControlsToggle={handleOrbitControlsToggle} />
-      
-    <Threed orbitControlsActive={orbitControlsActive} handleOrbitControlsToggle={handleOrbitControlsToggle} />
+    {/* {showUiControls && <Uicontrols orbitControlsActive={orbitControlsActive} handleOrbitControlsToggle={handleOrbitControlsToggle} />} */}
+     <Uicontrols showUiControls={showUiControls} orbitControlsActive={orbitControlsActive} handleOrbitControlsToggle={handleOrbitControlsToggle} />
+
+    <Threed showUiControls={showUiControls} handleUiControlsToggle={handleUiControlsToggle} orbitControlsActive={orbitControlsActive} handleOrbitControlsToggle={handleOrbitControlsToggle} />
     </section>
     
     

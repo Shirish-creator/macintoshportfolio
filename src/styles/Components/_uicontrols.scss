@@ -8,4 +8,17 @@ background-color: #1615156e;
 backdrop-filter: blur(30px);
 width: fit-content;
 
+transition: ease-in-out 1s;
+
+}
+
+.controlHeader-active{
+    opacity: 1;transition: ease-in-out .5s;
+
+}
+
+.controlHeader-inactive{
+    pointer-events: none;
+    opacity: 0;transition: ease-in-out .5s;
+
 }

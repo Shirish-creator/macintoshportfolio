@@ -19,7 +19,7 @@ import { useThree } from 'react-three-fiber';
 import { PerspectiveCamera } from '@react-three/drei';
 
 
-const Scene = ({ orbitControlsActive, handleOrbitControlsToggle }) => {
+const Scene = ({ orbitControlsActive, handleOrbitControlsToggle,handleUiControlsToggle,showUiControls }) => {
   const mesh = useRef();
   const cameraref=useRef();
   const { camera } = useThree();
@@ -90,9 +90,9 @@ const Scene = ({ orbitControlsActive, handleOrbitControlsToggle }) => {
      position={[0,0,0]}
      >
       
-      <Computer standardCameraPosition={standardCameraPosition} standardCameraRotation={standardCameraRotation} orbitControlsActive={orbitControlsActive}  isPortfolioActive={isPortfolioActive} />
+      <Computer handleUiControlsToggle={handleUiControlsToggle} showUiControls={showUiControls} standardCameraPosition={standardCameraPosition} standardCameraRotation={standardCameraRotation} orbitControlsActive={orbitControlsActive}  isPortfolioActive={isPortfolioActive} />
 
-      <Floppy standardCameraPosition={standardCameraPosition} standardCameraRotation={standardCameraRotation} orbitControlsActive={orbitControlsActive} onPortfolioActivate={handlePortfolioActivation}/>
+      <Floppy handleUiControlsToggle={handleUiControlsToggle} showUiControls={showUiControls} standardCameraPosition={standardCameraPosition} standardCameraRotation={standardCameraRotation} orbitControlsActive={orbitControlsActive} onPortfolioActivate={handlePortfolioActivation}/>
   
  
       <mesh
