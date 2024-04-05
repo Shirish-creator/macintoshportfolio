@@ -26,6 +26,8 @@ const Floppy = ({ onPortfolioActivate,orbitControlsActive,standardCameraPosition
     const [rotation, setRotation] = useState([0, 1.5, 0]); // Initial rotation
 
     const handleButtonClick = () => {
+      const sound = new Audio('/whoosh.mp3'); // Replace 'path_to_your_sound_clip.mp3' with the actual path to your sound clip
+  sound.play();
       // Toggle the zoomactive state
       setZoomActive(!zoomactive);
       handleUiControlsToggle();

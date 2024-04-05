@@ -17,6 +17,8 @@ const Computer = ({ isPortfolioActive,orbitControlsActive,standardCameraPosition
 
   const handleButtonClick = () => {
     // Toggle the zoomactive state
+    const sound = new Audio('/whoosh.mp3'); // Replace 'path_to_your_sound_clip.mp3' with the actual path to your sound clip
+    sound.play();
     setZoomActive(!zoomactive);
     handleUiControlsToggle();
 
