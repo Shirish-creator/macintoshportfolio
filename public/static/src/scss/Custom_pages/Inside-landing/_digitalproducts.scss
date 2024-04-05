@@ -1,0 +1,239 @@
+#digital-products{
+    
+
+    #products-container{
+        overflow: hidden;
+        
+       
+
+     
+        
+    
+         
+    }
+      
+
+    .project-contents{
+        padding-top: 2rem;
+        padding-bottom: 4rem;
+        margin-bottom: 0;
+
+        .project{
+            border-bottom: 1px solid white;
+            padding: 2rem 0 4rem 0;
+            flex-direction: row;
+            width: 100%;
+            gap:1rem;
+
+            
+
+                 // Small devices (Potrait phones, 576px and up)
+    
+                 @media (min-width: 350px) {
+                    flex-direction: column;
+                }
+    
+                // Small devices (landscape phones, 576px and up)
+                @media (min-width: 576px) {
+                    flex-direction: column;
+                }
+    
+                // Medium devices (tablets, 768px and up)
+                @media (min-width: 768px) {
+                    flex-direction: column;
+                }
+    
+                // Large devices (desktops, 992px and up)
+                @media (min-width: 992px) {
+                    flex-direction: row;
+                }
+    
+                // X-Large devices (large desktops, 1200px and up)
+                @media (min-width: 1200px) {
+                    flex-direction: row;
+                }
+    
+                // XX-Large devices (larger desktops, 1400px and up)
+                @media (min-width: 1400px) {
+                    flex-direction: row;
+                }
+            
+            .p-left,.p-right{
+                width: 50%;
+                .sub-image{
+                    left:-240px;
+                    transform: scale(.9);
+                    bottom: -78px;
+                }
+
+                // Small devices (Potrait phones, 576px and up)
+    
+                @media (min-width: 350px) {
+                    width: 100%;  
+                    .sub-image{
+                        display: none;
+                    }              
+                }
+    
+                // Small devices (landscape phones, 576px and up)
+                @media (min-width: 576px) {
+                    width: 100%; 
+                    .sub-image{
+                        display: none;
+                    }                  
+                }
+    
+                // Medium devices (tablets, 768px and up)
+                @media (min-width: 768px) {
+                    width: 100%;    
+                    .sub-image{
+                        display: none;
+                    }              
+                 }
+    
+                // Large devices (desktops, 992px and up)
+                @media (min-width: 992px) {
+                    width: 50%;  
+                    .sub-image{
+                        display: block;
+                        pointer-events: none;
+                    }                
+                 }
+    
+                // X-Large devices (large desktops, 1200px and up)
+                @media (min-width: 1200px) {
+                    width: 50%;       
+                    .sub-image{
+                        display: block;
+                    }                
+                }
+    
+                // XX-Large devices (larger desktops, 1400px and up)
+                @media (min-width: 1400px) {
+                    width: 50%;
+                    .sub-image{
+                        display: block;
+                    }           
+                }
+            }
+
+            .p-left{
+                gap:2rem;
+                order: 1;
+               
+                
+                   // Small devices (Potrait phones, 576px and up)
+    
+                   @media (min-width: 350px) {
+                    order:2;             
+                    
+                    button{
+                        width: 100%;
+                    }
+                     }
+    
+                // Small devices (landscape phones, 576px and up)
+                @media (min-width: 576px) {
+                    order:2   ;
+                    padding: 2rem 0;
+                    button{
+                        width: 100;
+                    }             
+                }
+    
+                // Medium devices (tablets, 768px and up)
+                @media (min-width: 768px) {
+                    order:2    ;
+                    padding: 2.5rem 0;
+                    button{
+                        width: 100;
+                       
+                    }            
+                 }
+    
+                // Large devices (desktops, 992px and up)
+                @media (min-width: 992px) {
+                    order:1   ;
+                    padding: 4rem 0; 
+                    button{
+                        width: fit-content;
+                        
+                    }      
+                          
+                 }
+    
+                // X-Large devices (large desktops, 1200px and up)
+                @media (min-width: 1200px) {
+                    order:1   ;
+                    padding: 4rem 0;
+                    button{
+                        width: fit-content;
+                      
+                    }         
+                }
+    
+                // XX-Large devices (larger desktops, 1400px and up)
+                @media (min-width: 1400px) {
+                    order:1 ;
+                    padding: 4rem 0;
+                    button{
+                        width: fit-content;
+                      
+                    }
+                }
+
+                .project-detail{
+                    gap: 1.5rem;
+                }
+            }
+
+            .p-right{
+                gap:2rem;
+                order: 1;
+                padding: 4rem;
+                img{
+                    width: 100%;
+                }
+                   // Small devices (Potrait phones, 576px and up)
+    
+                   @media (min-width: 350px) {
+                    order:1;
+                    padding: 2rem;             
+                     }
+    
+                // Small devices (landscape phones, 576px and up)
+                @media (min-width: 576px) {
+                    order:1;
+                    padding: 2rem;             
+               
+                }
+    
+                // Medium devices (tablets, 768px and up)
+                @media (min-width: 768px) {
+                    order:1    ;
+                    padding: 2rem;             
+                 }
+    
+                // Large devices (desktops, 992px and up)
+                @media (min-width: 992px) {
+                    order:2  ;
+                    padding: 4rem;               
+                 }
+    
+                // X-Large devices (large desktops, 1200px and up)
+                @media (min-width: 1200px) {
+                    order:2    ;
+                    padding: 4rem;         
+                }
+    
+                // XX-Large devices (larger desktops, 1400px and up)
+                @media (min-width: 1400px) {
+                    order:2  ;
+                    padding: 4rem;
+                }
+            }
+
+        }
+
+    }    
+}

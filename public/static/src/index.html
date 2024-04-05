@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="og:image" content="https://scontent.xx.fbcdn.net/v/t1.15752-9/313273686_827503425189555_3207342809800637848_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=aee45a&_nc_ohc=mtft8E-ZwkUAX9C4eAk&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdTHQ8fYnEQ5DaG4H5No7212K8qluiamCzyTikBCNaWZ0Q&oe=6383DEDB" />
+    <title>Shirish - The Design World</title>
+    <link rel="icon" type="image/x-icon" href="https://scontent.xx.fbcdn.net/v/t1.15752-9/314541792_577870877351356_5957186771622315824_n.png?stp=cp0_dst-png&_nc_cat=109&ccb=1-7&_nc_sid=aee45a&_nc_ohc=u_olMuCmVgkAX_xU1GZ&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdTVF-d0zRxLjMQRzXBxcGK7IkhNp2goY33AcADQ3vdOKw&oe=638F3735">
+    <link href="//db.onlinewebfonts.com/c/55d433372d270829c51e2577a78ef12d?family=Monument+Extended+Bold" rel="stylesheet" type="text/css"/>
+
+</head>
+
+
+<!-- this is the script for time -->
+
+        <script>
+            function display_c(){
+            var refresh=1000; // Refresh rate in milli seconds
+            mytime=setTimeout('display_ct()',refresh)
+            
+        }
+
+        function display_ct() {
+            
+            var d = new Date(); 
+            var H=d.getHours(); 
+            var M=d.getMinutes(); 
+            var S= d.getSeconds();    
+
+            document.querySelector('.time').innerHTML = H + ":"+ M +":" + S + " " + "(Local Time)";
+            display_c();
+            }
+
+        </script>
+
+        <style>
+
+        .box {
+        display: inline-block;
+        background:transparent;
+        background-size: cover;
+        }
+
+        .canvas {
+        background: transparent;
+        width: 100%;
+        }
+
+        </style>
+<body id="body" onload=display_ct()>
+    <canvas class="webgl"></canvas>
+    <div class="toggle-menu-section toggle-inactive">
+        <div class="toggle-wrapper d-flex flex-column justify-content-between">
+            <div class="toggle-header d-flex flex-row justify-content-between">
+                <div class="Logo d-flex flex-row">
+                    <div class="Logo-container"></div>
+                    <h4>SHIRISH.</h4>
+                </div>
+                <button class="btn btn-icon close-ham">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrows-angle-contract" viewBox="0 0 16 16">
+                        <path fill-rule="evenodd" d="M.172 15.828a.5.5 0 0 0 .707 0l4.096-4.096V14.5a.5.5 0 1 0 1 0v-3.975a.5.5 0 0 0-.5-.5H1.5a.5.5 0 0 0 0 1h2.768L.172 15.121a.5.5 0 0 0 0 .707zM15.828.172a.5.5 0 0 0-.707 0l-4.096 4.096V1.5a.5.5 0 1 0-1 0v3.975a.5.5 0 0 0 .5.5H14.5a.5.5 0 0 0 0-1h-2.768L15.828.879a.5.5 0 0 0 0-.707z"/>
+                      </svg>
+                </button>
+            </div>
+            <ul class="nav-links d-flex flex-column">
+                <li class="anchor" id="home"><a href="#" id="home">// Home </a></li>
+                <li class="anchor" id="about"><a href="#" id="about">// About</a></li>
+                <li class="anchor"  id="works"><a href="#" id="works">// Works</a></li>
+                <li class="anchor" id="contact"><a href="#" id="contact">// Contact</a></li>
+            </ul>
+            <p>Copy Right shirish</p>
+        </div>
+    </div>
+    <div class="mouse-cursor"></div>
+    <main>
+        <a href="http://www.onlinewebfonts.com" style="display:none">oNline Web Fonts</a>
+        <!-- <div class="loading on"></div> -->
+        <div class="hero-wrapper position-relative">
+        <header>
+            <div class="container" >
+                <nav class="d-flex flex-row justify-content-between align-items-center">
+                    <div class="Logo d-flex flex-row">
+                        <div class="Logo-container"></div>
+                        <h4>SHIRISH.</h4>
+                    </div>
+
+                    <div class="links d-flex flex-row">
+                        <ul class="navbar-nav me-auto d-flex flex-row">
+                            <li class="nav-item d-flex flex-row "><a class="anchor" href="#" id="about">about</a></li>
+                            <li class="nav-item d-flex flex-row " ><a class="anchor" href="#" id="works" >work</a></li>
+                            <li class="nav-item d-flex flex-row" id="contact"><a class="anchor" href="#" id="contact"><span id="contact">LET'S CONNECT</span><div id="contact" class="send-btn "><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cursor-fill" viewBox="0 0 16 16">
+                                <path d="M14.082 2.182a.5.5 0 0 1 .103.557L8.528 15.467a.5.5 0 0 1-.917-.007L5.57 10.694.803 8.652a.5.5 0 0 1-.006-.916l12.728-5.657a.5.5 0 0 1 .556.103z"/>
+                              </svg></div></a></li>                            
+                        </ul>
+                        <div class="ham-menu" style="height:3rem;width:3rem"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect x="6" y="5" width="12" height="2" fill="#D9D9D9"/>
+                            <rect y="11" width="24" height="2" fill="#D9D9D9"/>
+                            <rect x="6" y="17" width="12" height="2" fill="#D9D9D9"/>
+                            </svg></div>
+                    </div>  
+                </nav>
+            </div>
+        </header>
+        <section class="w-100 hero-container" style="top:0" id="">
+            <div class="container position-relative">
+                <div class="gradient-shade w-100"></div>
+                <div class="hero border-l-r-b d-flex flex-column">
+                    <img class="blur_purple_1" src="https://scontent.xx.fbcdn.net/v/t1.15752-9/313479256_441074301297160_4045645680689999996_n.png?_nc_cat=110&ccb=1-7&_nc_sid=aee45a&_nc_ohc=BzXvvAA_jf4AX8ZvoyI&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdR-PW0VRmR0wPatq0d1oqC6ePOtG7lIdXFqvEfQmqm3lQ&oe=6384022B" alt="purple light">
+                    <img class="sun_light" src="https://scontent.xx.fbcdn.net/v/t1.15752-9/313447552_795166854896686_2591347491281059701_n.png?_nc_cat=100&ccb=1-7&_nc_sid=aee45a&_nc_ohc=tgKaeaGHcGgAX-87D4s&_nc_oc=AQm_TteOTHijzqhuo9SFAS2B6U8sMUShLb3MjyW3RaHthO9eQEII8Rp_sSknUxGDLTtqvHOBtq9uaBPY_P0tyKpg&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdSriLuF3KeHLAogomxbbjwanaeM-BFPnGTOwmhKZoGuTg&oe=6384FFC5" alt="sun light">
+                    <div class="hero-title d-flex flex-column">
+                        <span>SHIRISH SHAKYA</span>
+                        <h1>YOU'VE SAFELY LANDED ON MY DESIGN WORLD</h1>
+                        <p>Enjoy your stay :)</p>
+                    </div>
+
+                    <div class="profile_info_top d-flex w-100">
+                        <div class="profile_detail d-flex flex-row">
+                            <div class="profile_picture"></div>
+                            <p class="profile_details">Hey!, I’m a product designer based
+                                in Nepal who brings concepts,
+                                art, and ideas into reality.</p>
+                        </div>
+                        <div class="social_links d-flex flex-column">
+                            <span>shirish.shakya5@gmail.com</span>
+                            <span class="time"></span>
+                            <ul class="d-flex flex-row" id="">
+                                <li><a href="https://www.linkedin.com/in/shirish-shakya-ba8a49200/">Linkedin</a></li>
+                                <li><a href="https://www.behance.net/shirishshakya">Behance</a></li>
+                                <li><a href="https://www.instagram.com/shakyastagram/?hl=en">Instagram</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        
+    </div>
+    <section id="digital-products" class=" w-100" id="works" >
+        <div class="container position-relative" id="products-container">
+            <div class="border-l-r-b d-flex flex-row container-title">
+                <div class="container-header-img">
+                    <img class="" src="https://scontent.xx.fbcdn.net/v/t1.15752-9/314373315_462764565923626_5148449814013596555_n.png?_nc_cat=103&ccb=1-7&_nc_sid=aee45a&_nc_ohc=HC_dKc6prB4AX9nGbvo&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdRUK5Lp7DndVGDhZ6HFCvniRdaA7IEoiwxMXHra87TuNQ&oe=638D3CFD" alt="UFO">
+
+                </div>
+                <div class=" container-header d-flex align-items-center" id="">
+                    <h2 class="secton-header-h2" >DIGITAL PRODUCTS</h2>
+                    <span class="leader-subtitle">.THE UFO</span>
+                </div>
+            </div>
+        </div>
+        <div class="container d-flex flex-row " style="justify-content:center">
+
+            <!-- projects container -->
+
+            <ul class="border-l-r-b project-contents">
+
+                <!-- first project -->
+
+               <li class="project d-flex" id="VRS">
+                    <div class="p-left d-flex flex-column">
+                        <div class="project-detail d-flex flex-column">
+                            <span class="project-leading">Research . UI Design . Frontend dev. </span>
+                            <h3>VENDOR RATING SOLUTIONS
+                                MANAGEMENT PLATFORM</h3>
+                                <p class="project-details">Vendor Rating Solution is a next and robust level of supply chain management for any B2B companies that rely on large chunk of supply data to be carried on a daily basis.</p>
+                        </div>
+                        <button class="btn btn-outline-primary position-relative" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
+                            <img class="position-absolute" src="https://scontent.xx.fbcdn.net/v/t1.15752-9/314484710_805482084003173_978510453423547081_n.png?_nc_cat=111&ccb=1-7&_nc_sid=aee45a&_nc_ohc=gzSRtD5kgYoAX8uy4YW&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdSTHGF6lyn3hEu9hE-OAcdf12yErgFWuESXjJUvf5TH5w&oe=638D5564" alt="btn-blr">
+                            VIEW CASE STUDY <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send-fill" viewBox="0 0 16 16">
+                            <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z"/>
+                          </svg></button>
+                    </div>
+                    <div class="p-right d-flex align-items-center justify-content-center">
+                        <img class="rightimg" src="https://scontent.xx.fbcdn.net/v/t1.15752-9/312701493_3328269600779255_9200647379406778027_n.png?_nc_cat=100&ccb=1-7&_nc_sid=aee45a&_nc_ohc=BySecZasVDsAX9yRJIP&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdQedd4I5pw1TwSnWQ0lRncaAzHZqqtks-lH4sLt2Aw6CA&oe=638D5426" alt="VRS">
+                    </div>
+
+                    <!-- modal of the vrs -->
+
+                    <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="staticBackdropLabel">Vendor Rating Solution</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              Case studies are on its way
+                              
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Understood</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </li>
+
+                <!-- second project -->
+
+                <li class="project d-flex" id="Super Krishak">
+                    <div class="p-left d-flex flex-column">
+                        <div class="project-detail d-flex flex-column">
+                            <span class="project-leading">UX Research . Branding . UI Design </span>
+                            <h3>SUPER KRISHAK
+                                APP DESIGN</h3>
+                                <p class="project-details"> Super krishak is introduced into the Nepali market to educate the farmers from the east to the west of Nepal. 
+                                    The education of farming has never been executed like this in such a  easy and fun way.
+                                </p>
+                        </div>
+                        <button class="btn btn-outline-primary position-relative" data-bs-toggle="modal" data-bs-target="#staticBackdrop2">
+                            <img class="position-absolute" src="https://scontent.xx.fbcdn.net/v/t1.15752-9/314484710_805482084003173_978510453423547081_n.png?_nc_cat=111&ccb=1-7&_nc_sid=aee45a&_nc_ohc=gzSRtD5kgYoAX8uy4YW&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdSTHGF6lyn3hEu9hE-OAcdf12yErgFWuESXjJUvf5TH5w&oe=638D5564" alt="btn-blr">
+                            VIEW CASE STUDY <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send-fill" viewBox="0 0 16 16">
+                            <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z"/>
+                          </svg></button>
+                    </div>
+                    <div class="p-right d-flex align-items-center justify-content-center position-relative">
+                        <img class="position-absolute sub-image" src="https://scontent.xx.fbcdn.net/v/t1.15752-9/314190049_800881437796960_2340701915487757918_n.png?_nc_cat=101&ccb=1-7&_nc_sid=aee45a&_nc_ohc=ko89pBYsJGoAX-DKpVC&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdTlHJ2i7mXABwntqGqgcIUzvtPwEwArHDlXW47Bwcx0Ag&oe=638D7043" alt="tractor imgae">
+                        <img class="rightimg" src="https://scontent.xx.fbcdn.net/v/t1.15752-9/314066753_515508703771376_7998324926288853017_n.png?_nc_cat=105&ccb=1-7&_nc_sid=aee45a&_nc_ohc=ptWP_M3seVYAX82wH9c&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdSX6baGnCv23nshXoUJi9BOBv-ddA5f4jzHOuTXIUBdWQ&oe=638D7DE0" alt="Super Krishak">
+                    </div>
+
+                    <!-- modal of the krishak -->
+
+                    <div class="modal fade" id="staticBackdrop2" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="staticBackdropLabel">Super Krishak</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              Case studies are on its way
+                              
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Understood</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </li>
+
+                <!-- third project -->
+
+                <li class="project d-flex" style="border: none;" id="AEOS">
+                    <div class="p-left d-flex flex-column">
+                        <div class="project-detail d-flex flex-column">
+                            <span class="project-leading">Research . UI Design </span>
+                            <h3>AEOS AUCTION
+                                BIDDING APP DESIGN</h3>
+                                <p class="project-details"> AEOS auction brings the wine lovers a step closer to the wines that they dream of buying, whether it be for the collection purposes or the vintage test requirement.</p>
+                        </div>
+                        <button class="btn btn-outline-primary position-relative" data-bs-toggle="modal" data-bs-target="#staticBackdrop3">
+                            <img class="position-absolute" src="https://scontent.xx.fbcdn.net/v/t1.15752-9/314484710_805482084003173_978510453423547081_n.png?_nc_cat=111&ccb=1-7&_nc_sid=aee45a&_nc_ohc=gzSRtD5kgYoAX8uy4YW&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdSTHGF6lyn3hEu9hE-OAcdf12yErgFWuESXjJUvf5TH5w&oe=638D5564" alt="btn-blr">
+                            VIEW CASE STUDY <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send-fill" viewBox="0 0 16 16">
+                            <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z"/>
+                          </svg></button>
+                    </div>
+                    <div class="p-right d-flex align-items-center justify-content-center position-relative">
+                        <img style="transform:scale(0.4);bottom:-210px ;" class="position-absolute sub-image" src="https://scontent.xx.fbcdn.net/v/t1.15752-9/314461857_510107067692356_5665182089033677973_n.png?_nc_cat=105&ccb=1-7&_nc_sid=aee45a&_nc_ohc=4SmD7aRNlp8AX_D8cfd&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdRvZLVXKdUEl9Gmei9Nl1QpF-P2OxUvbbR6q3l_Igba9Q&oe=638D8AAA" alt="wine bottle">
+                        <img class="rightimg" src="https://scontent.xx.fbcdn.net/v/t1.15752-9/314451535_861583205276439_3878732759128021508_n.png?_nc_cat=103&ccb=1-7&_nc_sid=aee45a&_nc_ohc=bnHA3mkYAycAX_3KE4Z&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdTh8ag4WwRmWs-sq_DRfKGDOL_b9mNSkoEiB56nn24sSg&oe=638D8D71" alt="AEOS">
+                    </div>
+
+                    <!-- modal of the AEOS -->
+
+                    <div class="modal fade" id="staticBackdrop3" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
+                        <div class="modal-dialog">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                              <h5 class="modal-title" id="staticBackdropLabel">AEOS Auction</h5>
+                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                              Case studies are on its way
+                              
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Understood</button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                </li>
+            </ul>
+
+            <!-- end of project container -->
+
+        </div>
+    </section> 
+    <section class="section-visual-designs" id="visual-designs">
+
+        <!-- this isthe header of the container -->
+        <div class="container">
+            <div class="border-l-r-b d-flex flex-row container-title">
+                <div class="container-header-img">
+                    <img class="" src="https://scontent.xx.fbcdn.net/v/t1.15752-9/315089857_1073661459949892_7142420866194164271_n.png?_nc_cat=102&ccb=1-7&_nc_sid=aee45a&_nc_ohc=O6mvKc0NeJ4AX8rwl69&_nc_ad=z-m&_nc_cid=0&_nc_ht=scontent.xx&oh=03_AdTivssnysR45muHs0Hmwwj6I0BjwsEykWqQkyb1bC58Mg&oe=639451ED" alt="moon">
+
+                </div>
+                <div class=" container-header d-flex align-items-center" id="">
+                    <h2 class="secton-header-h2" >VISUAL DESIGNS</h2>
+                    <span class="leader-subtitle">.THE MOON</span>
+                </div>
+            </div>
+        </div>
+        <div class="container d-flex flex-column " style="justify-content:center">
+            <div class="border-l-r-b w-100 visual-designcontainer">
+                <div class="">
+                    <p class=" section-details">
+                        Visual Designs are the key fundamental for strong designs in any medium whether it be on paper or screen. It has always been supporting creativity and a fun thing to play around.
+                    </p>
+                </div>
+            </div> 
+            <div class="designs-grid-container position-relative" style="overflow:hidden ;">
+                <div class="tips position-absolute">
+                    <h5>Tip:</h5>
+                    <p>Somethings just need a TAP for magic to happen</p>
+                </div>
+                
+                <div class="eraseable-content position-relative" >
+                    <div class="box" style="overflow:hidden">
+                        <canvas id="canvas" ></canvas>
+                    </div>
+                    <div class="designs-grid" style="pointer-events:none;">
+                    <div class="design " id="design-0"><img src="https://i.ibb.co/r4ZHkfC/valentine-choclate-1.png" alt="choclate"></div>
+                    <div class="design" id="design-1"><img src="https://i.ibb.co/fq9t1X9/Booklet.png" alt="Booklet design"></div>
+                    <div class="design" id="design-2"><img src="https://i.ibb.co/tMGvw5P/Basanta.png" alt="Basanta poster"></div>
+                    <div class="design" id="design-3"><img src="https://i.ibb.co/Kz3MLg6/nft.png" alt="NFT"></div>
+                    <div class="design" id="design-4"><img src="https://i.ibb.co/pn8gBW8/Posters.png" alt="company posters"></div>
+        
+                </div>
+            </div>
+            </div>               
+        </div>
+        
+    </section>   
+    <!-- <section>
+        <div class="show"></div>
+    </section>  done with video-->
+     
+    </main>
+</body>
+</html>

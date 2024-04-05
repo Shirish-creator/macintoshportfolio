@@ -1,5 +1,36 @@
 @import "./Components/Components.scss";
 
+//this isthe monument Extended Bold Font Woff upload////////////////
+
+@font-face {font-family: "Monument Extended Bold";
+    src: url("../../public/static/fonts/Monument_Extended_Bold/@font-face/55d433372d270829c51e2577a78ef12d.eot"); /* IE9*/
+    src: url("../../public/static/fonts/Monument_Extended_Bold/@font-face/55d433372d270829c51e2577a78ef12d.eot?") format("embedded-opentype"), /* IE6-IE8 */
+    url("../../public/static/fonts/Monument_Extended_Bold/@font-face/55d433372d270829c51e2577a78ef12d.woff2") format("woff2"), /* chrome、firefox */
+    url("../../public/static/fonts/Monument_Extended_Bold/@font-face/55d433372d270829c51e2577a78ef12d.woff") format("woff"), /* chrome、firefox */
+    url("../../public/static/fonts/Monument_Extended_Bold/@font-face/55d433372d270829c51e2577a78ef12d.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  }
+
+//   //this isthe Nexa Bold Font Woff upload////////////////
+
+  @font-face {font-family: "NexaBold";
+    src: url("../../public/static/fonts/NexaBold/@font-face/23ab8b9b588d250d12590e755a4d00da.eot"); /* IE9*/
+    src: url("../../public/static/fonts/NexaBold/@font-face/23ab8b9b588d250d12590e755a4d00da.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("../../public/static/fonts/NexaBold/@font-face/23ab8b9b588d250d12590e755a4d00da.woff2") format("woff2"), /* chrome、firefox */
+    url("../../public/static/fonts/NexaBold/@font-face/23ab8b9b588d250d12590e755a4d00da.woff") format("woff"), /* chrome、firefox */
+    url("../../public/static/fonts/NexaBold/@font-face/23ab8b9b588d250d12590e755a4d00da.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  }
+
+
+//   //this isthe Nexa Light Font Woff upload////////////////
+
+  @font-face {font-family: "NexaLight";
+    src: url("../../public/static/fonts/NexaLight/@font-face/086d543873365bb6afb5c90eabb7c3e8.eot"); /* IE9*/
+    src: url("../../public/static/fonts/NexaLight/@font-face/086d543873365bb6afb5c90eabb7c3e8.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+   url("../../public/static/fonts/NexaLight/@font-face/086d543873365bb6afb5c90eabb7c3e8.woff2")format("woff2"),
+   url("../../public/static/fonts/NexaLight/@font-face/086d543873365bb6afb5c90eabb7c3e8.woff")format("woff"),
+   url("../../public/static/fonts/NexaLight/@font-face/086d543873365bb6afb5c90eabb7c3e8.ttf")format("truetype")
+  }
+
 main{
     
 }
@@ -11,4 +42,15 @@ body{
 
 canvas{
     touch-action: none;
+}
+
+.iframescreencontainer{
+    max-width: 400px;
+    max-height: 360px;
+
+    iframe{
+        position: absolute;
+        top: -490px;
+        left: -650px;
+    }
 }

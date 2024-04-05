@@ -1,0 +1,313 @@
+
+@import "./Variables.scss";
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+@import "./Custom_pages/custom-components/Custom_Components.scss";
+
+
+
+
+
+
+
+
+//this isthe monument Extended Bold Font Woff upload////////////////
+
+@font-face {font-family: "Monument Extended Bold";
+    src: url("../assets/fonts/Monument_Extended_Bold/@font-face/55d433372d270829c51e2577a78ef12d.eot"); /* IE9*/
+    src: url("../assets/fonts/Monument_Extended_Bold/@font-face/55d433372d270829c51e2577a78ef12d.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("../assets/fonts/Monument_Extended_Bold/@font-face/55d433372d270829c51e2577a78ef12d.woff2") format("woff2"), /* chrome、firefox */
+    url("../assets/fonts/Monument_Extended_Bold/@font-face/55d433372d270829c51e2577a78ef12d.woff") format("woff"), /* chrome、firefox */
+    url("../assets/fonts/Monument_Extended_Bold/@font-face/55d433372d270829c51e2577a78ef12d.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  }
+
+  //this isthe Nexa Bold Font Woff upload////////////////
+
+  @font-face {font-family: "NexaBold";
+    src: url("../assets/fonts/NexaBold/@font-face/23ab8b9b588d250d12590e755a4d00da.eot"); /* IE9*/
+    src: url("../assets/fonts/NexaBold/@font-face/23ab8b9b588d250d12590e755a4d00da.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("../assets/fonts/NexaBold/@font-face/23ab8b9b588d250d12590e755a4d00da.woff2") format("woff2"), /* chrome、firefox */
+    url("../assets/fonts/NexaBold/@font-face/23ab8b9b588d250d12590e755a4d00da.woff") format("woff"), /* chrome、firefox */
+    url("../assets/fonts/NexaBold/@font-face/23ab8b9b588d250d12590e755a4d00da.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  }
+
+
+  //this isthe Nexa Light Font Woff upload////////////////
+
+  @font-face {font-family: "NexaLight";
+    src: url("../assets/fonts/NexaLight/@font-face/086d543873365bb6afb5c90eabb7c3e8.eot"); /* IE9*/
+    src: url("../assets/fonts/NexaLight/@font-face/086d543873365bb6afb5c90eabb7c3e8.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+    url("../assets/fonts/NexaLight/@font-face/086d543873365bb6afb5c90eabb7c3e8.woff2") format("woff2"), /* chrome、firefox */
+    url("../assets/fonts/NexaLight/@font-face/086d543873365bb6afb5c90eabb7c3e8.woff") format("woff"), /* chrome、firefox */
+    url("../assets/fonts/NexaLight/@font-face/086d543873365bb6afb5c90eabb7c3e8.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+  }
+
+// //this isthe Nexa Light Font Woff upload////////////////
+
+//   @font-face {font-family: "NexaBold";
+//     src: url("../assets/fonts/NexaBold/@font-face/23ab8b9b588d250d12590e755a4d00da.eot"); /* IE9*/
+//     src: url("../assets/fonts/NexaBold/@font-face/23ab8b9b588d250d12590e755a4d00da.eot?#iefix") format("embedded-opentype"), /* IE6-IE8 */
+//     url("../assets/fonts/NexaBold/@font-face/23ab8b9b588d250d12590e755a4d00da.woff2") format("woff2"), /* chrome、firefox */
+//     url("../assets/fonts/NexaBold/@font-face/23ab8b9b588d250d12590e755a4d00da.woff") format("woff"), /* chrome、firefox */
+//     url("../assets/fonts/NexaBold/@font-face/23ab8b9b588d250d12590e755a4d00da.ttf") format("truetype"), /* chrome、firefox、opera、Safari, Android, iOS 4.2+*/
+//   }
+
+*
+{
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body
+{
+    color:$white;
+    font-family:"Monument Extended Bold" !important;
+    font-size:16px;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #161515;//this is the main background-color
+}
+
+
+.webgl
+{   
+    position: fixed;
+    z-index: 1;
+    top:0;
+    left: 0;
+    outline: none;
+    transition: ease-in-out 1s;
+}
+
+p{
+    font-family:"NexaLight" !important;
+    font-size:16px;font-style:normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+    -moz-osx-font-smoothing: grayscale;
+    padding: 0;
+    margin: 0;
+}
+
+h1,h2,h3,h4,h5,h6{
+    padding: 0;
+    margin: 0;
+}
+
+
+main{
+    position: relative;
+    z-index: 2;
+    overflow-x: hidden;
+    height: 100vh;
+
+    
+      // Small devices (Potrait phones, 576px and up)
+    
+      @media (min-width: 350px) {
+        &::-webkit-scrollbar{
+            width: 10px;
+            display: none;
+        }
+    }
+
+    // Small devices (landscape phones, 576px and up)
+    @media (min-width: 576px) {
+        &::-webkit-scrollbar{
+            width: 10px;
+            display: none;
+        }
+    }
+
+    // Medium devices (tablets, 768px and up)
+    @media (min-width: 768px) {
+        &::-webkit-scrollbar{
+            width: 10px;
+            display: none;
+        }
+    }
+
+    // Large devices (desktops, 992px and up)
+    @media (min-width: 992px) {
+        &::-webkit-scrollbar{
+            width: 10px;
+            display: block;
+        }
+    }
+
+    // X-Large devices (large desktops, 1200px and up)
+    @media (min-width: 1200px) {
+        &::-webkit-scrollbar{
+            width: 10px;
+            display: block;
+        }
+    }
+
+    // XX-Large devices (larger desktops, 1400px and up)
+    @media (min-width: 1400px) {
+        &::-webkit-scrollbar{
+            width: 10px;
+            display: block;
+        }
+
+    }
+    
+   
+
+    &::-webkit-scrollbar-track{
+        -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+        border-radius: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        border-radius: 10px;
+        -webkit-box-shadow: inset 0 0 6px $primary; 
+    }
+}
+
+
+
+
+
+.loading{
+    opacity: 1;
+    position: fixed;
+    top:0;
+    z-index: 3;
+    background-color: rgb(24, 24, 24);
+    width: 100%;
+    height: 100%;
+    transition:ease-out 1s;
+//     -webkit-transition: top ease-in-out 1s;
+//     -moz-transition: top ease-in-out 1s;
+//   -o-transition: top ease-in-out 1s;
+    
+}
+
+.loaded{
+    position: fixed;
+    top:-1000px;
+    opacity: 1;
+    z-index: 3;
+
+}
+
+.border-l-r-b{
+  border-bottom: 1px solid white;
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+  padding-bottom: 2rem;
+  width: 100%;
+
+      // Small devices (Potrait phones, 576px and up)
+    
+      @media (min-width: 350px) {
+        padding:0 1rem;
+    }
+
+    // Small devices (landscape phones, 576px and up)
+    @media (min-width: 576px) {
+        padding:0 1rem;
+    }
+
+    // Medium devices (tablets, 768px and up)
+    @media (min-width: 768px) {
+        padding:0 1rem;
+    }
+
+    // Large devices (desktops, 992px and up)
+    @media (min-width: 992px) {
+        padding:0 4rem;
+    }
+
+    // X-Large devices (large desktops, 1200px and up)
+    @media (min-width: 1200px) {
+        padding:0 4rem;
+    }
+
+    // XX-Large devices (larger desktops, 1400px and up)
+    @media (min-width: 1400px) {
+        padding:0 4rem;
+
+    }
+}
+
+
+.mouse-cursor{
+    position: fixed;
+    z-index: 4;
+    width: 20px;
+    height: 20px;
+    border-radius: 100px;
+    background: transparent;
+    transform: rotate(0deg);
+    border: 1px solid white;
+    pointer-events: none;
+    transition: .3s transform ease-in-out;
+
+    
+
+       // Small devices (Potrait phones, 576px and up)
+    
+       @media (min-width: 350px) {
+        display: none;    
+    }
+
+    // Small devices (landscape phones, 576px and up)
+    @media (min-width: 576px) {
+        display: none;
+    }
+
+    // Medium devices (tablets, 768px and up)
+    @media (min-width: 768px) {
+        display: none;
+    }
+
+    // Large devices (desktops, 992px and up)
+    @media (min-width: 992px) {
+        display: block;
+    }
+
+    // X-Large devices (large desktops, 1200px and up)
+    @media (min-width: 1200px) {
+        display: block;
+    }
+
+    // XX-Large devices (larger desktops, 1400px and up)
+    @media (min-width: 1400px) {
+        display: block;
+
+    }
+}
+
+.mouse-cursor-case{
+    background-image: url("../assets/CASE\ STUDY\ IMAGE.png")!important;
+    background-size: cover;
+    border: none;
+    transform: scale(8)!important;
+    mix-blend-mode: difference;
+    
+}
+
+.mouse-cursor-brush{
+    background-image: url("../assets/btn/brush.png")!important;
+    background-size: cover;
+    border: none;
+    transform: scale(5);
+    overflow: visible;
+}
+
+.mouse-cursor-press{
+    filter: drop-shadow(0px 4px 4px #FB722E) drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)) drop-shadow(0px 8px 14px #FF7236);
+}
+
+::-moz-selection { /* Code for Firefox */
+    color: black;
+    background: $primary-vio;
+  }
+  
+  ::selection {
+    color: black;
+    background: $primary-vio;
+  }

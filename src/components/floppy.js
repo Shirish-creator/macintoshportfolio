@@ -143,8 +143,8 @@ useFrame(() => {
 {isVisible & !orbitControlsActive && (
       <Html
           occlude
-          position={zoomactive?[5.5, -3,5]:[5, -3, 10]}
-          rotation={zoomactive?[0,1.5,0]:[0, 0, 0]}
+          position={zoomactive?[5.5, -3,5]:[5.5, -3,5]}
+          rotation={zoomactive?[0,1.5,0]:[0,1.5,0]}
           scale={1}
           style={{ userSelect: "none", WebkitUserSelect: "none" }}
           transform

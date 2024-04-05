@@ -69,3 +69,26 @@
 
 
 }
+
+.BTNICON{
+    outline: none;
+    padding: 8px;
+    color: #fb722e;
+    background-color: #292828;
+    padding: 12px ;
+    text-transform: none;
+    border-radius: 1000px;
+
+    &:hover{
+        border: 1px solid;
+        border-color: #fb722e;
+        color: white;
+        background-color: #292828;
+
+
+    }
+    &:active{
+        background-color: #0b0b0b;
+
+    }
+}

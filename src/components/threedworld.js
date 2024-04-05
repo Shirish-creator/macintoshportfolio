@@ -1,9 +1,10 @@
-import { Canvas, useThree } from "react-three-fiber";
+import { Canvas, useThree,Html } from "react-three-fiber";
 import { Suspense } from "react";
 import Scene from "./Scene"
 import React, { useRef, useState } from "react";
 import { useFrame } from "react-three-fiber";
 import * as Three from 'three';
+import Loader from "./Loader";
 
 export default function Threed({ orbitControlsActive,handleOrbitControlsToggle}) {
 const standardCameraPosition=[0, 1, 20];
@@ -30,7 +31,7 @@ return (
        
         <color args={['#000000']} attach="background" />
         
-        <Suspense>
+        <Suspense fallback={<Loader/>} >
      
           <Scene orbitControlsActive={orbitControlsActive}
           handleOrbitControlsToggle={handleOrbitControlsToggle}  />

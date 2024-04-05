@@ -1,0 +1,96 @@
+
+@import "../Variables.scss";
+
+.secton-header-h2{
+    font-size: 2rem;
+
+    // Small devices (Potrait phones, 576px and up)
+    
+    @media (min-width: 350px) {
+        font-size: 1rem;
+    }
+
+    // Small devices (landscape phones, 576px and up)
+    @media (min-width: 576px) {
+        font-size: 1rem;
+    }
+
+    // Medium devices (tablets, 768px and up)
+    @media (min-width: 768px) {
+        font-size: 1.5rem;
+    }
+
+    // Large devices (desktops, 992px and up)
+    @media (min-width: 992px) {
+        font-size: 2rem;
+    }
+
+    // X-Large devices (large desktops, 1200px and up)
+    @media (min-width: 1200px) {
+        font-size: 2rem;
+    }
+
+    // XX-Large devices (larger desktops, 1400px and up)
+    @media (min-width: 1400px) {
+        font-size: 2rem;
+    }
+}
+
+.leader-subtitle{   
+        font-family: "NexaLight";
+        font-size: 1rem;
+        color: $gray-500;
+        font-weight: 700;
+        line-height: 1rem;
+
+          // Small devices (Potrait phones, 576px and up)
+    
+    @media (min-width: 350px) {
+        font-size:0.8rem;
+        }
+
+    // Small devices (landscape phones, 576px and up)
+    @media (min-width: 576px) {
+        font-size:0.8rem;    
+    }
+
+    // Medium devices (tablets, 768px and up)
+    @media (min-width: 768px) {
+        font-size: 1rem;    }
+
+    // Large devices (desktops, 992px and up)
+    @media (min-width: 992px) {
+        font-size: 1rem;    }
+
+    // X-Large devices (large desktops, 1200px and up)
+    @media (min-width: 1200px) {
+        font-size: 1rem;
+    }
+
+    // XX-Large devices (larger desktops, 1400px and up)
+    @media (min-width: 1400px) {
+        font-size: 1rem;    }
+
+}
+
+
+.project-leading{
+    font-family: "NexaLight";
+        font-size: 1rem;
+        color: white;
+        font-weight: 300;
+        line-height: 1rem;
+}
+
+
+.project-details{
+    color: $gray-500;
+    font-size: 1.2rem;
+}
+
+
+.section-details{
+    color: $gray-500;
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+}
