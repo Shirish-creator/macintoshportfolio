@@ -86,7 +86,7 @@ const Scene = ({ orbitControlsActive, handleOrbitControlsToggle,handleUiControls
     lineWidth={0.0} // grid pattern line width
     // size={{ 10, height }} // overrides the default pass width and height
   />
-   <SSAO
+   {/* <SSAO
     blendFunction={BlendFunction.NORMAL} // blend mode
     samples={20} // amount of samples per pixel (shouldn't be a multiple of the ring count)
     rings={4} // amount of rings in the occlusion sampling pattern
@@ -98,7 +98,7 @@ const Scene = ({ orbitControlsActive, handleOrbitControlsToggle,handleUiControls
     radius={50} // occlusion sampling radius
     scale={100.5} // scale of the ambient occlusion
     bias={4.5} // occlusion bias
-  />
+  /> */}
    <ToneMapping
     blendFunction={BlendFunction.NORMAL} // blend mode
     adaptive={true} // toggle adaptive luminance map usage

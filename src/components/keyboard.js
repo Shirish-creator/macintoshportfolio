@@ -5,17 +5,35 @@ import { useFrame } from "react-three-fiber";
 import { useRef,useState,useEffect } from 'react';
 import * as TWEEN from '@tweenjs/tween.js'
 import { TransformControls } from '@react-three/drei';
+import { useThree } from 'react-three-fiber';
 
 const Keyboard = () => {
-  const meshref=useRef()
-  const keyClick=()=>{
-    const sound = new Audio('/keyboard-key.mp3'); // Replace 'path_to_your_sound_clip.mp3' with the actual path to your sound clip
+  const { nodes } = useGLTF('/MacintoshCell.glb');
+  const bakedKeyboard = useTexture('/Keyboardfinebaked.jpg');
+  const { camera, mouse } = useThree();
+  const intersectingObjects = useRef([]);
+
+  const keyClick = (event) => {
+    if (intersectingObjects.current.length === 0) {
+      const sound = new Audio('/keyboard-key.mp3');
       sound.play();
-  }
-   
-    const { nodes } = useGLTF('/MacintoshCell.glb');
-     const bakedKeyboard=useTexture('/Keyboardfinebaked.jpg')
-    //  meshref.current.position.y=-6
+    }
+  };
+
+  useFrame(() => {
+    const raycaster = new THREE.Raycaster();
+    raycaster.setFromCamera(mouse, camera);
+
+    const intersects = raycaster.intersectObjects(intersectingObjects.current);
+
+    if (intersects.length) {
+      // Set cursor style to 'pointer' if intersecting
+      document.body.style.cursor = 'pointer';
+    } else {
+      // Reset cursor style if not intersecting
+      document.body.style.cursor = 'auto';
+    }
+  });
 
   
     return (
@@ -33,182 +51,182 @@ const Keyboard = () => {
       <mesh position={[-7.3,0,0]}  geometry={nodes.KeyA.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh onClick={keyClick} ref={meshref} position={[-5.2,0,0]}  geometry={nodes.keyS.geometry} >
+      <mesh onClick={keyClick}  position={[-5.2,0,0]}  geometry={nodes.keyS.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh onClick={keyClick} ref={meshref} position={[-3,0,0]}  geometry={nodes.keyD.geometry} >
+      <mesh onClick={keyClick}  position={[-3,0,0]}  geometry={nodes.keyD.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh onClick={keyClick} ref={meshref} position={[-1,0,0]}  geometry={nodes.keyF.geometry} >
+      <mesh onClick={keyClick}  position={[-1,0,0]}  geometry={nodes.keyF.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh onClick={keyClick} ref={meshref} position={[1,0,0]}  geometry={nodes.keyG.geometry} >
+      <mesh onClick={keyClick}  position={[1,0,0]}  geometry={nodes.keyG.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh position={[3,0,0]}  geometry={nodes.keyH.geometry} >
+      <mesh onClick={keyClick} position={[3,0,0]}  geometry={nodes.keyH.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh position={[5,0,0]}  geometry={nodes.keyJ.geometry} >
+      <mesh onClick={keyClick} position={[5,0,0]}  geometry={nodes.keyJ.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh position={[7,0,0]}  geometry={nodes.keyK.geometry} >
+      <mesh onClick={keyClick} position={[7,0,0]}  geometry={nodes.keyK.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh position={[9.3,0,0]}  geometry={nodes.keyL.geometry} >
+      <mesh onClick={keyClick} position={[9.3,0,0]}  geometry={nodes.keyL.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh position={[11.5,0,0]}  geometry={nodes.keyen.geometry} >
+      <mesh onClick={keyClick} position={[11.5,0,0]}  geometry={nodes.keyen.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh position={[13.5,0,0]}  geometry={nodes.keya.geometry} >
+      <mesh onClick={keyClick} position={[13.5,0,0]}  geometry={nodes.keya.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh position={[3,-13,6]} rotation={[-.1,0,0]} geometry={nodes.Keyboardchord.geometry} >
+      <mesh  position={[3,-13,6]} rotation={[-.1,0,0]} geometry={nodes.Keyboardchord.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh position={[16.3,-4.3,0]}  geometry={nodes.Backspace.geometry} >
+      <mesh onClick={keyClick} position={[16.3,-4.3,0]}  geometry={nodes.Backspace.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh position={[-11.1,-4.3,0]}  geometry={nodes.keybacktick.geometry} >
+      <mesh onClick={keyClick} position={[-11.1,-4.3,0]}  geometry={nodes.keybacktick.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh position={[-9.1,-4.3,0]}  geometry={nodes.keyone.geometry} >
+      <mesh onClick={keyClick} position={[-9.1,-4.3,0]}  geometry={nodes.keyone.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh position={[-7.1,-4.3,0]}  geometry={nodes.keytwo.geometry} >
+      <mesh onClick={keyClick} position={[-7.1,-4.3,0]}  geometry={nodes.keytwo.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh position={[-5,-4.3,0]}  geometry={nodes.keythree.geometry} >
+      <mesh onClick={keyClick} position={[-5,-4.3,0]}  geometry={nodes.keythree.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh position={[-3.1,-4.3,0]}  geometry={nodes.keyfour.geometry} >
+      <mesh onClick={keyClick} position={[-3.1,-4.3,0]}  geometry={nodes.keyfour.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh position={[-1.1,-4.3,0]}  geometry={nodes.keyfive.geometry} >
+      <mesh onClick={keyClick} position={[-1.1,-4.3,0]}  geometry={nodes.keyfive.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh position={[1.1,-4.3,0]}  geometry={nodes.keysix.geometry} >
+      <mesh onClick={keyClick} position={[1.1,-4.3,0]}  geometry={nodes.keysix.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh position={[3.1,-4.3,0]}  geometry={nodes.keyseven.geometry} >
+      <mesh onClick={keyClick} position={[3.1,-4.3,0]}  geometry={nodes.keyseven.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh position={[5.1,-4.3,0]}  geometry={nodes.keyeight.geometry} >
+      <mesh onClick={keyClick} position={[5.1,-4.3,0]}  geometry={nodes.keyeight.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh position={[7.1,-4.3,0]}  geometry={nodes.keynine.geometry} >
+      <mesh onClick={keyClick} position={[7.1,-4.3,0]}  geometry={nodes.keynine.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh position={[9.1,-4.3,0]}  geometry={nodes.keye.geometry} >
+      <mesh onClick={keyClick} position={[9.1,-4.3,0]}  geometry={nodes.keye.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh position={[11.1,-4.3,0]}  geometry={nodes.keyc.geometry} >
+      <mesh onClick={keyClick} position={[11.1,-4.3,0]}  geometry={nodes.keyc.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh position={[13.4,-4.3,0]}  geometry={nodes.keyb.geometry} >
+      <mesh onClick={keyClick} position={[13.4,-4.3,0]}  geometry={nodes.keyb.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
       {/* <mesh position={[3.1,-4.3,0]}  geometry={nodes.keysix.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh> */}
-      <mesh position={[-10.2,0.2,0]}  geometry={nodes.CapLock.geometry} >
+      <mesh onClick={keyClick} position={[-10.2,0.2,0]}  geometry={nodes.CapLock.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh position={[16.3,0,0]}  geometry={nodes.keyReturn.geometry} >
+      <mesh onClick={keyClick} position={[16.3,0,0]}  geometry={nodes.keyReturn.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh position={[3,4.6,0]}  geometry={nodes.keySpace.geometry} >
+      <mesh onClick={keyClick} position={[3,4.6,0]}  geometry={nodes.keySpace.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh position={[12,4.6,0]}  geometry={nodes.Enter.geometry} >
+      <mesh onClick={keyClick} position={[12,4.6,0]}  geometry={nodes.Enter.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh position={[14.5,4.6,0]}  geometry={nodes.keyOption.geometry} >
+      <mesh onClick={keyClick} position={[14.5,4.6,0]}  geometry={nodes.keyOption.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh position={[-10.6,-2.1,0]}  geometry={nodes.keyTab.geometry} >
+      <mesh onClick={keyClick} position={[-10.6,-2.1,0]}  geometry={nodes.keyTab.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh position={[-8,-2.1,0]}  geometry={nodes.keyQ.geometry} >
+      <mesh onClick={keyClick} position={[-8,-2.1,0]}  geometry={nodes.keyQ.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh position={[-6,-2.1,0]}  geometry={nodes.keyW.geometry} >
+      <mesh onClick={keyClick} position={[-6,-2.1,0]}  geometry={nodes.keyW.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh position={[-4,-2.1,0]}  geometry={nodes.keyE.geometry} >
+      <mesh onClick={keyClick} position={[-4,-2.1,0]}  geometry={nodes.keyE.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh position={[-2,-2.1,0]}  geometry={nodes.keyR.geometry} >
+      <mesh onClick={keyClick} position={[-2,-2.1,0]}  geometry={nodes.keyR.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh position={[0.2,-2.1,0]}  geometry={nodes.keyT.geometry} >
+      <mesh onClick={keyClick} position={[0.2,-2.1,0]}  geometry={nodes.keyT.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh position={[2.5,-2.1,0]}  geometry={nodes.keyY.geometry} >
+      <mesh onClick={keyClick}  position={[2.5,-2.1,0]}  geometry={nodes.keyY.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh position={[4.5,-2.1,0]}  geometry={nodes.keyU.geometry} >
+      <mesh onClick={keyClick} position={[4.5,-2.1,0]}  geometry={nodes.keyU.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh position={[6.5,-2.1,0]}  geometry={nodes.keyI.geometry} >
+      <mesh onClick={keyClick} position={[6.5,-2.1,0]}  geometry={nodes.keyI.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh position={[8.5,-2.1,0]}  geometry={nodes.keyO.geometry} >
+      <mesh onClick={keyClick} position={[8.5,-2.1,0]}  geometry={nodes.keyO.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh position={[10.5,-2.1,0]}  geometry={nodes.keyP.geometry} >
+      <mesh onClick={keyClick} position={[10.5,-2.1,0]}  geometry={nodes.keyP.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh position={[12.5,-2.1,0]}  geometry={nodes.keyleftbbracket.geometry} >
+      <mesh onClick={keyClick} position={[12.5,-2.1,0]}  geometry={nodes.keyleftbbracket.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh position={[14.5,-2.1,0]}  geometry={nodes.keylrightbbracket.geometry} >
+      <mesh onClick={keyClick} position={[14.5,-2.1,0]}  geometry={nodes.keylrightbbracket.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh position={[16.5,-2.1,0]}  geometry={nodes.keyd.geometry} >
+      <mesh onClick={keyClick} position={[16.5,-2.1,0]}  geometry={nodes.keyd.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh position={[-9.7,2.4,0]}  geometry={nodes.keyLShift.geometry} >
+      <mesh onClick={keyClick} position={[-9.7,2.4,0]}  geometry={nodes.keyLShift.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh position={[-8.8,4.5,0]}  geometry={nodes.keyctrl.geometry} >
+      <mesh onClick={keyClick} position={[-8.8,4.5,0]}  geometry={nodes.keyctrl.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh position={[-6.2,4.4,0]}  geometry={nodes.keyStart.geometry} >
+      <mesh onClick={keyClick} position={[-6.2,4.4,0]}  geometry={nodes.keyStart.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh position={[2,2.3,0]}  geometry={nodes.KeyB.geometry} >
+      <mesh onClick={keyClick} position={[2,2.3,0]}  geometry={nodes.KeyB.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh position={[-6.2,2.3,0]}  geometry={nodes.keyZ.geometry} >
+      <mesh onClick={keyClick} position={[-6.2,2.3,0]}  geometry={nodes.keyZ.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh position={[-4,2.3,0]}  geometry={nodes.keyX.geometry} >
+      <mesh onClick={keyClick} position={[-4,2.3,0]}  geometry={nodes.keyX.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh position={[-2,2.3,0]}  geometry={nodes.KeyC.geometry} >
+      <mesh onClick={keyClick} position={[-2,2.3,0]}  geometry={nodes.KeyC.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh position={[-0,2.3,0]}  geometry={nodes.keyV.geometry} >
+      <mesh onClick={keyClick} position={[-0,2.3,0]}  geometry={nodes.keyV.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh position={[4,2.3,0]}  geometry={nodes.keyN.geometry} >
+      <mesh onClick={keyClick} position={[4,2.3,0]}  geometry={nodes.keyN.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh position={[6,2.3,0]}  geometry={nodes.keyM.geometry} >
+      <mesh onClick={keyClick} position={[6,2.3,0]}  geometry={nodes.keyM.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh position={[8,2.3,0]}  geometry={nodes.keylessthan.geometry} >
+      <mesh onClick={keyClick} position={[8,2.3,0]}  geometry={nodes.keylessthan.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh position={[10,2.3,0]}  geometry={nodes.keygreaterthan.geometry} >
+      <mesh onClick={keyClick} position={[10,2.3,0]}  geometry={nodes.keygreaterthan.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh position={[12,2.3,0]}  geometry={nodes.keywhat.geometry} >
+      <mesh onClick={keyClick} position={[12,2.3,0]}  geometry={nodes.keywhat.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       
       </mesh>
-      <mesh position={[15.5,2.3,0]}  geometry={nodes.keyShift.geometry} >
+      <mesh onClick={keyClick} position={[15.5,2.3,0]}  geometry={nodes.keyShift.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       
       </mesh>
