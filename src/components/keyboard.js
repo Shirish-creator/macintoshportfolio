@@ -19,7 +19,17 @@ const Keyboard = () => {
       sound.play();
     }
   };
+  
+  useEffect(() => {
+    const handleKeyDown = (event) => {
+      if (intersectingObjects.current.length === 0) {
+        const sound = new Audio('/keyboard-key.mp3');
+        sound.play();
+      }
+    };
 
+
+  }, []); // Run effect only once on component mount
   useFrame(() => {
     const raycaster = new THREE.Raycaster();
     raycaster.setFromCamera(mouse, camera);

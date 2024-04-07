@@ -15,6 +15,12 @@ const Computer = ({ isPortfolioActive,orbitControlsActive,standardCameraPosition
   const { nodes } = useGLTF('/MacintoshCell.glb');
   const bakedTexture = useTexture('/BAKEDMACINTOSH2.jpg')
 
+const keydown=()=>{
+  console.log('hello')
+  const sound = new Audio('/keyboard-key.mp3');
+        sound.play();
+}
+
   const handleButtonClick = () => {
     // Toggle the zoomactive state
     const sound = new Audio('/whoosh.mp3'); // Replace 'path_to_your_sound_clip.mp3' with the actual path to your sound clip
@@ -22,6 +28,7 @@ const Computer = ({ isPortfolioActive,orbitControlsActive,standardCameraPosition
     setZoomActive(!zoomactive);
     handleUiControlsToggle();
 
+  
 
     // Define the target camera position based on the zoomactive state
     const targetPosition = { x: 0, y:zoomactive?standardCameraPosition.y: 3, z: zoomactive ? standardCameraPosition.z : 15 };
@@ -82,11 +89,12 @@ const Computer = ({ isPortfolioActive,orbitControlsActive,standardCameraPosition
           position={[0, 2, 6.5]} rotation={[-0.13, 0, 0]}
           style={{userSelect:"none",WebkitUserSelect:"none",transformStyle: "preserve-3d"}}
           transform
+          
           wrapperClass='htmlScreen'
                     occlude
                     className='iframescreencontainer'
                     >
-          <iframe
+          <iframe     
             style={{ width: "1300px", height: "990px", transform: "scale(0.23)" }}
 
             src={isPortfolioActive ? "https://www.shirishshakya.com/" : "https://humorous-guest-092420.framer.app/"}
