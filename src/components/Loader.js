@@ -16,11 +16,11 @@ export default function LoadingScreen() {
 
        
     }, [progress])
-    const fullyload=()=>{
-        const sound = new Audio('/slow-whoosh.mp3'); // Replace 'path_to_your_sound_clip.mp3' with the actual path to your sound clip
-        sound.play();
-        setfullyLoaded(true)
-    }
+    // const fullyload=()=>{
+    //     const sound = new Audio('/slow-whoosh.mp3'); // Replace 'path_to_your_sound_clip.mp3' with the actual path to your sound clip
+    //     sound.play();
+    //     setfullyLoaded(true)
+    // }
 
     // Conditionally render the loading screen only on the client side
 
