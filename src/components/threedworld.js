@@ -5,15 +5,18 @@ import React, { useRef, useState } from "react";
 import { useFrame } from "react-three-fiber";
 import * as Three from 'three';
 import {useProgress} from '@react-three/drei';
-import Loader from "./Loader";
+import LoadingScreen from "./Loader";
+// import { Loader } from '@react-three/drei'
 
 export default function Threed({ orbitControlsActive,handleOrbitControlsToggle,handleUiControlsToggle,showUiControls}) {
 const standardCameraPosition=[0, 1, 20];
 
 
+
 return (
     <>
-    
+          <LoadingScreen/>
+
       <Canvas 
       gl={{
         antialias:true,
@@ -33,7 +36,9 @@ return (
        
         <color args={['#000000']} attach="background" />
         
-        <Suspense fallback={<Loader />} >
+        <Suspense 
+        // fallback={<LoadingScreen />} 
+        >
      
           <Scene orbitControlsActive={orbitControlsActive}
           handleUiControlsToggle={handleUiControlsToggle}

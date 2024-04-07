@@ -79,7 +79,14 @@ const Floppy = ({ onPortfolioActivate,orbitControlsActive,standardCameraPosition
     const intermediatePosition2 = { x: 2, y: -3, z: 12 };
     const intermediatePosition3 = { x: 2, y: -3, z: 3};
     const finalPosition = { x: 2, y: -3, z: 3};
-
+  // <Html center
+    // // style={{width:"100%",background:"white"}}
+    // >
+    //     <section >
+    //     <div className='flex fixed justify-center items-center flex-row' style={{color:'white',zIndex:1,fontFamily:"Monument Extended Bold",fontSize:"24px",width:"100%"}}>
+    //     LOADED {progress.toFixed(0)} %</div>
+    //     </section>
+    // </Html>
 
     new TWEEN.Tween(groupRef.current.position)
       .to(intermediatePosition1, 1000)
@@ -131,7 +138,7 @@ useFrame(() => {
           transform
           wrapperClassName='htmlScreen'
         >
-          <button className='iconButton' style={{ color: "white" }} onClick={handleClick}>
+          <button className='iconButton' style={{ color: "white"}} onClick={handleClick}>
           <svg
   xmlns="http://www.w3.org/2000/svg"
   width={24}

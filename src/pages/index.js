@@ -5,12 +5,14 @@ import Threed from "@/components/threedworld";
 import { useState,useRef,useEffect } from "react";
 import { useFrame } from "react-three-fiber";
 import Uicontrols from "@/components/Uicontrols";
+import LoadingScreen from "@/components/Loader";
 
 
 
 export default function Home() {
   const [orbitControlsActive, setOrbitControlsActive] = useState(false);
   const [showUiControls, setUiControls] = useState(true);
+  const [loadedScreen, setLoadedScreen] = useState(false);
 
   const handleOrbitControlsToggle = () => {
     setOrbitControlsActive(!orbitControlsActive);
@@ -25,7 +27,7 @@ export default function Home() {
     <Head>
     <title>SHIRISH's Macintosh</title>
     </Head>
-    
+
     <section className="w-full h-screen flex   relative">
     {/* {showUiControls && <Uicontrols orbitControlsActive={orbitControlsActive} handleOrbitControlsToggle={handleOrbitControlsToggle} />} */}
      <Uicontrols showUiControls={showUiControls} orbitControlsActive={orbitControlsActive} handleOrbitControlsToggle={handleOrbitControlsToggle} />
