@@ -152,8 +152,8 @@ const Scene = ({ orbitControlsActive, handleOrbitControlsToggle,handleUiControls
 
       <pointLight color="purple" castShadow  position={[15, -2, 5]}   intensity={400} distance={0} />
       <pointLight color="orange" castShadow  position={[-10, -2, 5]}   intensity={400} distance={0} />
-      {/* <Iphone/>
-      <Playstation orbitControlsActive={orbitControlsActive}/> */}
+      {/* <Iphone/> */}
+      <Playstation orbitControlsActive={orbitControlsActive}/>
     </group>
     
     

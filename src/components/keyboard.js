@@ -7,17 +7,21 @@ import * as TWEEN from '@tweenjs/tween.js'
 import { TransformControls } from '@react-three/drei';
 
 const Keyboard = () => {
-  
+  const meshref=useRef()
+  const keyClick=()=>{
+    const sound = new Audio('/keyboard-key.mp3'); // Replace 'path_to_your_sound_clip.mp3' with the actual path to your sound clip
+      sound.play();
+  }
    
     const { nodes } = useGLTF('/MacintoshCell.glb');
      const bakedKeyboard=useTexture('/Keyboardfinebaked.jpg')
- 
+    //  meshref.current.position.y=-6
 
   
     return (
       <>
       <group scale={.35} rotation={[1.55,0,0]} position={[-.5,-6.3,12]}>
-      <mesh  geometry={nodes.Keyboard.children[0].geometry} >
+      <mesh   geometry={nodes.Keyboard.children[0].geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
       <mesh  geometry={nodes.Keyboard.children[1].geometry} >
@@ -29,16 +33,16 @@ const Keyboard = () => {
       <mesh position={[-7.3,0,0]}  geometry={nodes.KeyA.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh position={[-5.2,0,0]}  geometry={nodes.keyS.geometry} >
+      <mesh onClick={keyClick} ref={meshref} position={[-5.2,0,0]}  geometry={nodes.keyS.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh position={[-3,0,0]}  geometry={nodes.keyD.geometry} >
+      <mesh onClick={keyClick} ref={meshref} position={[-3,0,0]}  geometry={nodes.keyD.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh position={[-1,0,0]}  geometry={nodes.keyF.geometry} >
+      <mesh onClick={keyClick} ref={meshref} position={[-1,0,0]}  geometry={nodes.keyF.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
-      <mesh position={[1,0,0]}  geometry={nodes.keyG.geometry} >
+      <mesh onClick={keyClick} ref={meshref} position={[1,0,0]}  geometry={nodes.keyG.geometry} >
       <meshStandardMaterial map={bakedKeyboard} map-flipY={false} ></meshStandardMaterial>
       </mesh>
       <mesh position={[3,0,0]}  geometry={nodes.keyH.geometry} >

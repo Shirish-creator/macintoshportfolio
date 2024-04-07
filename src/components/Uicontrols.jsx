@@ -21,7 +21,7 @@ export default function Uicontrols({orbitControlsActive,handleOrbitControlsToggl
         <div className='controlHeader flex flex-row justify-center items-center'>Product Designer/ Creative Developer/ Product Manager</div>
         <div className='controlHeader gap-2 flex flex-row items-center justify-center'>
         <span>{time} <span>Local Time</span></span>
-        <button onClick={handleOrbitControlsToggle} className="BTNICON" >{orbitControlsActive?
+        <button onClick={handleOrbitControlsToggle} className="BTNICON flex flex-row gap-2" >{orbitControlsActive?
       <svg
       xmlns="http://www.w3.org/2000/svg"
       width={32}
