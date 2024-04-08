@@ -65,7 +65,7 @@ font-family: "Monument Extended Bold";
 height:100vh;
 font-size:24px;
 width:100%;
-background-color: black;
+background-color: #292828;
 }
 
 .LoaderScreen-active{
@@ -81,7 +81,7 @@ background-color: black;
 }
 
 .loadbutton{
-  background-color: #292828;
+  background-color: #3c3b3b;
   color:#FB722E;
     // font-family:"NexaLight" ;
     font-size: 10px;
@@ -90,7 +90,7 @@ background-color: black;
   ;
 
   &:hover{
-    background-color: #323131;
+    background-color: #202020;
 
   }
 }

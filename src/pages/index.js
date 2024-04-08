@@ -69,7 +69,7 @@ const [musicButtonLabel,setMusicButtonLabel]=useState(false)
         <source src="/spacesound.mp3" type="audio/mpeg" />
         </audio>
       )}
-    <section className="w-full h-screen flex   relative">
+    <section className="w-full h-screen flex   relative" style={{ cursor: orbitControlsActive ? 'grab' : 'default' }}>
      <Uicontrols togglePlayPause={togglePlayPause} musicButtonLabel={musicButtonLabel} showUiControls={showUiControls} orbitControlsActive={orbitControlsActive} handleOrbitControlsToggle={handleOrbitControlsToggle} />
    
      {orbitControlsActive && showSvgAndImage && 
