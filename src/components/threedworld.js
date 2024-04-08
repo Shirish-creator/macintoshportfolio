@@ -8,14 +8,14 @@ import {useProgress} from '@react-three/drei';
 import LoadingScreen from "./Loader";
 // import { Loader } from '@react-three/drei'
 
-export default function Threed({ orbitControlsActive,handleOrbitControlsToggle,handleUiControlsToggle,showUiControls}) {
+export default function Threed({ orbitControlsActive,handleOrbitControlsToggle,handleUiControlsToggle,showUiControls,handleSetLoadedScreen}) {
 const standardCameraPosition=[0, 1, 20];
 
 
 
 return (
     <>
-          <LoadingScreen/>
+          <LoadingScreen handleSetLoadedScreen={handleSetLoadedScreen}/>
 
       <Canvas 
       gl={{

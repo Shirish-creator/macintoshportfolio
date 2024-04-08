@@ -14,7 +14,10 @@ export default function Home() {
   const [showUiControls, setUiControls] = useState(true);
   const [loadedScreen, setLoadedScreen] = useState(false);
   const [showSvgAndImage, setShowSvgAndImage] = useState(false);
-
+  const [isMusicPlaying, setIsMusicPlaying] = useState(false); // State to control music
+  const [audioElement, setAudioElement] = useState(null); // State to control the audio element
+const [musicButtonLabel,setMusicButtonLabel]=useState(false)
+  
   const handleOrbitControlsToggle = () => {
     setOrbitControlsActive(!orbitControlsActive);
   };
@@ -22,6 +25,25 @@ export default function Home() {
   const handleUiControlsToggle=()=>{
     setUiControls(!showUiControls)
   }
+
+  // Define the function to pass
+  const handleSetLoadedScreen = () => {
+    setLoadedScreen(true);
+    setIsMusicPlaying(true); // Start playing music
+  };
+  const togglePlayPause = () => {
+    if (audioElement) {
+      if (audioElement.paused) {
+        audioElement.play();
+        setMusicButtonLabel(false)
+
+      } else {
+        audioElement.pause();
+        setMusicButtonLabel(true)
+
+      }
+    }
+  };
 
   useEffect(() => {
     let timeout;
@@ -42,10 +64,14 @@ export default function Home() {
     <Head>
     <title>SHIRISH's Macintosh</title>
     </Head>
-
+    {isMusicPlaying && (
+        <audio ref={(element) => setAudioElement(element)} autoPlay loop>
+        <source src="/spacesound.mp3" type="audio/mpeg" />
+        </audio>
+      )}
     <section className="w-full h-screen flex   relative">
-    {/* {showUiControls && <Uicontrols orbitControlsActive={orbitControlsActive} handleOrbitControlsToggle={handleOrbitControlsToggle} />} */}
-     <Uicontrols showUiControls={showUiControls} orbitControlsActive={orbitControlsActive} handleOrbitControlsToggle={handleOrbitControlsToggle} />
+     <Uicontrols togglePlayPause={togglePlayPause} musicButtonLabel={musicButtonLabel} showUiControls={showUiControls} orbitControlsActive={orbitControlsActive} handleOrbitControlsToggle={handleOrbitControlsToggle} />
+   
      {orbitControlsActive && showSvgAndImage && 
      <><svg
      style={{ position: 'absolute', top: '10%', left: '50%', transform: 'translateX(-50%)',zIndex:10,height:"80px",widt:'80px' }}
@@ -93,7 +119,7 @@ export default function Home() {
 </span>
    </>
       }
-    <Threed showUiControls={showUiControls} handleUiControlsToggle={handleUiControlsToggle} orbitControlsActive={orbitControlsActive} handleOrbitControlsToggle={handleOrbitControlsToggle} />
+    <Threed handleSetLoadedScreen={handleSetLoadedScreen} showUiControls={showUiControls} handleUiControlsToggle={handleUiControlsToggle} orbitControlsActive={orbitControlsActive} handleOrbitControlsToggle={handleOrbitControlsToggle} />
     </section>
     <span  style={{fontFamily:"NexaLight",fontSize:'10px', position: 'absolute', bottom: '2%', left: '50%', transform: 'translateX(-50%)',textAlign:'center',zIndex:10,width:'90%',color:"white" }}>
   Apple Logo is a trademark of Apple Inc. Macintosh logo is a trademark of Apple Inc.

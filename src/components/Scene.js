@@ -99,8 +99,8 @@ const Scene = ({ orbitControlsActive, handleOrbitControlsToggle,handleUiControls
           
           
     {orbitControlsActive && <OrbitControls 
-    minAzimuthAngle={-Math.PI / 2}
-    maxAzimuthAngle={Math.PI / 2}
+    // minAzimuthAngle={-Math.PI / 2}
+    // maxAzimuthAngle={Math.PI / 2}
     minPolarAngle={-Math.PI / 12}
     maxPolarAngle={ Math.PI / 2}
     maxDistance={50}

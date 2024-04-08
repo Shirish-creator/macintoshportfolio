@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import { useProgress } from '@react-three/drei'
 
-export default function LoadingScreen() {
+export default function LoadingScreen({handleSetLoadedScreen}) {
     const { progress } = useProgress()
-    const [loadedScreen, setLoadedScreen] = useState(false);
     const [currentProgress, setCurrentProgress] = useState(0);
     const [fullyLoaded, setfullyLoaded] = useState(false);
+    const [loadedScreen,setLoadedScreen]=useState(false)
 
 
     useEffect(() => {
@@ -20,6 +20,8 @@ export default function LoadingScreen() {
         // const sound = new Audio('/slow-whoosh.mp3'); // Replace 'path_to_your_sound_clip.mp3' with the actual path to your sound clip
         // sound.play();
         setfullyLoaded(true)
+        handleSetLoadedScreen();
+
     }
 
     // Conditionally render the loading screen only on the client side

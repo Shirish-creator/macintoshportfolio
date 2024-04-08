@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState,useEffect,useRef } from 'react'
 
-export default function Uicontrols({orbitControlsActive,handleOrbitControlsToggle,showUiControls}) {
+export default function Uicontrols({orbitControlsActive,handleOrbitControlsToggle,showUiControls,musicButtonLabel,togglePlayPause}) {
 
     const [time, setTime] = useState('');
     useEffect(() => {
@@ -20,12 +20,12 @@ export default function Uicontrols({orbitControlsActive,handleOrbitControlsToggl
         <div className='controlHeader flex flex-row justify-center items-center' style={{fontFamily:'Monument Extended Bold',fontSize:"16px"}}>SHIRISH SHAKYA</div>
         <div className='controlHeader flex flex-row justify-center items-center'>Product Designer/ Creative Developer/ Product Manager</div>
         <div className='controlHeader gap-2 flex flex-row items-center justify-center'>
-        <span>{time} <span>Local Time</span></span>
+        <span style={{width:'180px'}}>{time} <span>Local Time</span></span>
         <button onClick={handleOrbitControlsToggle} className="BTNICON flex flex-row gap-2" >{orbitControlsActive?
       <svg
       xmlns="http://www.w3.org/2000/svg"
-      width={32}
-      height={32}
+      width={24}
+      height={24}
       fill="currentColor"
       className="bi bi-eye-slash"
       viewBox="0 0 16 16"
@@ -36,14 +36,45 @@ export default function Uicontrols({orbitControlsActive,handleOrbitControlsToggl
       </svg>
 :<svg
 xmlns="http://www.w3.org/2000/svg"
-width={32}
-height={32}
+width={24}
+height={24}
 fill="currentColor"
 className="bi bi-eye"
 viewBox="0 0 16 16"
 >
 <path d="M16 8s-3-5.5-8-5.5S0 8 0 8s3 5.5 8 5.5S16 8 16 8M1.173 8a13 13 0 0 1 1.66-2.043C4.12 4.668 5.88 3.5 8 3.5s3.879 1.168 5.168 2.457A13 13 0 0 1 14.828 8q-.086.13-.195.288c-.335.48-.83 1.12-1.465 1.755C11.879 11.332 10.119 12.5 8 12.5s-3.879-1.168-5.168-2.457A13 13 0 0 1 1.172 8z" />
 <path d="M8 5.5a2.5 2.5 0 1 0 0 5 2.5 2.5 0 0 0 0-5M4.5 8a3.5 3.5 0 1 1 7 0 3.5 3.5 0 0 1-7 0" />
+</svg>
+
+}</button>
+<button onClick={togglePlayPause} className="BTNICON flex flex-row gap-2" >{musicButtonLabel?<svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  viewBox="0 0 24 24"
+  strokeWidth="1.5"
+  stroke="currentColor"
+  className="w-6 h-6"
+>
+  <path
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    d="M19.114 5.636a9 9 0 0 1 0 12.728M16.463 8.288a5.25 5.25 0 0 1 0 7.424M6.75 8.25l4.72-4.72a.75.75 0 0 1 1.28.53v15.88a.75.75 0 0 1-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.009 9.009 0 0 1 2.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75Z"
+  />
+</svg>
+:
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  viewBox="0 0 24 24"
+  strokeWidth="1.5"
+  stroke="currentColor"
+  className="w-6 h-6"
+>
+  <path
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    d="M17.25 9.75 19.5 12m0 0 2.25 2.25M19.5 12l2.25-2.25M19.5 12l-2.25 2.25m-10.5-6 4.72-4.72a.75.75 0 0 1 1.28.53v15.88a.75.75 0 0 1-1.28.53l-4.72-4.72H4.51c-.88 0-1.704-.507-1.938-1.354A9.009 9.009 0 0 1 2.25 12c0-.83.112-1.633.322-2.396C2.806 8.756 3.63 8.25 4.51 8.25H6.75Z"
+  />
 </svg>
 
 }</button>
