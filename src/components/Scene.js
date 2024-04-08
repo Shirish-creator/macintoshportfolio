@@ -7,9 +7,7 @@ import { useRef,useState,useEffect } from 'react';
 import { OrbitControls } from '@react-three/drei';
 import { TransformControls, PivotControls,Environment } from '@react-three/drei';
 import { useControls } from 'leva';
-import { useLoader } from 'react-three-fiber';
-import { PresentationControls } from '@react-three/drei';
-import { BlendFunction } from 'postprocessing';
+import { BlendFunction, Resizer, KernelSize } from 'postprocessing'
 import * as TWEEN from '@tweenjs/tween.js'
 import Computer from './computer';
 import Floppy from './floppy';
@@ -17,14 +15,15 @@ import { Iphone } from './Iphone';
 import { Playstation } from './Playstation';
 import { useThree } from 'react-three-fiber';
 import { PerspectiveCamera } from '@react-three/drei';
-import { Halant } from 'next/font/google';
 import { ChromaticAberration } from '@react-three/postprocessing'
 import { Grid } from '@react-three/postprocessing'
-import { SSAO } from '@react-three/postprocessing'
 import { ToneMapping } from '@react-three/postprocessing'
+
 
 const Scene = ({ orbitControlsActive, handleOrbitControlsToggle,handleUiControlsToggle,showUiControls }) => {
   const mesh = useRef();
+
+  const meshRef1 = useRef();
   const cameraref=useRef();
   const { camera } = useThree();
   const mouse = useRef([0, 0]);
@@ -57,7 +56,7 @@ const Scene = ({ orbitControlsActive, handleOrbitControlsToggle,handleUiControls
     
               <PerspectiveCamera ref={cameraref} makeDefault position={[standardCameraPosition.x, standardCameraPosition.y, standardCameraPosition.z]} />
 
-        <EffectComposer multisampling={0}>
+        <EffectComposer multisampling={0} enableNormalPass>
           <Vignette
           offset={0.3}
           darkness={0.8}/>
@@ -71,14 +70,13 @@ const Scene = ({ orbitControlsActive, handleOrbitControlsToggle,handleUiControls
           // focalLength={0.15}
           bokehScale={2}
           /> */}
-          {/* <pointLight position={[0,100,0] } color="white" intensity={100000}></pointLight> */}
           <Noise
           
           blendFunction={BlendFunction.MULTIPLY}
           />
           <ChromaticAberration
     blendFunction={BlendFunction.NORMAL} // blend mode
-    offset={[0.0015, 0.001]} // color offset
+    offset={[0.0010, 0.0016]} // color offset
   />
    <Grid
     blendFunction={BlendFunction.OVERLAY} // blend mode
@@ -86,19 +84,7 @@ const Scene = ({ orbitControlsActive, handleOrbitControlsToggle,handleUiControls
     lineWidth={0.0} // grid pattern line width
     // size={{ 10, height }} // overrides the default pass width and height
   />
-   {/* <SSAO
-    blendFunction={BlendFunction.NORMAL} // blend mode
-    samples={20} // amount of samples per pixel (shouldn't be a multiple of the ring count)
-    rings={4} // amount of rings in the occlusion sampling pattern
-    distanceThreshold={1.0} // global distance threshold at which the occlusion effect starts to fade out. min: 0, max: 1
-    distanceFalloff={3.0} // distance falloff. min: 0, max: 1
-    rangeThreshold={0.5} // local occlusion range threshold at which the occlusion starts to fade out. min: 0, max: 1
-    rangeFalloff={0.1} // occlusion range falloff. min: 0, max: 1
-    luminanceInfluence={3.9} // how much the luminance of the scene influences the ambient occlusion
-    radius={50} // occlusion sampling radius
-    scale={100.5} // scale of the ambient occlusion
-    bias={4.5} // occlusion bias
-  /> */}
+ 
    <ToneMapping
     blendFunction={BlendFunction.NORMAL} // blend mode
     adaptive={true} // toggle adaptive luminance map usage
@@ -134,6 +120,7 @@ const Scene = ({ orbitControlsActive, handleOrbitControlsToggle,handleUiControls
       <mesh
         rotation={[0,0, 0]} // Rotate 180 degrees around the Y axis
         scale={1} 
+        ref={meshRef1}
         geometry={nodes.Plane.geometry}
         position={[0.1,-7.2,-0.6]}
         castShadow 
@@ -153,7 +140,7 @@ const Scene = ({ orbitControlsActive, handleOrbitControlsToggle,handleUiControls
       <pointLight color="purple" castShadow  position={[15, -2, 5]}   intensity={400} distance={0} />
       <pointLight color="orange" castShadow  position={[-10, -2, 5]}   intensity={400} distance={0} />
       {/* <Iphone/> */}
-      {/* <Playstation orbitControlsActive={orbitControlsActive}/> */}
+      <Playstation orbitControlsActive={orbitControlsActive}/>
     </group>
     
     

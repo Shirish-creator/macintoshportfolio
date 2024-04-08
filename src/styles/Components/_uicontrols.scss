@@ -15,6 +15,53 @@ width: fit-content;
 transition: ease-in-out 1s;
 
 }
+.controlpanel{
+    z-index: 1;
+
+
+@media (min-width: 350px) {
+    top:24px;
+    left:44px;
+
+}
+
+// Small devices (landscape phones, 576px and up)
+@media (min-width: 576px) {
+    top:44px;
+left:64px;
+
+}
+
+// Medium devices (tablets, 768px and up)
+@media (min-width: 768px) {
+    top:44px;
+left:64px;
+
+}
+
+// Large devices (desktops, 992px and up)
+@media (min-width: 992px) {
+    top:64px;
+left:84px;
+
+}
+
+// X-Large devices (large desktops, 1200px and up)
+@media (min-width: 1200px) {
+    top:64px;
+left:84px;
+
+}
+
+// XX-Large devices (larger desktops, 1400px and up)
+@media (min-width: 1400px) {
+    top:64px;
+    left:84px;
+
+}
+}
+
+
 
 .controlHeader-active{
     opacity: 1;transition: ease-in-out .5s;
