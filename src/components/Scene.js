@@ -105,7 +105,10 @@ const Scene = ({ orbitControlsActive, handleOrbitControlsToggle,handleUiControls
     maxPolarAngle={ Math.PI / 2}
     maxDistance={50}
     zoom0={false}
-    />}
+    />
+    
+    }
+    
 
         
     <group ref={mesh} 
