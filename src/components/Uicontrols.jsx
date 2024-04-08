@@ -82,20 +82,7 @@ export default function Uicontrols({orbitControlsActive,handleOrbitControlsToggl
   />
 </svg>
 
-<svg
-  width={12}
-  height={29}
-  style={{left:"50%",top:"50%",transform:"translate(-50%,-50%)",zIndex:-1}}
-  className='absolute joint'
-  viewBox="0 0 12 29"
-  fill="none"
-  xmlns="http://www.w3.org/2000/svg"
->
-  <path
-    d="M1.60553e-05 0.999975C-0.173964 0.65172 5.75093 6.00141 12 0.999975V29C7.51771 25.0106 4.88808 25.1086 1.60553e-05 29V0.999975Z"
-    fill="#292828"
-  />
-</svg>
+
 
 
 
