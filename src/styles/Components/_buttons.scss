@@ -78,17 +78,24 @@
     padding: 8px ;
     text-transform: none;
     border-radius: 1000px;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+
+    
 
     &:hover{
-        border: 1px solid;
-        border-color: #fb722e;
+        box-shadow:0px 0px 0px 1px #fb722e inset;
+
         color: white;
-        background-color: #292828;
+        background-color: #292828;    box-sizing: border-box;
+
 
 
     }
     &:active{
-        background-color: #0b0b0b;
+        background-color: #0b0b0b;    box-sizing: border-box;
+
 
     }
 }
+

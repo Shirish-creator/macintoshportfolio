@@ -21,6 +21,7 @@ export default function Uicontrols({orbitControlsActive,handleOrbitControlsToggl
         <div className='controlHeader flex flex-row justify-center items-center'>Product Designer/ Creative Developer/ Product Manager</div>
         <div className='controlHeader gap-2 flex flex-row items-center justify-center'>
         <span style={{width:'180px'}}>{time} <span>Local Time</span></span>
+        <div className='flex flex-row BTN-GRP relative'>
         <button onClick={handleOrbitControlsToggle} className="BTNICON flex flex-row gap-2" >{orbitControlsActive?
       <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -48,6 +49,56 @@ export default function Uicontrols({orbitControlsActive,handleOrbitControlsToggl
       </svg>
 
 }</button>
+
+{/* <svg
+  width={12}
+  height={29}
+  style={{left:"50%",top:"50%",transform:"translate(-50%,-50%)",zIndex:-1}}
+  className='absolute joint'
+  viewBox="0 0 12 29"
+  fill=''
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M0.250016 28.4861V1.43061C0.394304 1.52458 0.577639 1.64176 0.794913 1.77117C1.43449 2.1521 2.37345 2.64233 3.51987 2.98448C5.72331 3.64209 8.69025 3.74961 11.75 1.50653V28.45C9.68481 26.6849 7.95604 25.7826 6.1505 25.7947C4.33859 25.8069 2.51048 26.7404 0.250016 28.4861Z"
+    fill="white"
+    stroke="white"
+    strokeWidth="0.5"
+  />
+</svg> */}
+
+<svg
+  width={8}
+  height={24}
+  style={{left:"50%",top:"50%",transform:"translate(-50%,-50%)",zIndex:-1}}
+  className='absolute joint'
+  viewBox="0 0 8 24"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M0 0C3.0988 2.65796 4.85037 2.66092 8 0V24C4.96067 21.3589 3.18923 21.3449 0 24V0Z"
+    fill="#292828"
+  />
+</svg>
+
+<svg
+  width={12}
+  height={29}
+  style={{left:"50%",top:"50%",transform:"translate(-50%,-50%)",zIndex:-1}}
+  className='absolute joint'
+  viewBox="0 0 12 29"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <path
+    d="M1.60553e-05 0.999975C-0.173964 0.65172 5.75093 6.00141 12 0.999975V29C7.51771 25.0106 4.88808 25.1086 1.60553e-05 29V0.999975Z"
+    fill="#292828"
+  />
+</svg>
+
+
+
 <button onClick={togglePlayPause} className="BTNICON flex flex-row gap-2" >{musicButtonLabel?
   <svg
   xmlns="http://www.w3.org/2000/svg"
@@ -80,6 +131,7 @@ export default function Uicontrols({orbitControlsActive,handleOrbitControlsToggl
 </svg>
 
 }</button>
+</div>
         </div>
 
       
