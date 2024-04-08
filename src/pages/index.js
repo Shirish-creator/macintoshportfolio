@@ -87,7 +87,7 @@ export default function Home() {
        </clipPath>
      </defs>
    </svg>
-   <img style={{ position: 'absolute', top: '10%', left: '50%', transform: 'translateX(-50%)',zIndex:10,height:"90px",widt:'90px' }} src="/gesture.gif"></img>
+   <img style={{ position: 'absolute', top: '10%', left: '50%', transform: 'translateX(-50%)',zIndex:10,height:"90px" }} src="/gesture.gif"></img>
 <span  style={{fontFamily:"NexaLight", position: 'absolute', top: '5%', left: '50%', transform: 'translateX(-50%)',zIndex:10,height:"80px",widt:'80px',color:"white" }}>
   Drag to view
 </span>
@@ -95,6 +95,9 @@ export default function Home() {
       }
     <Threed showUiControls={showUiControls} handleUiControlsToggle={handleUiControlsToggle} orbitControlsActive={orbitControlsActive} handleOrbitControlsToggle={handleOrbitControlsToggle} />
     </section>
+    <span  style={{fontFamily:"NexaLight",fontSize:'10px', position: 'absolute', bottom: '2%', left: '50%', transform: 'translateX(-50%)',textAlign:'center',zIndex:10,width:'90%',color:"white" }}>
+  Apple Logo is a trademark of Apple Inc. Macintosh logo is a trademark of Apple Inc.
+</span>
     
     
     
