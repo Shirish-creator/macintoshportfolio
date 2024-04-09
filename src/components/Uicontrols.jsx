@@ -50,23 +50,6 @@ export default function Uicontrols({orbitControlsActive,handleOrbitControlsToggl
 
 }</button>
 
-{/* <svg
-  width={12}
-  height={29}
-  style={{left:"50%",top:"50%",transform:"translate(-50%,-50%)",zIndex:-1}}
-  className='absolute joint'
-  viewBox="0 0 12 29"
-  fill=''
-  xmlns="http://www.w3.org/2000/svg"
->
-  <path
-    d="M0.250016 28.4861V1.43061C0.394304 1.52458 0.577639 1.64176 0.794913 1.77117C1.43449 2.1521 2.37345 2.64233 3.51987 2.98448C5.72331 3.64209 8.69025 3.74961 11.75 1.50653V28.45C9.68481 26.6849 7.95604 25.7826 6.1505 25.7947C4.33859 25.8069 2.51048 26.7404 0.250016 28.4861Z"
-    fill="white"
-    stroke="white"
-    strokeWidth="0.5"
-  />
-</svg> */}
-
 <svg
   width={8}
   height={24}
