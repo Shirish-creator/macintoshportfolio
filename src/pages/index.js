@@ -17,6 +17,8 @@ export default function Home() {
   const [isMusicPlaying, setIsMusicPlaying] = useState(false); // State to control music
   const [audioElement, setAudioElement] = useState(null); // State to control the audio element
 const [musicButtonLabel,setMusicButtonLabel]=useState(false)
+const [cameraStart,setCameraStart]=useState(false)
+
   
   const handleOrbitControlsToggle = () => {
     setOrbitControlsActive(!orbitControlsActive);
@@ -26,6 +28,9 @@ const [musicButtonLabel,setMusicButtonLabel]=useState(false)
     setUiControls(!showUiControls)
   }
 
+  const handleCameraStart=()=>{
+    setCameraStart(true)
+  }
   // Define the function to pass
   const handleSetLoadedScreen = () => {
     setLoadedScreen(true);
@@ -119,7 +124,7 @@ const [musicButtonLabel,setMusicButtonLabel]=useState(false)
 </span>
    </>
       }
-    <Threed handleSetLoadedScreen={handleSetLoadedScreen} showUiControls={showUiControls} handleUiControlsToggle={handleUiControlsToggle} orbitControlsActive={orbitControlsActive} handleOrbitControlsToggle={handleOrbitControlsToggle} />
+    <Threed handleCameraStart={handleCameraStart} handleSetLoadedScreen={handleSetLoadedScreen} showUiControls={showUiControls} handleUiControlsToggle={handleUiControlsToggle} orbitControlsActive={orbitControlsActive} handleOrbitControlsToggle={handleOrbitControlsToggle} />
     </section>
     <span  style={{fontFamily:"NexaLight",fontSize:'10px', position: 'absolute', bottom: '2%', left: '50%', transform: 'translateX(-50%)',textAlign:'center',zIndex:10,width:'90%',color:"white" }}>
   Apple Logo is a trademark of Apple Inc. Macintosh logo is a trademark of Apple Inc.

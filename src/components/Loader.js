@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useProgress } from '@react-three/drei'
 
-export default function LoadingScreen({handleSetLoadedScreen}) {
+export default function LoadingScreen({handleSetLoadedScreen,handleCameraStart}) {
     const { progress } = useProgress()
     const [currentProgress, setCurrentProgress] = useState(0);
     const [fullyLoaded, setFullyLoaded] = useState(false);
@@ -17,11 +17,11 @@ export default function LoadingScreen({handleSetLoadedScreen}) {
 
     useEffect(() => {
         if (typeof window !== 'undefined') {
-            setIsDesktop(window.innerWidth > 550);
+            setIsDesktop(window.innerWidth > 650);
         }
         function handleResize() {
             if (typeof window !== 'undefined') {
-                setIsDesktop(window.innerWidth > 550);
+                setIsDesktop(window.innerWidth > 650);
             }
         }
         window.addEventListener('resize', handleResize);
@@ -31,6 +31,7 @@ export default function LoadingScreen({handleSetLoadedScreen}) {
     const fullyLoad = () => {
         setFullyLoaded(true);
         handleSetLoadedScreen();
+        handleCameraStart();
     }
 
     // Conditionally render the loading screen only on the client side

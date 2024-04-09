@@ -20,7 +20,7 @@ import { Grid } from '@react-three/postprocessing'
 import { ToneMapping } from '@react-three/postprocessing'
 
 
-const Scene = ({ orbitControlsActive, handleOrbitControlsToggle,handleUiControlsToggle,showUiControls }) => {
+const Scene = ({ orbitControlsActive,cameraStart, handleOrbitControlsToggle,handleUiControlsToggle,showUiControls }) => {
   const mesh = useRef();
 
   const meshRef1 = useRef();
@@ -115,7 +115,7 @@ const Scene = ({ orbitControlsActive, handleOrbitControlsToggle,handleUiControls
      position={[0,0,0]}
      >
       
-      <Computer handleUiControlsToggle={handleUiControlsToggle} showUiControls={showUiControls} standardCameraPosition={standardCameraPosition} standardCameraRotation={standardCameraRotation} orbitControlsActive={orbitControlsActive}  isPortfolioActive={isPortfolioActive} />
+      <Computer cameraStart={cameraStart} handleUiControlsToggle={handleUiControlsToggle} showUiControls={showUiControls} standardCameraPosition={standardCameraPosition} standardCameraRotation={standardCameraRotation} orbitControlsActive={orbitControlsActive}  isPortfolioActive={isPortfolioActive} />
 
       <Floppy handleUiControlsToggle={handleUiControlsToggle} showUiControls={showUiControls} standardCameraPosition={standardCameraPosition} standardCameraRotation={standardCameraRotation} orbitControlsActive={orbitControlsActive} onPortfolioActivate={handlePortfolioActivation}/>
   

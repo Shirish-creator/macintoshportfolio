@@ -7,7 +7,7 @@ import Keyboard from './keyboard';
 import gsap from "gsap";
 import { useThree } from 'react-three-fiber';
 
-const Computer = ({ isPortfolioActive,orbitControlsActive,standardCameraPosition,standardCameraRotation,handleUiControlsToggle,showUiControls }) => {
+const Computer = ({cameraStart, isPortfolioActive,orbitControlsActive,standardCameraPosition,standardCameraRotation,handleUiControlsToggle,showUiControls }) => {
   const mesh = useRef();
   const [zoomactive, setZoomActive] = useState(false);
   const { camera } = useThree();
@@ -20,6 +20,8 @@ const keydown=()=>{
   const sound = new Audio('/keyboard-key.mp3');
         sound.play();
 }
+
+
 
   const handleButtonClick = () => {
     // Toggle the zoomactive state
@@ -50,6 +52,48 @@ const keydown=()=>{
       ease: "power2.out" // Easing function
     });
   };
+
+
+    // loadscreen animation   
+    
+      // Tween the camera position
+
+      gsap.from(camera.position, {
+        x: -15,
+        y: 7,
+        z: 2,
+        duration: 3,
+        ease: "power2.out"
+      });
+
+      gsap.to(camera.position, {
+        x: standardCameraPosition.x,
+        y: standardCameraPosition.y,
+        z: standardCameraPosition.z,
+        duration: 3,
+        ease: "power2.in"
+      });
+
+      gsap.from(camera.rotation, {
+        x: 0,
+        y: -5,
+        z: 0,
+        duration: 3,
+        ease: "power2.out"
+      });
+      gsap.to(camera.rotation, {
+        x: standardCameraRotation.x,
+        y: standardCameraRotation.y,
+        z: standardCameraRotation.z,
+        duration: 3,
+        ease: "power2.out"
+      });
+    
+    
+  
+  
+    
+  
 
   return (
     <>
