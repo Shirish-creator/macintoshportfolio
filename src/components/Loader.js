@@ -31,6 +31,7 @@ export default function LoadingScreen({handleSetLoadedScreen,handleCameraStart})
     const fullyLoad = () => {
         setFullyLoaded(true);
         handleSetLoadedScreen();
+        
         handleCameraStart();
     }
 

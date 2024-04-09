@@ -11,6 +11,7 @@ const Computer = ({cameraStart, isPortfolioActive,orbitControlsActive,standardCa
   const mesh = useRef();
   const [zoomactive, setZoomActive] = useState(false);
   const { camera } = useThree();
+  const [animationTriggered, setAnimationTriggered] = useState(false);
 
   const { nodes } = useGLTF('/MacintoshCell.glb');
   const bakedTexture = useTexture('/BAKEDMACINTOSH2.jpg')
@@ -54,42 +55,42 @@ const keydown=()=>{
   };
 
 
-    // loadscreen animation   
-    
-      // Tween the camera position
+  useEffect(() => {
+    if (cameraStart) {
+      
+  gsap.from(camera.position, {
+    x: -15,
+    y: 7,
+    z: 2,
+    duration: 3,
+    ease: "power2.out"
+  });
 
+  gsap.to(camera.position, {
+    x: standardCameraPosition.x,
+    y: standardCameraPosition.y,
+    z: standardCameraPosition.z,
+    duration: 3,
+    ease: "power2.in"
+  });
+  console.log('ended')
 
-  // gsap.from(camera.position, {
-  //   x: -15,
-  //   y: 7,
-  //   z: 2,
-  //   duration: 3,
-  //   ease: "power2.out"
-  // });
-
-  // gsap.to(camera.position, {
-  //   x: standardCameraPosition.x,
-  //   y: standardCameraPosition.y,
-  //   z: standardCameraPosition.z,
-  //   duration: 3,
-  //   ease: "power2.in"
-  // });
-
-  // gsap.from(camera.rotation, {
-  //   x: 0,
-  //   y: -5,
-  //   z: 0,
-  //   duration: 3,
-  //   ease: "power2.out"
-  // });
-  // gsap.to(camera.rotation, {
-  //   x: standardCameraRotation.x,
-  //   y: standardCameraRotation.y,
-  //   z: standardCameraRotation.z,
-  //   duration: 3,
-  //   ease: "power2.out"
-  // });
-
+  gsap.from(camera.rotation, {
+    x: 0,
+    y: -5,
+    z: 0,
+    duration: 3,
+    ease: "power2.out"
+  });
+  gsap.to(camera.rotation, {
+    x: standardCameraRotation.x,
+    y: standardCameraRotation.y,
+    z: standardCameraRotation.z,
+    duration: 3,
+    ease: "power2.out"
+  });
+    }
+  }, [cameraStart])
 
 
   

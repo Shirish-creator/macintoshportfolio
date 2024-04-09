@@ -40,10 +40,13 @@ return (
         // fallback={<LoadingScreen />} 
         >
      
-          <Scene cameraStart={cameraStart} orbitControlsActive={orbitControlsActive}
+          <Scene cameraStart={cameraStart} 
+          orbitControlsActive={orbitControlsActive}
           handleUiControlsToggle={handleUiControlsToggle}
           showUiControls={showUiControls}
-          handleOrbitControlsToggle={handleOrbitControlsToggle}  />
+          handleCameraStart ={handleCameraStart }
+          handleOrbitControlsToggle={handleOrbitControlsToggle} 
+           />
         </Suspense>
       </Canvas>
       
