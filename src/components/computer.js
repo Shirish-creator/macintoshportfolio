@@ -58,41 +58,40 @@ const keydown=()=>{
     
       // Tween the camera position
 
-      gsap.from(camera.position, {
-        x: -15,
-        y: 7,
-        z: 2,
-        duration: 3,
-        ease: "power2.out"
-      });
 
-      gsap.to(camera.position, {
-        x: standardCameraPosition.x,
-        y: standardCameraPosition.y,
-        z: standardCameraPosition.z,
-        duration: 3,
-        ease: "power2.in"
-      });
+  // gsap.from(camera.position, {
+  //   x: -15,
+  //   y: 7,
+  //   z: 2,
+  //   duration: 3,
+  //   ease: "power2.out"
+  // });
 
-      gsap.from(camera.rotation, {
-        x: 0,
-        y: -5,
-        z: 0,
-        duration: 3,
-        ease: "power2.out"
-      });
-      gsap.to(camera.rotation, {
-        x: standardCameraRotation.x,
-        y: standardCameraRotation.y,
-        z: standardCameraRotation.z,
-        duration: 3,
-        ease: "power2.out"
-      });
-    
-    
-  
-  
-    
+  // gsap.to(camera.position, {
+  //   x: standardCameraPosition.x,
+  //   y: standardCameraPosition.y,
+  //   z: standardCameraPosition.z,
+  //   duration: 3,
+  //   ease: "power2.in"
+  // });
+
+  // gsap.from(camera.rotation, {
+  //   x: 0,
+  //   y: -5,
+  //   z: 0,
+  //   duration: 3,
+  //   ease: "power2.out"
+  // });
+  // gsap.to(camera.rotation, {
+  //   x: standardCameraRotation.x,
+  //   y: standardCameraRotation.y,
+  //   z: standardCameraRotation.z,
+  //   duration: 3,
+  //   ease: "power2.out"
+  // });
+
+
+
   
 
   return (
