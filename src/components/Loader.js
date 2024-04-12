@@ -11,7 +11,7 @@ export default function LoadingScreen({handleSetLoadedScreen,handleCameraStart})
     useEffect(() => {
         if (progress === 100) {
             setLoadedScreen(true)
-        }
+        } 
         setCurrentProgress(progress); // Update current progress
     }, [progress])
 
@@ -43,9 +43,9 @@ export default function LoadingScreen({handleSetLoadedScreen,handleCameraStart})
             ${fullyLoaded ? 'LoaderScreen-active' : 'LoaderScreen-inactive'}
              flex fixed justify-center items-center  flex-col`} >
                 {isDesktop ? 
-                    <div className='desktopContent flex justify-center gap-6 flex-col items-center'>
-                        <div className='flex flex-row gap-2'>LOADED {currentProgress.toFixed(0)} %</div>
-                        <button onClick={fullyLoad} className={`loadbutton ${loadedScreen ? 'loadbutton-active':'loadbutton-inactive'}`}>START</button>
+                    <div className='desktopContent flex justify-center gap-2 flex-col items-center'>
+                        <div className='flex flex-row ' style={{fontSize:"224px"}}> {currentProgress.toFixed(0)} <span>%</span></div>
+                        <button onClick={fullyLoad} className={`loadbutton ${loadedScreen ? 'loadbutton-active':'loadbutton-inactive'}`}>START EXPERIENCE</button>
                     </div>
                 :
                 <>

@@ -1,4 +1,4 @@
-import { useGLTF, useTexture, Html } from '@react-three/drei';
+import { useGLTF, useTexture, Html ,shaderMaterial} from '@react-three/drei';
 import * as THREE from 'three';
 import { useFrame } from "react-three-fiber";
 import { useRef, useState, useEffect } from 'react';
@@ -6,6 +6,9 @@ import * as TWEEN from '@tweenjs/tween.js'
 import Keyboard from './keyboard';
 import gsap from "gsap";
 import { useThree } from 'react-three-fiber';
+
+
+
 
 const Computer = ({cameraStart, isPortfolioActive,orbitControlsActive,standardCameraPosition,standardCameraRotation,handleUiControlsToggle,showUiControls }) => {
   const mesh = useRef();
@@ -17,7 +20,6 @@ const Computer = ({cameraStart, isPortfolioActive,orbitControlsActive,standardCa
   const bakedTexture = useTexture('/BAKEDMACINTOSH2.jpg')
 
 const keydown=()=>{
-  console.log('hello')
   const sound = new Audio('/keyboard-key.mp3');
         sound.play();
 }
@@ -147,7 +149,8 @@ const keydown=()=>{
 
         {/* <mesh
           position={[0, 0, -0.42]}
-          geometry={nodes.screen.geometry}>
+          geometry={nodes.screen.geometry}           
+          >
           <meshBasicMaterial></meshBasicMaterial>
         </mesh> */}
         <Keyboard />
