@@ -56,7 +56,45 @@ const Scene = ({ orbitControlsActive,cameraStart, handleOrbitControlsToggle,hand
     
               <PerspectiveCamera ref={cameraref} makeDefault position={[standardCameraPosition.x, standardCameraPosition.y, standardCameraPosition.z]} />
 
-        
+        <EffectComposer multisampling={0} enableNormalPass>
+          <Vignette
+          offset={0.3}
+          darkness={0.8}/>
+          <Glitch
+          delay={[4,4]}
+          duration={[0.01, 0.03]}
+          strength={[2,2]}
+          />
+          {/* <DepthOfField
+          focusDistance={0.1}
+          // focalLength={0.15}
+          bokehScale={2}
+          /> */}
+          <Noise
+          
+          blendFunction={BlendFunction.MULTIPLY}
+          />
+          <ChromaticAberration
+    blendFunction={BlendFunction.NORMAL} // blend mode
+    offset={[0.0010, 0.0016]} // color offset
+  />
+   <Grid
+    blendFunction={BlendFunction.OVERLAY} // blend mode
+    scale={2.0} // grid pattern scale
+    lineWidth={0.0} // grid pattern line width
+    // size={{ 10, height }} // overrides the default pass width and height
+  />
+ 
+   <ToneMapping
+    blendFunction={BlendFunction.NORMAL} // blend mode
+    adaptive={true} // toggle adaptive luminance map usage
+    resolution={2400} // texture resolution of the luminance map
+    middleGrey={20.6} // middle grey factor
+    maxLuminance={1000.0} // maximum luminance
+    averageLuminance={500.0} // average luminance
+    adaptationRate={1.0} // luminance adaptation rate
+  />
+        </EffectComposer>
 
           
           

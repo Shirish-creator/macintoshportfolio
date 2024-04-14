@@ -142,11 +142,9 @@ const keydown=()=>{
           <iframe     
             style={{ width: "1300px", height: "990px", transform: "scale(0.23)" }}
 
-            src={isPortfolioActive ? "https://www.retrogames.cc/embed/40238-tekken-3.html" : "https://humorous-guest-092420.framer.app/"}
+            src={isPortfolioActive ? "https://www.shirishshakya.com/" : "https://humorous-guest-092420.framer.app/"}
           />
         </Html>
-
-
 
         {/* <mesh
           position={[0, 0, 0]}
