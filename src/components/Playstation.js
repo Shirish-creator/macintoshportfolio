@@ -61,10 +61,10 @@ const powerButton=()=>{
     if (isFrameActive) {
         // If frame is active, update mesh position and set emissive material
         powerref.current.position.y = -2; // Example: Increment y position by -2 units in each frame
-        setGreenEmissiveMaterial(new THREE.MeshBasicMaterial({
+        setGreenEmissiveMaterial(new THREE.MeshStandardMaterial({
             color: 0x00ff00, // Green color
-            emissive: 0x00ff00, // Green emissive color
-            emissiveIntensity: 1, // Emissive intensity (adjust as needed)
+emissive:0x00ff00,
+emissiveIntensity:2,
             side: THREE.DoubleSide, // Render the material on both sides of the geometry
             // Add any other material properties you need
         }));

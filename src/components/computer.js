@@ -141,16 +141,16 @@ const keydown=()=>{
                       {playStationActive && 
                       <iframe     
                       style={{ width: "1300px", height: "990px", transform: "scale(0.23)" }}
-                      allowfullscreen
-                      frameborder="0"
+                      allowFullScreen
+                      frameBorder="0"
                       src={"https://retrogamesonline.io/play/tekken-3"}
                     />
                       }
                       {!playStationActive &&
                         <iframe     
                         style={{ width: "1300px", height: "990px", transform: "scale(0.23)" }}
-                        allowfullscreen
-                        frameborder="0"
+                        allowFullScreen
+                        frameBorder="0"
                         src={isPortfolioActive ? "https://www.shirishshakya.com" : "https://humorous-guest-092420.framer.app/"}
                       />
                       }
