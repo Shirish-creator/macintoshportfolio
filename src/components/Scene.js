@@ -87,7 +87,7 @@ scale={2.0} // grid pattern scale
 lineWidth={0.0} // grid pattern line width
 // size={{ 10, height }} // overrides the default pass width and height
 />
-
+<Bloom/>
 <ToneMapping
 blendFunction={BlendFunction.NORMAL} // blend mode
 adaptive={true} // toggle adaptive luminance map usage

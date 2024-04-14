@@ -3,6 +3,7 @@ import { useGLTF,Html } from '@react-three/drei';
 import { useFrame } from 'react-three-fiber';
 import { useThree } from 'react-three-fiber';
 import gsap from 'gsap';
+import * as THREE from 'three';
 
 export function Playstation({PlaystationActivation, orbitControlsActive, standardCameraPosition, standardCameraRotation, handleUiControlsToggle}) {
   const { nodes, materials } = useGLTF('/playstation2.glb');
@@ -11,6 +12,18 @@ export function Playstation({PlaystationActivation, orbitControlsActive, standar
   const { camera } = useThree();
 
   const [isFrameActive, setIsFrameActive] = useState(false);
+  const [indicatorMaterial, setGreenEmissiveMaterial] = useState(materials.phong1);
+
+//   const [greenEmissiveMaterial, setGreenEmissiveMaterial] = useState(() => {
+//     // Create the green emissive material
+//     return new THREE.MeshBasicMaterial({
+//         color: 0x00ff00, // Green color
+//         emissive: 0x00ff00, // Green emissive color
+//         emissiveIntensity: 1, // Emissive intensity (adjust as needed)
+//         side: THREE.DoubleSide, // Render the material on both sides of the geometry
+//         // Add any other material properties you need
+//     });
+// });
 
 const powerButton=()=>{
   setIsFrameActive(!isFrameActive);
@@ -19,7 +32,6 @@ const powerButton=()=>{
   const handleButtonClick = () => {
     setZoomActive(!zoomactive);
     handleUiControlsToggle();
-    console.log(standardCameraPosition)
 
     // Define the target camera position based on the zoomactive state
     const targetPosition = { x: zoomactive ?0:-12.5, y:zoomactive ? standardCameraPosition.y:-2, z: zoomactive ? standardCameraPosition.z : 12 };
@@ -47,13 +59,21 @@ const powerButton=()=>{
   // Update lidRef position in every frame
   useFrame(() => {
     if (isFrameActive) {
-      // Example: Update the y position of the lidRef mesh in each frame
-      powerref.current.position.y =-2 // Increment y position by 0.1 units in each frame
-    }else{
-      powerref.current.position.y =2 // Increment y position by 0.1 units in each frame
-
+        // If frame is active, update mesh position and set emissive material
+        powerref.current.position.y = -2; // Example: Increment y position by -2 units in each frame
+        setGreenEmissiveMaterial(new THREE.MeshBasicMaterial({
+            color: 0x00ff00, // Green color
+            emissive: 0x00ff00, // Green emissive color
+            emissiveIntensity: 1, // Emissive intensity (adjust as needed)
+            side: THREE.DoubleSide, // Render the material on both sides of the geometry
+            // Add any other material properties you need
+        }));
+    } else {
+        // If frame is not active, update mesh position and set initial material
+        powerref.current.position.y = 2; // Example: Increment y position by 2 units in each frame
+        setGreenEmissiveMaterial(materials.phong1);
     }
-  });
+});
 
   return (
     <group  dispose={null}>
@@ -117,7 +137,8 @@ className="w-6 h-6"
 
         </mesh>
         <mesh castShadow   geometry={nodes.MainBody_LP_3_phong1_0.geometry} material={materials.phong1} position={[1.655, 0, 0]} >
-                <mesh ref={powerref} onClick={powerButton} geometry={nodes.powerbutton.geometry} material={materials.phong1} />
+        <mesh ref={powerref} onClick={powerButton} geometry={nodes.powerbutton.geometry} material={materials.phong1} />
+        <mesh geometry={nodes.lightindicator.geometry} material={indicatorMaterial} />
 
         </mesh>
         
