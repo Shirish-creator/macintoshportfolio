@@ -9,7 +9,7 @@ import { useThree } from 'react-three-fiber';
 
 
 
-const Computer = ({cameraStart, isPortfolioActive,orbitControlsActive,standardCameraPosition,standardCameraRotation,handleUiControlsToggle,showUiControls }) => {
+const Computer = ({playStationActive,cameraStart, isPortfolioActive,orbitControlsActive,standardCameraPosition,standardCameraRotation,handleUiControlsToggle,showUiControls }) => {
   const mesh = useRef();
   const [zoomactive, setZoomActive] = useState(false);
   const { camera } = useThree();
@@ -74,7 +74,6 @@ const keydown=()=>{
     duration: 3,
     ease: "power2.in"
   });
-  console.log('ended')
 
   gsap.from(camera.rotation, {
     x: 0,
@@ -139,23 +138,38 @@ const keydown=()=>{
                     occlude
                     className='iframescreencontainer'
                     >
-          <iframe     
-            style={{ width: "1300px", height: "990px", transform: "scale(0.23)" }}
-            allowfullscreen
-            frameborder="0"
-            src={isPortfolioActive ? "https://retrogamesonline.io/play/tekken-3" : "https://humorous-guest-092420.framer.app/"}
-          />
-
-          
-          {/* tekken game */}
+                      {playStationActive && 
+                      <iframe     
+                      style={{ width: "1300px", height: "990px", transform: "scale(0.23)" }}
+                      allowfullscreen
+                      frameborder="0"
+                      src={"https://retrogamesonline.io/play/tekken-3"}
+                    />
+                      }
+                      {!playStationActive &&
+                        <iframe     
+                        style={{ width: "1300px", height: "990px", transform: "scale(0.23)" }}
+                        allowfullscreen
+                        frameborder="0"
+                        src={isPortfolioActive ? "https://www.shirishshakya.com" : "https://humorous-guest-092420.framer.app/"}
+                      />
+                      }
+    
+          {/* games available */}
+          {/* https://retrogamesonline.io/play/disneys-hercules */}
           {/* https://retrogamesonline.io/play/tekken-3 */}
+          {/* https://retrogamesonline.io/play/silent-hill */}
         </Html>
        
         <Keyboard />
       </group>
-      {isPortfolioActive && 
-        <Html style={{width:'1200px',fontFamily:"NexaLight"}} transform position={[8.5,10,0]}> 
-                    <h3 style={{position:"absolute", color:"white",width:"fit-content"}} > This game is available temporarily. Namco is trademark of Bandai.co</h3>
+      {playStationActive && 
+        <Html style={{width:'600px',fontFamily:"NexaLight"}} transform position={[0,10,0]}> 
+        <div className='flex flex-col gap-4 items-center' style={{textAlign:"center"}}>
+        <span><h3 style={{color:"white",width:"fit-content"}} >  Namco is a trademark of Bandai.co</h3></span>
+        <span><p style={{ color:"white",width:"fit-content"}} > The game might go through small freezes, have patience </p></span>
+
+        </div>
 
 
         </Html>

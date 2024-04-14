@@ -28,10 +28,13 @@ const Scene = ({ orbitControlsActive,cameraStart, handleOrbitControlsToggle,hand
   const { camera } = useThree();
   const mouse = useRef([0, 0]);
   const originalCameraPosition = [0, 0, 40]; // Store the original camera position
-
+  const [playStationActive,setPlaystaionActive]=useState(false);
 
   
-  
+  const PlaystationActivation=()=>{
+    setPlaystaionActive(prevState => !prevState);
+  }
+
   const { nodes } = useGLTF('/MacintoshCell.glb');
   const [isPortfolioActive, setIsPortfolioActive] = useState(false);
 
@@ -55,7 +58,7 @@ const Scene = ({ orbitControlsActive,cameraStart, handleOrbitControlsToggle,hand
     <>
     
               <PerspectiveCamera ref={cameraref} makeDefault position={[standardCameraPosition.x, standardCameraPosition.y, standardCameraPosition.z]} />
-{!isPortfolioActive && 
+{!playStationActive && 
     <EffectComposer multisampling={0} enableNormalPass>
     <Vignette
     offset={0.3}
@@ -116,7 +119,7 @@ adaptationRate={1.0} // luminance adaptation rate
      position={[0,0,0]}
      >
       
-      <Computer cameraStart={cameraStart} handleCameraStart={handleCameraStart} handleUiControlsToggle={handleUiControlsToggle} showUiControls={showUiControls} standardCameraPosition={standardCameraPosition} standardCameraRotation={standardCameraRotation} orbitControlsActive={orbitControlsActive}  isPortfolioActive={isPortfolioActive} />
+      <Computer playStationActive={playStationActive} cameraStart={cameraStart} handleCameraStart={handleCameraStart} handleUiControlsToggle={handleUiControlsToggle} showUiControls={showUiControls} standardCameraPosition={standardCameraPosition} standardCameraRotation={standardCameraRotation} orbitControlsActive={orbitControlsActive}  isPortfolioActive={isPortfolioActive} />
      
       <Floppy handleUiControlsToggle={handleUiControlsToggle} showUiControls={showUiControls} standardCameraPosition={standardCameraPosition} standardCameraRotation={standardCameraRotation} orbitControlsActive={orbitControlsActive} onPortfolioActivate={handlePortfolioActivation}/>
   
@@ -145,7 +148,7 @@ adaptationRate={1.0} // luminance adaptation rate
       <pointLight color="purple" castShadow  position={[15, -2, 5]}   intensity={400} distance={0} />
       <pointLight color="orange" castShadow  position={[-10, -2, 5]}   intensity={400} distance={0} />
       {/* <Iphone/> */}
-      {/* <Playstation orbitControlsActive={orbitControlsActive}/> */}
+      <Playstation PlaystationActivation={PlaystationActivation} handleUiControlsToggle={handleUiControlsToggle} orbitControlsActive={orbitControlsActive} standardCameraPosition={standardCameraPosition} standardCameraRotation={standardCameraRotation}/>
     </group>
     
     
