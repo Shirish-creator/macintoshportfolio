@@ -152,7 +152,6 @@ adaptationRate={1.0} // luminance adaptation rate
     </group>
     
     
-    {/* </PresentationControls>  */}
     
 
 

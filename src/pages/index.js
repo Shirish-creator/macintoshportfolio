@@ -127,7 +127,7 @@ const [cameraStart,setCameraStart]=useState(false)
     <Threed handleCameraStart={handleCameraStart} cameraStart={cameraStart } handleSetLoadedScreen={handleSetLoadedScreen} showUiControls={showUiControls} handleUiControlsToggle={handleUiControlsToggle} orbitControlsActive={orbitControlsActive} handleOrbitControlsToggle={handleOrbitControlsToggle} />
     </section>
     <span  style={{fontFamily:"NexaLight",fontSize:'10px', position: 'absolute', bottom: '2%', left: '50%', transform: 'translateX(-50%)',textAlign:'center',zIndex:10,width:'90%',color:"white" }}>
-  Apple Logo is a trademark of Apple Inc. Macintosh logo is a trademark of Apple Inc.
+  Apple Logo is a trademark of Apple Inc. Macintosh logo is a trademark of Apple Inc. Tekken is a trademark of Bandai.co. Playstation logo is a trademark of Sony.
 </span>
     
     

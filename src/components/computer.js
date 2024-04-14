@@ -166,7 +166,6 @@ const keydown=()=>{
       {playStationActive && 
         <Html style={{width:'600px',fontFamily:"NexaLight"}} transform position={[0,10,0]}> 
         <div className='flex flex-col gap-4 items-center' style={{textAlign:"center"}}>
-        <span><h3 style={{color:"white",width:"fit-content"}} >  Namco is a trademark of Bandai.co</h3></span>
         <span><p style={{ color:"white",width:"fit-content"}} > The game might go through small freezes, have patience </p></span>
 
         </div>
