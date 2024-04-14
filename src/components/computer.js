@@ -1,4 +1,4 @@
-import { useGLTF, useTexture, Html ,shaderMaterial} from '@react-three/drei';
+import { useGLTF, useTexture, Html ,shaderMaterial, MeshTransmissionMaterial} from '@react-three/drei';
 import * as THREE from 'three';
 import { useFrame } from "react-three-fiber";
 import { useRef, useState, useEffect } from 'react';
@@ -6,7 +6,6 @@ import * as TWEEN from '@tweenjs/tween.js'
 import Keyboard from './keyboard';
 import gsap from "gsap";
 import { useThree } from 'react-three-fiber';
-
 
 
 
@@ -143,15 +142,34 @@ const keydown=()=>{
           <iframe     
             style={{ width: "1300px", height: "990px", transform: "scale(0.23)" }}
 
-            src={isPortfolioActive ? "https://www.shirishshakya.com/" : "https://humorous-guest-092420.framer.app/"}
+            src={isPortfolioActive ? "https://www.retrogames.cc/embed/40238-tekken-3.html" : "https://humorous-guest-092420.framer.app/"}
           />
         </Html>
 
+
+
         {/* <mesh
-          position={[0, 0, -0.42]}
+          position={[0, 0, 0]}
           geometry={nodes.screen.geometry}           
           >
-          <meshBasicMaterial></meshBasicMaterial>
+          <MeshTransmissionMaterial backside={false} blendAlpha={1} >
+           </MeshTransmissionMaterial>
+           <Html
+        zIndexRange={[20, 0]}
+          position={[0, 2, 6.5]} rotation={[-0.13, 0, 0]}
+          style={{userSelect:"none",WebkitUserSelect:"none",zIndex:10,transformStyle: "preserve-3d"}}
+          transform
+         
+          wrapperClass='htmlScreen'
+          occlude
+                    className='iframescreencontainer' 
+                    >
+          <iframe     
+            style={{ width: "1300px", height: "990px", transform: "scale(0.23)" }}
+
+            src={isPortfolioActive ? "https://www.shirishshakya.com/" : "https://humorous-guest-092420.framer.app/"}
+          />
+        </Html>
         </mesh> */}
         <Keyboard />
       </group>
