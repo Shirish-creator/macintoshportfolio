@@ -145,9 +145,21 @@ const keydown=()=>{
             frameborder="0"
             src={isPortfolioActive ? "https://retrogamesonline.io/play/tekken-3" : "https://humorous-guest-092420.framer.app/"}
           />
+
+          
+          {/* tekken game */}
+          {/* https://retrogamesonline.io/play/tekken-3 */}
         </Html>
+       
         <Keyboard />
       </group>
+      {isPortfolioActive && 
+        <Html style={{width:'1200px',fontFamily:"NexaLight"}} transform position={[8.5,10,0]}> 
+                    <h3 style={{position:"absolute", color:"white",width:"fit-content"}} > This game is available temporarily. Namco is trademark of Bandai.co</h3>
+
+
+        </Html>
+          }
     </>
   );
 };
