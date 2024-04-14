@@ -35,7 +35,7 @@ const keydown=()=>{
   
 
     // Define the target camera position based on the zoomactive state
-    const targetPosition = { x: 0, y:zoomactive?standardCameraPosition.y: 3, z: zoomactive ? standardCameraPosition.z : 15 };
+    const targetPosition = { x: 0, y:zoomactive?standardCameraPosition.y: 3, z: zoomactive ? standardCameraPosition.z : 18 };
     const targetRotation = { x: 0, y:zoomactive ?standardCameraRotation.y:0, z: 0 };
 
     // Tween the camera position
@@ -141,34 +141,11 @@ const keydown=()=>{
                     >
           <iframe     
             style={{ width: "1300px", height: "990px", transform: "scale(0.23)" }}
-
-            src={isPortfolioActive ? "https://www.shirishshakya.com/" : "https://humorous-guest-092420.framer.app/"}
+            allowfullscreen
+            frameborder="0"
+            src={isPortfolioActive ? "https://retrogamesonline.io/play/tekken-3" : "https://humorous-guest-092420.framer.app/"}
           />
         </Html>
-
-        {/* <mesh
-          position={[0, 0, 0]}
-          geometry={nodes.screen.geometry}           
-          >
-          <MeshTransmissionMaterial backside={false} blendAlpha={1} >
-           </MeshTransmissionMaterial>
-           <Html
-        zIndexRange={[20, 0]}
-          position={[0, 2, 6.5]} rotation={[-0.13, 0, 0]}
-          style={{userSelect:"none",WebkitUserSelect:"none",zIndex:10,transformStyle: "preserve-3d"}}
-          transform
-         
-          wrapperClass='htmlScreen'
-          occlude
-                    className='iframescreencontainer' 
-                    >
-          <iframe     
-            style={{ width: "1300px", height: "990px", transform: "scale(0.23)" }}
-
-            src={isPortfolioActive ? "https://www.shirishshakya.com/" : "https://humorous-guest-092420.framer.app/"}
-          />
-        </Html>
-        </mesh> */}
         <Keyboard />
       </group>
     </>
