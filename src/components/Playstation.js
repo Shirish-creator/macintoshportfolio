@@ -25,10 +25,7 @@ export function Playstation({PlaystationActivation, orbitControlsActive, standar
 //     });
 // });
 
-const powerButton=()=>{
-  setIsFrameActive(!isFrameActive);
-  PlaystationActivation();
-}
+
   const handleButtonClick = () => {
     setZoomActive(!zoomactive);
     handleUiControlsToggle();
@@ -43,7 +40,7 @@ const powerButton=()=>{
       y: targetPosition.y,
       z: targetPosition.z,
       duration: 1.5, // Duration of the animation in seconds
-      ease: "power2.out" // Easing function
+      ease: "power1.in" // Easing function
     });
     // if(zoomactive){
     // camera.lookAt(groupRef.current.position)}
@@ -52,7 +49,7 @@ const powerButton=()=>{
       y: targetRotation.y,
       z: targetRotation.z,
       duration: 1.5, // Duration of the animation in seconds
-      ease: "power2.out" // Easing function
+      ease: "power1.out" // Easing function
     });
   //  Toggle the state to activate/deactivate useFrame
   };
@@ -74,6 +71,14 @@ emissiveIntensity:2,
         setGreenEmissiveMaterial(materials.phong1);
     }
 });
+const powerButton = () => {
+  setIsFrameActive(!isFrameActive);
+  setTimeout(() => {
+    PlaystationActivation();
+
+    handleButtonClick();
+  }, 750); // 1.5 seconds delay
+};
 
   return (
     <group  dispose={null}>
