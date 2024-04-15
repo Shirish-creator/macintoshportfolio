@@ -1,6 +1,7 @@
 import React from 'react';
 import { useGLTF, useTexture,Html, RenderCubeTextur, MeshReflectorMaterial } from '@react-three/drei';
-import { Bloom, DepthOfField, EffectComposer, Glitch, Noise, Vignette } from '@react-three/postprocessing';
+import { Bloom, DepthOfField, EffectComposer, Glitch, Noise, Vignette,SSAO, SMAA, Selection, Outline } from '@react-three/postprocessing';
+import { Bounds } from '@react-three/drei';
 import * as THREE from 'three';
 import { useFrame } from "react-three-fiber";
 import { useRef,useState,useEffect } from 'react';
@@ -18,6 +19,7 @@ import { PerspectiveCamera } from '@react-three/drei';
 import { ChromaticAberration } from '@react-three/postprocessing'
 import { Grid } from '@react-three/postprocessing'
 import { ToneMapping } from '@react-three/postprocessing'
+
 
 
 const Scene = ({ orbitControlsActive,cameraStart, handleOrbitControlsToggle,handleUiControlsToggle,showUiControls,handleCameraStart  }) => {
@@ -58,6 +60,8 @@ const Scene = ({ orbitControlsActive,cameraStart, handleOrbitControlsToggle,hand
     <>
     
               <PerspectiveCamera ref={cameraref} makeDefault position={[standardCameraPosition.x, standardCameraPosition.y, standardCameraPosition.z]} />
+
+
 {!playStationActive && 
     <EffectComposer multisampling={0} enableNormalPass>
     <Vignette
@@ -148,7 +152,10 @@ adaptationRate={1.0} // luminance adaptation rate
       <pointLight color="purple" castShadow  position={[15, -2, 5]}   intensity={400} distance={0} />
       <pointLight color="orange" castShadow  position={[-10, -2, 5]}   intensity={400} distance={0} />
       {/* <Iphone/> */}
-      <Playstation PlaystationActivation={PlaystationActivation} handleUiControlsToggle={handleUiControlsToggle} orbitControlsActive={orbitControlsActive} standardCameraPosition={standardCameraPosition} standardCameraRotation={standardCameraRotation}/>
+     
+          <Playstation PlaystationActivation={PlaystationActivation} handleUiControlsToggle={handleUiControlsToggle} orbitControlsActive={orbitControlsActive} standardCameraPosition={standardCameraPosition} standardCameraRotation={standardCameraRotation}/>
+          
+        
     </group>
     
     

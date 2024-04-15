@@ -4,27 +4,20 @@ import { useFrame } from 'react-three-fiber';
 import { useThree } from 'react-three-fiber';
 import gsap from 'gsap';
 import * as THREE from 'three';
+import { Selection, Select, EffectComposer, Outline } from '@react-three/postprocessing'
+
+
 
 export function Playstation({PlaystationActivation, orbitControlsActive, standardCameraPosition, standardCameraRotation, handleUiControlsToggle}) {
   const { nodes, materials } = useGLTF('/playstation2.glb');
   const powerref = useRef();
   const [zoomactive, setZoomActive] = useState(false);
   const { camera } = useThree();
-
+  const audioref=useRef();
   const [isFrameActive, setIsFrameActive] = useState(false);
   const [indicatorMaterial, setGreenEmissiveMaterial] = useState(materials.phong1);
-
-//   const [greenEmissiveMaterial, setGreenEmissiveMaterial] = useState(() => {
-//     // Create the green emissive material
-//     return new THREE.MeshBasicMaterial({
-//         color: 0x00ff00, // Green color
-//         emissive: 0x00ff00, // Green emissive color
-//         emissiveIntensity: 1, // Emissive intensity (adjust as needed)
-//         side: THREE.DoubleSide, // Render the material on both sides of the geometry
-//         // Add any other material properties you need
-//     });
-// });
-
+  const [audioPlayed, setAudioPlayed] = useState(false);
+  const [hovered, hover] = useState(null)
 
   const handleButtonClick = () => {
     const sound = new Audio('/whoosh.mp3'); // Replace 'path_to_your_sound_clip.mp3' with the actual path to your sound clip
@@ -59,11 +52,27 @@ export function Playstation({PlaystationActivation, orbitControlsActive, standar
   useFrame(() => {
    
   // Initialize the PlayStation intro sound
-
+  if (isFrameActive && !audioPlayed) {
+    // If frame is active and audio hasn't been played yet, play the audio
+    audioref.current.play();
+    setAudioPlayed(true); // Set audioPlayed state to true to indicate that audio has been played
+} else if (!isFrameActive && audioPlayed) {
+    // If frame is not active and audio has been played, pause the audio
+    audioref.current.pause();
+    audioref.current.currentTime = 0; // Reset audio to the beginning
+    setAudioPlayed(false); // Reset audioPlayed state to false
+}
 
     if (isFrameActive) {
         // If frame is active, update mesh position and set emissive material
-        powerref.current.position.y = -2; // Example: Increment y position by -2 units in each frame
+        // powerref.current.position.y = -2; // Example: Increment y position by -2 units in each frame
+
+        gsap.to(powerref.current.position, {
+          y: -1,
+          
+          duration: 2, // Duration of the animation in seconds
+          ease: "Elastic.easeOut" // Easing function
+        });
         setGreenEmissiveMaterial(new THREE.MeshStandardMaterial({
             color: 0x00ff00, // Green color
 emissive:0x00ff00,
@@ -75,9 +84,15 @@ emissiveIntensity:2,
 
 
     } else {
-
+    
         // If frame is not active, update mesh position and set initial material
-        powerref.current.position.y = 2; // Example: Increment y position by 2 units in each frame
+        // powerref.current.position.y = 2; // Example: Increment y position by 2 units in each frame
+        gsap.to(powerref.current.position, {
+          y: 2,
+          
+          duration: 2, // Duration of the animation in seconds
+          ease: "Elastic.easeOut" // Easing function
+        })
         setGreenEmissiveMaterial(materials.phong1);
 
     }
@@ -159,7 +174,23 @@ className="w-6 h-6"
 
         </mesh>
         <mesh castShadow   geometry={nodes.MainBody_LP_3_phong1_0.geometry} material={materials.phong1} position={[1.655, 0, 0]} >
-        <mesh ref={powerref} onClick={powerButton} geometry={nodes.powerbutton.geometry} material={materials.phong1} />
+        
+       
+        <mesh
+   
+        ref={powerref}
+        onClick={powerButton}
+        geometry={nodes.powerbutton.geometry}
+        material={materials.phong1}
+         >
+         </mesh>
+        
+        <Html>
+        <audio ref={audioref} >
+        <source src="/PlayStationIntro.mp3" type="audio/mpeg" />
+        </audio>
+        </Html>
+       
         <mesh geometry={nodes.lightindicator.geometry} material={indicatorMaterial} />
 
         </mesh>
