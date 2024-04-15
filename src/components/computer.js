@@ -148,7 +148,7 @@ const keydown=()=>{
                     >
                       {playStationActive && videoActive &&
                       <>
-                      <video                       style={{ transform: "scale(0.73,0.7)" }}
+                      <video                       style={{ transform: "scale(0.73,0.71)" }}
  src='./playstationintrocut.mp4' autoPlay></video>
                       {/* <iframe     
                       style={{ width: "1300px", height: "990px", transform: "scale(0.23)" }}

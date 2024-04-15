@@ -216,4 +216,4 @@ rotation={[ 0, 0, .58]}
   );
 }
 
-useGLTF.preload('/playstation.glb');
+useGLTF.preload('/playstation2.glb');
