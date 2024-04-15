@@ -27,6 +27,8 @@ export function Playstation({PlaystationActivation, orbitControlsActive, standar
 
 
   const handleButtonClick = () => {
+    const sound = new Audio('/whoosh.mp3'); // Replace 'path_to_your_sound_clip.mp3' with the actual path to your sound clip
+  sound.play();
     setZoomActive(!zoomactive);
     handleUiControlsToggle();
 
@@ -55,6 +57,10 @@ export function Playstation({PlaystationActivation, orbitControlsActive, standar
   };
   // Update lidRef position in every frame
   useFrame(() => {
+   
+  // Initialize the PlayStation intro sound
+
+
     if (isFrameActive) {
         // If frame is active, update mesh position and set emissive material
         powerref.current.position.y = -2; // Example: Increment y position by -2 units in each frame
@@ -64,19 +70,31 @@ emissive:0x00ff00,
 emissiveIntensity:2,
             side: THREE.DoubleSide, // Render the material on both sides of the geometry
             // Add any other material properties you need
+            
         }));
+
+
     } else {
+
         // If frame is not active, update mesh position and set initial material
         powerref.current.position.y = 2; // Example: Increment y position by 2 units in each frame
         setGreenEmissiveMaterial(materials.phong1);
+
     }
 });
-const powerButton = () => {
-  setIsFrameActive(!isFrameActive);
-  setTimeout(() => {
-    PlaystationActivation();
 
-  }, 750); // 1.5 seconds delay
+
+const powerButton = () => {
+  // Toggle the frame activity state
+  setIsFrameActive(!isFrameActive);
+
+  // Play the power click button sound
+  const sound = new Audio('/powerclickbutton.mp3');
+  sound.play();
+  // Activate PlayStation after a delay
+  setTimeout(() => {
+      PlaystationActivation();
+  }, 750); // 750 milliseconds delay
 };
 
   return (
