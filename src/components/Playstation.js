@@ -162,8 +162,22 @@ className="w-6 h-6"
           </button>
           </Html>}
           <group position={[1.927, 0, -3.697]} rotation={[-Math.PI / 2, 0, 0]} scale={1.958}>
+          
         <group position={[0.843, 0.502, 0]}>
           <mesh castShadow geometry={nodes.Object_7.geometry} material={materials['DeathtrapDungeon.001']} position={[-6.5, -4.9, -3.6]} rotation={[ 1.55, -0.5, 0]} />
+          <Html 
+          castShadow
+  position={[-7.5, -6.1, -3.65]}
+  scale={0.3}
+transform
+occlude
+rotation={[ 0, 0, .58]}
+>
+ <p style={{color:"white",fontFamily:"NexaLight",fontSize:"16px"}} className='flex flex-row gap-2'>Press <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
+  <path strokeLinecap="round" strokeLinejoin="round" d="M5.636 5.636a9 9 0 1 0 12.728 0M12 3v9" />
+</svg>
+</span>  to play</p>
+</Html>
         </group>
       </group>   
       <group scale={0.01} position={[-13, -6.7, 6]} rotation={[0, -1, 0]}>
@@ -183,6 +197,7 @@ className="w-6 h-6"
         geometry={nodes.powerbutton.geometry}
         material={materials.phong1}
          >
+
          </mesh>
         
         <Html>
