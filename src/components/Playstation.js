@@ -40,7 +40,7 @@ export function Playstation({PlaystationActivation, orbitControlsActive, standar
       y: targetPosition.y,
       z: targetPosition.z,
       duration: 1.5, // Duration of the animation in seconds
-      ease: "power1.in" // Easing function
+      ease: "power2.out" // Easing function
     });
     // if(zoomactive){
     // camera.lookAt(groupRef.current.position)}
@@ -49,7 +49,7 @@ export function Playstation({PlaystationActivation, orbitControlsActive, standar
       y: targetRotation.y,
       z: targetRotation.z,
       duration: 1.5, // Duration of the animation in seconds
-      ease: "power1.out" // Easing function
+      ease: "power2.out" // Easing function
     });
   //  Toggle the state to activate/deactivate useFrame
   };
@@ -76,7 +76,6 @@ const powerButton = () => {
   setTimeout(() => {
     PlaystationActivation();
 
-    handleButtonClick();
   }, 750); // 1.5 seconds delay
 };
 
