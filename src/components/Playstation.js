@@ -16,8 +16,7 @@ export function Playstation({PlaystationActivation, orbitControlsActive, standar
   const audioref=useRef();
   const [isFrameActive, setIsFrameActive] = useState(false);
   const [indicatorMaterial, setGreenEmissiveMaterial] = useState(materials.phong1);
-  const [audioPlayed, setAudioPlayed] = useState(false);
-  const [hovered, hover] = useState(null)
+  // const [audioPlayed, setAudioPlayed] = useState(false);
 
   const handleButtonClick = () => {
     const sound = new Audio('/whoosh.mp3'); // Replace 'path_to_your_sound_clip.mp3' with the actual path to your sound clip
@@ -51,17 +50,17 @@ export function Playstation({PlaystationActivation, orbitControlsActive, standar
   // Update lidRef position in every frame
   useFrame(() => {
    
-  // Initialize the PlayStation intro sound
-  if (isFrameActive && !audioPlayed) {
-    // If frame is active and audio hasn't been played yet, play the audio
-    audioref.current.play();
-    setAudioPlayed(true); // Set audioPlayed state to true to indicate that audio has been played
-} else if (!isFrameActive && audioPlayed) {
-    // If frame is not active and audio has been played, pause the audio
-    audioref.current.pause();
-    audioref.current.currentTime = 0; // Reset audio to the beginning
-    setAudioPlayed(false); // Reset audioPlayed state to false
-}
+//   // Initialize the PlayStation intro sound
+//   if (isFrameActive && !audioPlayed) {
+//     // If frame is active and audio hasn't been played yet, play the audio
+//     audioref.current.play();
+//     setAudioPlayed(true); // Set audioPlayed state to true to indicate that audio has been played
+// } else if (!isFrameActive && audioPlayed) {
+//     // If frame is not active and audio has been played, pause the audio
+//     audioref.current.pause();
+//     audioref.current.currentTime = 0; // Reset audio to the beginning
+//     setAudioPlayed(false); // Reset audioPlayed state to false
+// }
 
     if (isFrameActive) {
         // If frame is active, update mesh position and set emissive material
@@ -199,12 +198,12 @@ rotation={[ 0, 0, .58]}
          >
 
          </mesh>
-        
+        {/* original bootup sound
         <Html>
         <audio ref={audioref} >
         <source src="/PlayStationIntro.mp3" type="audio/mpeg" />
         </audio>
-        </Html>
+        </Html> */}
        
         <mesh geometry={nodes.lightindicator.geometry} material={indicatorMaterial} />
 

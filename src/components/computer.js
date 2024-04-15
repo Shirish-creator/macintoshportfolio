@@ -14,6 +14,7 @@ const Computer = ({playStationActive,cameraStart, isPortfolioActive,orbitControl
   const [zoomactive, setZoomActive] = useState(false);
   const { camera } = useThree();
   const [animationTriggered, setAnimationTriggered] = useState(false);
+  const [videoActive, setVideoActive] = useState(true);
 
   const { nodes } = useGLTF('/MacintoshCell.glb');
   const bakedTexture = useTexture('/BAKEDMACINTOSH2.jpg')
@@ -55,6 +56,13 @@ const keydown=()=>{
     });
   };
 
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setVideoActive(false);
+    }, 25000); // 20 seconds
+
+    return () => clearTimeout(timeout);
+  }, []);
 
   useEffect(() => {
     if (cameraStart) {
@@ -131,20 +139,35 @@ const keydown=()=>{
         <Html
         zIndexRange={[20, 0]}
           position={[0, 2, 6.5]} rotation={[-0.13, 0, 0]}
-          style={{userSelect:"none",WebkitUserSelect:"none",transformStyle: "preserve-3d"}}
+          style={{userSelect:"none",WebkitUserSelect:"none",transformStyle: "preserve-3d",}}
           transform
           
           wrapperClass='htmlScreen'
                     occlude
                     className='iframescreencontainer'
                     >
-                      {playStationActive && 
+                      {playStationActive && videoActive &&
+                      <>
+                      <video                       style={{ transform: "scale(0.73,0.7)" }}
+ src='./playstationintrocut.mp4' autoPlay></video>
+                      {/* <iframe     
+                      style={{ width: "1300px", height: "990px", transform: "scale(0.23)" }}
+                      allowFullScreen
+                      frameBorder="0"
+                      src={"https://retrogamesonline.io/play/tekken-3"}
+                    /> */}
+                    </>
+                      }
+                          {playStationActive && !videoActive &&
+                      
+                      
                       <iframe     
                       style={{ width: "1300px", height: "990px", transform: "scale(0.23)" }}
                       allowFullScreen
                       frameBorder="0"
                       src={"https://retrogamesonline.io/play/tekken-3"}
                     />
+                    
                       }
                       {!playStationActive &&
                         <iframe     
