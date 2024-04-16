@@ -25,7 +25,7 @@ export function Playstation({PlaystationActivation, orbitControlsActive, standar
     handleUiControlsToggle();
 
     // Define the target camera position based on the zoomactive state
-    const targetPosition = { x: zoomactive ?0:-12.5, y:zoomactive ? standardCameraPosition.y:-2, z: zoomactive ? standardCameraPosition.z : 12 };
+    const targetPosition = { x: zoomactive ?0:-11.5, y:zoomactive ? standardCameraPosition.y:-2, z: zoomactive ? standardCameraPosition.z : 14 };
     const targetRotation = { x:zoomactive?standardCameraRotation.x: -.5, y:zoomactive ?standardCameraRotation.y:0, z: 0 };
 
     // Tween the camera position
@@ -116,7 +116,8 @@ const powerButton = () => {
       {!orbitControlsActive &&
       <Html
               occlude
-              position={[-14, -5, 5]}
+              position={[-12, -4.8, 7.5]}
+              rotation={[0,0.5,0]}
               transform
               scale={1}
               style={{ userSelect: "none", WebkitUserSelect: "none" }}
@@ -163,10 +164,10 @@ className="w-6 h-6"
           <group position={[1.927, 0, -3.697]} rotation={[-Math.PI / 2, 0, 0]} scale={1.958}>
           
         <group position={[0.843, 0.502, 0]}>
-          <mesh castShadow geometry={nodes.Object_7.geometry} material={materials['DeathtrapDungeon.001']} position={[-6.5, -4.9, -3.6]} rotation={[ 1.55, -0.5, 0]} />
+          <mesh castShadow geometry={nodes.Object_7.geometry} material={materials['DeathtrapDungeon.001']} position={[-5.8, -5.7, -3.6]} rotation={[ 1.55, -0.5, 0]} />
           <Html 
           castShadow
-  position={[-7.5, -6.1, -3.65]}
+  position={[-7, -7.1, -3.65]}
   scale={0.3}
 transform
 occlude
@@ -179,7 +180,7 @@ rotation={[ 0, 0, .58]}
 </Html>
         </group>
       </group>   
-      <group scale={0.01} position={[-13, -6.7, 6]} rotation={[0, -1, 0]}>
+      <group scale={0.01} position={[-12, -6.7, 7.5]} rotation={[0, -1, 0]}>
         
         <mesh castShadow   geometry={nodes.MainBody_LP_1_phong1_0.geometry} material={materials.phong1} />
         <mesh castShadow     geometry={nodes.MainBody_LP_2_phong1_0.geometry} material={materials.phong1} >
@@ -198,6 +199,8 @@ rotation={[ 0, 0, .58]}
          >
 
          </mesh>
+         <mesh castShadow geometry={nodes.cable.geometry} material={materials.Lightplastic} position={[-200, -15, -75]} rotation={[0,0,-0.03]} scale={5} />
+
         {/* original bootup sound
         <Html>
         <audio ref={audioref} >
