@@ -62,7 +62,6 @@ const Scene = ({ orbitControlsActive,cameraStart, handleOrbitControlsToggle,hand
               <PerspectiveCamera ref={cameraref} makeDefault position={[standardCameraPosition.x, standardCameraPosition.y, standardCameraPosition.z]} />
 
 
-{!playStationActive && 
     <EffectComposer multisampling={0} enableNormalPass>
     <Vignette
     offset={0.3}
@@ -91,6 +90,8 @@ scale={2.0} // grid pattern scale
 lineWidth={0.0} // grid pattern line width
 // size={{ 10, height }} // overrides the default pass width and height
 />
+{!playStationActive && 
+<>
 <Bloom/>
 <ToneMapping
 blendFunction={BlendFunction.NORMAL} // blend mode
@@ -101,7 +102,10 @@ maxLuminance={1000.0} // maximum luminance
 averageLuminance={500.0} // average luminance
 adaptationRate={1.0} // luminance adaptation rate
 />
-  </EffectComposer>}
+</>
+}
+  </EffectComposer>
+  
     
 
           

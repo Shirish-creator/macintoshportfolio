@@ -121,7 +121,7 @@ const keydown=()=>{
           transform
           wrapperClass='htmlScreen'
           occlude
-          position={[0, zoomactive ? 4 : 6.3, zoomactive ? 7.4 : 9.4]}>
+          position={[0, zoomactive ? 4 : 6.6, zoomactive ? 7.4 : 9.4]}>
           {!orbitControlsActive&&
           <button className={zoomactive ? 'iconButton-sm' : 'iconButton'} style={{ color: "white" }} onClick={handleButtonClick}>
             {zoomactive ?
@@ -189,7 +189,7 @@ const keydown=()=>{
       {playStationActive && 
         <Html style={{width:'600px',fontFamily:"NexaLight"}} transform position={[0,10,0]}> 
         <div className='flex flex-col gap-4 items-center' style={{textAlign:"center"}}>
-        <span><p style={{ color:"white",width:"fit-content"}} > The game might go through small freezes, have patience </p></span>
+        <span><p style={{ color:"white",width:"fit-content"}} > The game can experience slight freezes, have patience. </p></span>
 
         </div>
 
