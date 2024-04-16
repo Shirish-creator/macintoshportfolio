@@ -23,7 +23,9 @@ export function Playstation({setActiveGame,gameActive,PlaystationActivation, orb
 
   const discs = [
     { id: 1, position: [-5.8, -5.7, -3.6], rotation: [1.55, -0.5, 0],material:materials['DeathtrapDungeon.001'],discName:"Tekken 3",gameLink:"https://retrogamesonline.io/play/tekken-3" },
-    { id: 2, position: [-5.5, -4.4, -3.6], rotation: [1.55, -0.1, 0],material:materials['DeathtrapDungeon.002'], discName:"Crash Bandicoot",gameLink:"https://retrogamesonline.io/play/crash-bandicoot" }
+    { id: 2, position: [-5.5, -4.4, -3.6], rotation: [1.55, -0.1, 0],material:materials['DeathtrapDungeon.002'], discName:"Crash Bandicoot",gameLink:"https://retrogamesonline.io/play/crash-bandicoot" },
+    { id: 3, position: [-6.8, -4, -3.6], rotation: [1.55, 0.3, 0],material:materials['DeathtrapDungeon.003'], discName:"Grand Turismo",gameLink:"          https://retrogamesonline.io/play/gran-turismo" }
+
   ];
   const gameHandleClick = (id) => {
     const clickedDisc = discs.find(disc => disc.id === id);
