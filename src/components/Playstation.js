@@ -17,6 +17,7 @@ export function Playstation({PlaystationActivation, orbitControlsActive, standar
   const [isFrameActive, setIsFrameActive] = useState(false);
   const [indicatorMaterial, setGreenEmissiveMaterial] = useState(materials.phong1);
   // const [audioPlayed, setAudioPlayed] = useState(false);
+  const [hovered, hover] = useState(null)
 
   const handleButtonClick = () => {
     const sound = new Audio('/whoosh.mp3'); // Replace 'path_to_your_sound_clip.mp3' with the actual path to your sound clip
@@ -75,7 +76,7 @@ export function Playstation({PlaystationActivation, orbitControlsActive, standar
         setGreenEmissiveMaterial(new THREE.MeshStandardMaterial({
             color: 0x00ff00, // Green color
 emissive:0x00ff00,
-emissiveIntensity:2,
+emissiveIntensity:3,
             side: THREE.DoubleSide, // Render the material on both sides of the geometry
             // Add any other material properties you need
             
@@ -184,22 +185,26 @@ rotation={[ 0, 0, .58]}
         
         <mesh castShadow   geometry={nodes.MainBody_LP_1_phong1_0.geometry} material={materials.phong1} />
         <mesh castShadow     geometry={nodes.MainBody_LP_2_phong1_0.geometry} material={materials.phong1} >
-        <mesh geometry={nodes.Object_7.geometry} material={materials['DeathtrapDungeon.001']} position={[-1.189, -0.13, 0.685]} rotation={[-Math.PI / 2, 0, 0]} />
+        <mesh castShadow geometry={nodes.Object_7.geometry} material={materials['DeathtrapDungeon.001']} position={[-1.189, -0.13, 0.685]} rotation={[-Math.PI / 2, 0, 0]} />
 
         </mesh>
-        <mesh castShadow   geometry={nodes.MainBody_LP_3_phong1_0.geometry} material={materials.phong1} position={[1.655, 0, 0]} >
+        <mesh castShadow    geometry={nodes.MainBody_LP_3_phong1_0.geometry} material={materials.phong1} position={[1.655, 0, 0]} >
         
-       
+        <Select enabled={hovered}>
+
         <mesh
-   
+    castShadow
         ref={powerref}
         onClick={powerButton}
         geometry={nodes.powerbutton.geometry}
         material={materials.phong1}
+         onPointerOver={() => hover(true)} onPointerOut={() => hover(false)}
          >
 
          </mesh>
-         <mesh castShadow geometry={nodes.cable.geometry} material={materials.Lightplastic} position={[-200, -15, -75]} rotation={[0,0,-0.03]} scale={5} />
+         </Select>
+
+         <mesh castShadow receiveShadow geometry={nodes.cable.geometry} material={materials.Lightplastic} position={[-200, -15, -75]} rotation={[0,0,-0.03]} scale={5} />
 
         {/* original bootup sound
         <Html>
@@ -208,7 +213,7 @@ rotation={[ 0, 0, .58]}
         </audio>
         </Html> */}
        
-        <mesh geometry={nodes.lightindicator.geometry} material={indicatorMaterial} />
+        <mesh castShadow receiveShadow geometry={nodes.lightindicator.geometry} material={indicatorMaterial} />
 
         </mesh>
         

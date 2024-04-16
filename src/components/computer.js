@@ -36,7 +36,7 @@ const keydown=()=>{
   
 
     // Define the target camera position based on the zoomactive state
-    const targetPosition = { x: 0, y:zoomactive?standardCameraPosition.y: 3, z: zoomactive ? standardCameraPosition.z : 18 };
+    const targetPosition = { x: 0, y:zoomactive?standardCameraPosition.y: 3, z: zoomactive ? standardCameraPosition.z : 17 };
     const targetRotation = { x: 0, y:zoomactive ?standardCameraRotation.y:0, z: 0 };
 
     // Tween the camera position
