@@ -5,10 +5,10 @@ import { useThree } from 'react-three-fiber';
 import gsap from 'gsap';
 import * as THREE from 'three';
 import { Selection, Select, EffectComposer, Outline } from '@react-three/postprocessing'
+import { useControls } from 'leva';
 
 
-
-export function Playstation({PlaystationActivation, orbitControlsActive, standardCameraPosition, standardCameraRotation, handleUiControlsToggle}) {
+export function Playstation({setActiveGame,gameActive,PlaystationActivation, orbitControlsActive, standardCameraPosition, standardCameraRotation, handleUiControlsToggle}) {
   const { nodes, materials } = useGLTF('/playstation2.glb');
   const powerref = useRef();
   const [zoomactive, setZoomActive] = useState(false);
@@ -18,6 +18,20 @@ export function Playstation({PlaystationActivation, orbitControlsActive, standar
   const [indicatorMaterial, setGreenEmissiveMaterial] = useState(materials.phong1);
   // const [audioPlayed, setAudioPlayed] = useState(false);
   const [hovered, hover] = useState(null)
+  const [discHovered, dischover] = useState(null)
+  const [activeGameName, setActiveGameName]=useState("Tekken 3")
+
+  const discs = [
+    { id: 1, position: [-5.8, -5.7, -3.6], rotation: [1.55, -0.5, 0],material:materials['DeathtrapDungeon.001'],discName:"Tekken 3",gameLink:"https://retrogamesonline.io/play/tekken-3" },
+    { id: 2, position: [-5.5, -4.4, -3.6], rotation: [1.55, -0.1, 0],material:materials['DeathtrapDungeon.002'], discName:"Crash Bandicoot",gameLink:"https://retrogamesonline.io/play/crash-bandicoot" }
+  ];
+  const gameHandleClick = (id) => {
+    const clickedDisc = discs.find(disc => disc.id === id);
+    if (clickedDisc) {
+      setActiveGame(clickedDisc.gameLink);
+      setActiveGameName(clickedDisc.discName)
+    }
+  };
 
   const handleButtonClick = () => {
     const sound = new Audio('/whoosh.mp3'); // Replace 'path_to_your_sound_clip.mp3' with the actual path to your sound clip
@@ -26,7 +40,7 @@ export function Playstation({PlaystationActivation, orbitControlsActive, standar
     handleUiControlsToggle();
 
     // Define the target camera position based on the zoomactive state
-    const targetPosition = { x: zoomactive ?0:-11.5, y:zoomactive ? standardCameraPosition.y:-2, z: zoomactive ? standardCameraPosition.z : 14 };
+    const targetPosition = { x: zoomactive ?0:-11.5, y:zoomactive ? standardCameraPosition.y:-2, z: zoomactive ? standardCameraPosition.z : 15 };
     const targetRotation = { x:zoomactive?standardCameraRotation.x: -.5, y:zoomactive ?standardCameraRotation.y:0, z: 0 };
 
     // Tween the camera position
@@ -162,22 +176,44 @@ className="w-6 h-6"
             
           </button>
           </Html>}
+
           <group position={[1.927, 0, -3.697]} rotation={[-Math.PI / 2, 0, 0]} scale={1.958}>
           
         <group position={[0.843, 0.502, 0]}>
-          <mesh castShadow geometry={nodes.Object_7.geometry} material={materials['DeathtrapDungeon.001']} position={[-5.8, -5.7, -3.6]} rotation={[ 1.55, -0.5, 0]} />
+         
+           <>
+    {discs.map((disc) => (
+      <Select key={disc.id} enabled={discHovered === disc.id}>
+        <mesh
+onClick={() => gameHandleClick(disc.id)}          
+onPointerOver={() => dischover(disc.id)}
+          onPointerOut={() => dischover(null)}
+          castShadow
+          geometry={nodes.Object_7.geometry}
+          material={disc.material}
+          position={disc.position}
+          rotation={disc.rotation}
+        />
+      </Select>
+    ))}
+  </>
           <Html 
           castShadow
-  position={[-7, -7.1, -3.65]}
+  position={[-7, -7.4, -3.65]}
   scale={0.3}
 transform
 occlude
 rotation={[ 0, 0, .58]}
 >
+  <div style={{maxWidth:'620px',textAlign:"left"}} className='flex flex-col gap-4'>
  <p style={{color:"white",fontFamily:"NexaLight",fontSize:"16px"}} className='flex flex-row gap-2'>Press <span><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
   <path strokeLinecap="round" strokeLinejoin="round" d="M5.636 5.636a9 9 0 1 0 12.728 0M12 3v9" />
 </svg>
 </span>  to play</p>
+<p style={{color:"white", fontFamily:"NexaLight",maxWidth:"120px"}} className='flex flex-row gap-2'>  Active Game:
+<span style={{fontWeight:"500",fontFamily:"NexaBold"}}>{activeGameName}</span>
+</p>
+</div>
 </Html>
         </group>
       </group>   
@@ -185,24 +221,30 @@ rotation={[ 0, 0, .58]}
         
         <mesh castShadow   geometry={nodes.MainBody_LP_1_phong1_0.geometry} material={materials.phong1} />
         <mesh castShadow     geometry={nodes.MainBody_LP_2_phong1_0.geometry} material={materials.phong1} >
-        <mesh castShadow geometry={nodes.Object_7.geometry} material={materials['DeathtrapDungeon.001']} position={[-1.189, -0.13, 0.685]} rotation={[-Math.PI / 2, 0, 0]} />
+        
 
+        
         </mesh>
         <mesh castShadow    geometry={nodes.MainBody_LP_3_phong1_0.geometry} material={materials.phong1} position={[1.655, 0, 0]} >
+        <group>
+            <Select enabled={hovered}>
+              <mesh
+                castShadow
+                ref={powerref}
+                onClick={powerButton}
+                geometry={nodes.powerbutton.geometry}
+                material={materials.phong1}
+                onPointerOver={() => hover(true)} onPointerOut={() => hover(false)}
+
+              />
+            </Select>
+            
+            
+</group>
+
+
         
-        <Select enabled={hovered}>
-
-        <mesh
-    castShadow
-        ref={powerref}
-        onClick={powerButton}
-        geometry={nodes.powerbutton.geometry}
-        material={materials.phong1}
-         onPointerOver={() => hover(true)} onPointerOut={() => hover(false)}
-         >
-
-         </mesh>
-         </Select>
+         
 
          <mesh castShadow receiveShadow geometry={nodes.cable.geometry} material={materials.Lightplastic} position={[-200, -15, -75]} rotation={[0,0,-0.03]} scale={5} />
 

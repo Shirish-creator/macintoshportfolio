@@ -9,7 +9,7 @@ import { useThree } from 'react-three-fiber';
 
 
 
-const Computer = ({playStationActive,cameraStart, isPortfolioActive,orbitControlsActive,standardCameraPosition,standardCameraRotation,handleUiControlsToggle,showUiControls }) => {
+const Computer = ({gameActive,playStationActive,cameraStart, isPortfolioActive,orbitControlsActive,standardCameraPosition,standardCameraRotation,handleUiControlsToggle,showUiControls }) => {
   const mesh = useRef();
   const [zoomactive, setZoomActive] = useState(false);
   const { camera } = useThree();
@@ -165,7 +165,7 @@ const keydown=()=>{
                       style={{ width: "1300px", height: "990px", transform: "scale(0.23)" }}
                       allowFullScreen
                       frameBorder="0"
-                      src={"https://retrogamesonline.io/play/tekken-3"}
+                      src={gameActive}
                     />
                     
                       }
@@ -179,6 +179,8 @@ const keydown=()=>{
                       }
     
           {/* games available */}
+          {/* https://retrogamesonline.io/play/crash-bandicoot */}
+          {/* https://retrogamesonline.io/play/gran-turismo */}
           {/* https://retrogamesonline.io/play/disneys-hercules */}
           {/* https://retrogamesonline.io/play/tekken-3 */}
           {/* https://retrogamesonline.io/play/silent-hill */}

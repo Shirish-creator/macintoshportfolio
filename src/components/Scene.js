@@ -31,7 +31,7 @@ const Scene = ({ orbitControlsActive,cameraStart, handleOrbitControlsToggle,hand
   const mouse = useRef([0, 0]);
   const originalCameraPosition = [0, 0, 40]; // Store the original camera position
   const [playStationActive,setPlaystaionActive]=useState(false);
-
+  const [gameActive,setActiveGame]=useState("https://retrogamesonline.io/play/tekken-3");
   
   const PlaystationActivation=()=>{
     setPlaystaionActive(prevState => !prevState);
@@ -105,7 +105,8 @@ lineWidth={0.0} // grid pattern line width
 // averageLuminance={500.0} // average luminance
 // adaptationRate={1.0} // luminance adaptation rate
 // /> */}
-}          <Playstation PlaystationActivation={PlaystationActivation} handleUiControlsToggle={handleUiControlsToggle} orbitControlsActive={orbitControlsActive} standardCameraPosition={standardCameraPosition} standardCameraRotation={standardCameraRotation}/>
+}          
+<Playstation gameActive={gameActive} setActiveGame={setActiveGame} PlaystationActivation={PlaystationActivation} handleUiControlsToggle={handleUiControlsToggle} orbitControlsActive={orbitControlsActive} standardCameraPosition={standardCameraPosition} standardCameraRotation={standardCameraRotation}/>
 
   </EffectComposer>
   </Selection>
@@ -115,8 +116,7 @@ lineWidth={0.0} // grid pattern line width
           
           
     {orbitControlsActive && <OrbitControls 
-    // minAzimuthAngle={-Math.PI / 2}
-    // maxAzimuthAngle={Math.PI / 2}
+    
     minPolarAngle={-Math.PI / 12}
     maxPolarAngle={ Math.PI / 2}
     maxDistance={50}
@@ -131,7 +131,7 @@ lineWidth={0.0} // grid pattern line width
      position={[0,0,0]}
      >
       
-      <Computer playStationActive={playStationActive} cameraStart={cameraStart} handleCameraStart={handleCameraStart} handleUiControlsToggle={handleUiControlsToggle} showUiControls={showUiControls} standardCameraPosition={standardCameraPosition} standardCameraRotation={standardCameraRotation} orbitControlsActive={orbitControlsActive}  isPortfolioActive={isPortfolioActive} />
+      <Computer gameActive={gameActive} playStationActive={playStationActive} cameraStart={cameraStart} handleCameraStart={handleCameraStart} handleUiControlsToggle={handleUiControlsToggle} showUiControls={showUiControls} standardCameraPosition={standardCameraPosition} standardCameraRotation={standardCameraRotation} orbitControlsActive={orbitControlsActive}  isPortfolioActive={isPortfolioActive} />
      
       <Floppy handleUiControlsToggle={handleUiControlsToggle} showUiControls={showUiControls} standardCameraPosition={standardCameraPosition} standardCameraRotation={standardCameraRotation} orbitControlsActive={orbitControlsActive} onPortfolioActivate={handlePortfolioActivation}/>
   
