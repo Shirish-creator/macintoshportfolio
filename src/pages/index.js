@@ -69,7 +69,9 @@ const [cameraStart,setCameraStart]=useState(false)
     <>
     <Head>
     <title>SHIRISH's Macintosh</title>
-    <script>
+   
+    </Head>
+    <Script>
           {`
           (function(h,o,t,j,a,r){
             h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
@@ -80,8 +82,7 @@ const [cameraStart,setCameraStart]=useState(false)
             a.appendChild(r);
         })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
           `}
-        </script>
-    </Head>
+        </Script>
     {isMusicPlaying && (
         <audio ref={(element) => setAudioElement(element)} autoPlay loop>
         <source src="/spacesound.mp3" type="audio/mpeg" />
