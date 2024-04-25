@@ -7,7 +7,12 @@ import { useFrame } from "react-three-fiber";
 import Uicontrols from "@/components/Uicontrols";
 import LoadingScreen from "@/components/Loader";
 import Script from "next/script";
+import Hotjar from '@hotjar/browser';
 
+const siteId = 4959837;
+const hotjarVersion = 6;
+
+Hotjar.init(siteId, hotjarVersion);
 
 
 export default function Home() {
@@ -69,18 +74,6 @@ const [cameraStart,setCameraStart]=useState(false)
     <>
     <Head>
     <title>SHIRISH's Macintosh</title>
-   <script>
-   {`
-          (function(h,o,t,j,a,r){
-            h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-            h._hjSettings={hjid:4959828,hjsv:6};
-            a=o.getElementsByTagName('head')[0];
-            r=o.createElement('script');r.async=1;
-            r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-            a.appendChild(r);
-        })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-          `}
-   </script>
     </Head>
     
     {isMusicPlaying && (

@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@hotjar/browser": "^1.0.9",
     "@react-spring/three": "^9.7.3",
     "@react-three/drei": "^9.102.6",
     "@react-three/postprocessing": "^2.16.2",
