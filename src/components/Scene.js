@@ -59,7 +59,7 @@ const Scene = ({ orbitControlsActive,cameraStart, handleOrbitControlsToggle,hand
   return (
     <>
     
-              <PerspectiveCamera ref={cameraref} makeDefault position={[standardCameraPosition.x, standardCameraPosition.y, standardCameraPosition.z]} />
+              <PerspectiveCamera ref={cameraref} makeDefault  position={[standardCameraPosition.x, standardCameraPosition.y, standardCameraPosition.z]} />
 
               <Selection>
     <EffectComposer multisampling={0} autoClear={false} enableNormalPass>

@@ -6,6 +6,7 @@ import { useState,useRef,useEffect } from "react";
 import { useFrame } from "react-three-fiber";
 import Uicontrols from "@/components/Uicontrols";
 import LoadingScreen from "@/components/Loader";
+import Script from "next/script";
 
 
 
@@ -68,6 +69,29 @@ const [cameraStart,setCameraStart]=useState(false)
     <>
     <Head>
     <title>SHIRISH's Macintosh</title>
+    <script>
+          {`
+            (function (m, a, z, e) {
+              var s, t;
+              try {
+                t = m.sessionStorage.getItem('maze-us');
+              } catch (err) {}
+
+              if (!t) {
+                t = new Date().getTime();
+                try {
+                  m.sessionStorage.setItem('maze-us', t);
+                } catch (err) {}
+              }
+
+              s = a.createElement('script');
+              s.src = z + '?apiKey=' + e;
+              s.async = true;
+              a.getElementsByTagName('head')[0].appendChild(s);
+              m.mazeUniversalSnippetApiKey = e;
+            })(window, document, 'https://snippet.maze.co/maze-universal-loader.js', '7c8e17a6-f318-451d-8985-8c7818394514');
+          `}
+        </script>
     </Head>
     {isMusicPlaying && (
         <audio ref={(element) => setAudioElement(element)} autoPlay loop>
