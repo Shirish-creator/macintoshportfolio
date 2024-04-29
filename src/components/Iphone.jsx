@@ -45,7 +45,6 @@ export function Iphone(props) {
       duration: 1, // Duration of the animation in seconds
       ease: "power2.out" // Easing function
     });
-    console.log(camera.fov)
 
     };
   return (

@@ -19,7 +19,7 @@ import { PerspectiveCamera } from '@react-three/drei';
 import { ChromaticAberration } from '@react-three/postprocessing'
 import { Grid } from '@react-three/postprocessing'
 import { ToneMapping } from '@react-three/postprocessing'
-
+import { Miles } from './Miles';
 
 
 const Scene = ({ orbitControlsActive,cameraStart, handleOrbitControlsToggle,handleUiControlsToggle,showUiControls,handleCameraStart  }) => {
@@ -147,7 +147,6 @@ lineWidth={0.0} // grid pattern line width
       >
      
       <meshStandardMaterial 
-      color="0x121212"
       metalness={0.4}
       roughness={0.5}
       map={bakedPlaneTexture} map-flipY={false} 
@@ -160,9 +159,8 @@ lineWidth={0.0} // grid pattern line width
       <pointLight color="purple" castShadow  position={[15, -2, 5]}   intensity={400} distance={0} />
       <pointLight color="orange" castShadow  position={[-10, -2, 5]}   intensity={400} distance={0} />
       {/* <Iphone/> */}
-      
 
-          
+          {/* <Miles/> */}
 
 
         

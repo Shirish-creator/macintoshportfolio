@@ -195,9 +195,9 @@ className="w-6 h-6"
         </Html>)}
 
           <group scale={4} rotation={rotation} ref={groupRef}  position={position} >
-            <mesh ref={ref}>
+            <mesh castShadow receiveShadow ref={ref}>
             <primitive object={nodes.Scene}>
-              <meshStandardMaterial attach="material" receiveShadow castShadow />
+              <meshStandardMaterial attach="material"   />
             </primitive>
             </mesh>
     
