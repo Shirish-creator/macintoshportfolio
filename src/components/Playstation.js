@@ -229,6 +229,7 @@ rotation={[ 0, 0, .58]}
         </mesh>
         <mesh castShadow    geometry={nodes.MainBody_LP_3_phong1_0.geometry} material={materials.phong1} position={[1.655, 0, 0]} >
         <group>
+         
             <Select enabled={hovered}>
               <mesh
                 castShadow
@@ -237,8 +238,21 @@ rotation={[ 0, 0, .58]}
                 geometry={nodes.powerbutton.geometry}
                 material={materials.phong1}
                 onPointerOver={() => hover(true)} onPointerOut={() => hover(false)}
+                style={{ cursor: hovered ? 'pointer' : 'grab' }} // Add this line
 
-              />
+              >
+               
+                <Html
+                //  position={[2,12,0]}
+                 position={[100, 40, 165]}
+                 rotation={[5.7,1.5,0]}
+                 style={{ userSelect: "none", WebkitUserSelect: "none" ,transformStyle: "preserve-3d"}}
+
+          >
+            <div className="blinkbtn" style={{width:'28px', pointerEvents:'none',height:'28px',borderRadius:'999px',background:" #ffffff40",display:'flex', padding:'9px'}}><div style={{height:'100%',width:'100%',background:'white',borderRadius:'99px'}}></div> </div>
+          </Html>
+                 
+              </mesh>
             </Select>
             
             

@@ -107,3 +107,38 @@ background-color: #161515;
   transition: 0.4s ease-in-out;
 
 }
+
+
+.blinkbtn {
+  background-color: #004A7F;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  pointer-events: none;
+  border: none;
+  color: #FFFFFF;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Arial;
+  font-size: 20px;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  -webkit-animation: glowing 1500ms infinite;
+  -moz-animation: glowing 1500ms infinite;
+  -o-animation: glowing 1500ms infinite;
+  animation: glowing 1500ms infinite;
+}
+
+@-webkit-keyframes glowing {
+  0% { background-color: hsla(0, 0%, 100%, 0.095); -webkit-box-shadow: 0 0 3px #ffffff; }
+  50% { background-color: #ffffff4a; -webkit-box-shadow: 0 0 3px #ffffff; }
+  100% { background-color: #ffffff; -webkit-box-shadow: 0 0 3px #ffffff; }
+}
+
+
+
+@keyframes glowing {
+  0% { background-color: hsla(0, 0%, 100%, 0.095); -webkit-box-shadow: 0 0 3px #ffffff; }
+  50% { background-color: #ffffff09; -webkit-box-shadow: 0 0 40px #ffffff; }
+  100% { background-color: #ffffff05; -webkit-box-shadow: 0 0 3px #ffffff; }
+}
