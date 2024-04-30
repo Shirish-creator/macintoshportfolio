@@ -20,7 +20,8 @@ import { ChromaticAberration } from '@react-three/postprocessing'
 import { Grid } from '@react-three/postprocessing'
 import { ToneMapping } from '@react-three/postprocessing'
 import { Miles } from './Miles';
-
+import { Omnitrix } from './Omnitrix';
+import { Floor } from './Floor';
 
 const Scene = ({ orbitControlsActive,cameraStart, handleOrbitControlsToggle,handleUiControlsToggle,showUiControls,handleCameraStart  }) => {
   const mesh = useRef();
@@ -71,11 +72,7 @@ const Scene = ({ orbitControlsActive,cameraStart, handleOrbitControlsToggle,hand
     duration={[0.01, 0.03]}
     strength={[2,2]}
     />
-    {/* <DepthOfField
-    focusDistance={0.1}
-    // focalLength={0.15}
-    bokehScale={2}
-    /> */}
+   
     
     <Noise
     
@@ -94,17 +91,13 @@ lineWidth={0.0} // grid pattern line width
 // size={{ 10, height }} // overrides the default pass width and height
 />
 {!playStationActive && 
-<Bloom/>
+<>
+          <Miles/> 
+          <Omnitrix/> 
+          {/* <Bloom/> */}
+</>
 
-// {/* <ToneMapping
-// blendFunction={BlendFunction.NORMAL} // blend mode
-// adaptive={true} // toggle adaptive luminance map usage
-// resolution={2400} // texture resolution of the luminance map
-// middleGrey={20.6} // middle grey factor
-// maxLuminance={1000.0} // maximum luminance
-// averageLuminance={500.0} // average luminance
-// adaptationRate={1.0} // luminance adaptation rate
-// /> */}
+
 }          
 <Playstation gameActive={gameActive} setActiveGame={setActiveGame} PlaystationActivation={PlaystationActivation} handleUiControlsToggle={handleUiControlsToggle} orbitControlsActive={orbitControlsActive} standardCameraPosition={standardCameraPosition} standardCameraRotation={standardCameraRotation}/>
 
@@ -120,7 +113,7 @@ lineWidth={0.0} // grid pattern line width
     minPolarAngle={-Math.PI / 12}
     maxPolarAngle={ Math.PI / 2}
     maxDistance={50}
-    zoom0={false}
+    zoom0={true}
     />
     
     }
@@ -135,18 +128,19 @@ lineWidth={0.0} // grid pattern line width
      
       <Floppy handleUiControlsToggle={handleUiControlsToggle} showUiControls={showUiControls} standardCameraPosition={standardCameraPosition} standardCameraRotation={standardCameraRotation} orbitControlsActive={orbitControlsActive} onPortfolioActivate={handlePortfolioActivation}/>
   
- 
+ {/* original floor */}
       <mesh
         rotation={[0,0, 0]} // Rotate 180 degrees around the Y axis
         scale={1} 
         ref={meshRef1}
         geometry={nodes.Plane.geometry}
-        position={[0.1,-7.2,-0.6]}
+        position={[0.1,-7.20,-0.6]}
         castShadow 
         receiveShadow 
       >
      
-      <meshStandardMaterial 
+      
+     <meshStandardMaterial 
       metalness={0.4}
       roughness={0.5}
       map={bakedPlaneTexture} map-flipY={false} 
@@ -156,14 +150,10 @@ lineWidth={0.0} // grid pattern line width
       intensity={isPortfolioActive? 200:600} 
      distance={15} />
 
-      <pointLight color="purple" castShadow  position={[15, -2, 5]}   intensity={400} distance={0} />
+      <pointLight color="purple" castShadow  position={[15, -2, 5]}   intensity={500} distance={0} />
       <pointLight color="orange" castShadow  position={[-10, -2, 5]}   intensity={400} distance={0} />
       {/* <Iphone/> */}
-
-          {/* <Miles/> */}
-
-
-        
+        {/* <Floor/> */}
     </group>
     
     
