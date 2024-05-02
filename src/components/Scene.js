@@ -112,7 +112,7 @@ lineWidth={0.0} // grid pattern line width
     
     minPolarAngle={-Math.PI / 12}
     maxPolarAngle={ Math.PI / 2}
-    maxDistance={50}
+    maxDistance={45}
     zoom0={true}
     />
     

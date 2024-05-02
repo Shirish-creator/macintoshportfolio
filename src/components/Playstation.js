@@ -21,6 +21,8 @@ export function Playstation({setActiveGame,gameActive,PlaystationActivation, orb
   const [discHovered, dischover] = useState(null)
   const [activeGameName, setActiveGameName]=useState("Tekken 3")
 
+  
+
   const discs = [
     { id: 1, position: [-5.8, -5.7, -3.6], rotation: [1.55, -0.5, 0],material:materials['DeathtrapDungeon.001'],discName:"Tekken 3",gameLink:"https://retrogamesonline.io/play/tekken-3" },
     { id: 2, position: [-5.5, -4.4, -3.6], rotation: [1.55, -0.1, 0],material:materials['DeathtrapDungeon.002'], discName:"Crash Bandicoot",gameLink:"https://retrogamesonline.io/play/crash-bandicoot" },
@@ -238,7 +240,6 @@ rotation={[ 0, 0, .58]}
                 geometry={nodes.powerbutton.geometry}
                 material={materials.phong1}
                 onPointerOver={() => hover(true)} onPointerOut={() => hover(false)}
-                style={{ cursor: hovered ? 'pointer' : 'grab' }} // Add this line
 
               >
                
