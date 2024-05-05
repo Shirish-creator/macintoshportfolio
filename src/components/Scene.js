@@ -92,14 +92,14 @@ lineWidth={0.0} // grid pattern line width
 />
 {!playStationActive && 
 <>
-          {/* <Miles/> 
-          <Omnitrix/>  */}
+          <Miles/> 
+          <Omnitrix/> 
           {/* <Bloom/> */}
 </>
 
 
 }          
-{/* <Playstation gameActive={gameActive} setActiveGame={setActiveGame} PlaystationActivation={PlaystationActivation} handleUiControlsToggle={handleUiControlsToggle} orbitControlsActive={orbitControlsActive} standardCameraPosition={standardCameraPosition} standardCameraRotation={standardCameraRotation}/> */}
+<Playstation gameActive={gameActive} setActiveGame={setActiveGame} PlaystationActivation={PlaystationActivation} handleUiControlsToggle={handleUiControlsToggle} orbitControlsActive={orbitControlsActive} standardCameraPosition={standardCameraPosition} standardCameraRotation={standardCameraRotation}/>
 
   </EffectComposer>
   </Selection>
