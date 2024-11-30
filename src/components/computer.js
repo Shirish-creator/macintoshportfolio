@@ -106,13 +106,13 @@ const keydown=()=>{
   return (
     <>
       <group ref={mesh} position={[0, 0, 0]}>
-        <pointLight color="white" castShadow position={[0, 16, 13]} receiveShadow intensity={1000} distance={100000} shadow-mapSize-width={512} shadow-mapSize-height={1000} shadow-camera-far={2000} shadow-camera-near={10} shadow-camera-left={-5} shadow-camera-right={5} shadow-camera-top={5} shadow-camera-bottom={-5} />
+        <pointLight color="white" castShadow position={[0, 16, 20]} receiveShadow intensity={2000} distance={100000} shadow-mapSize-width={512} shadow-mapSize-height={1000} shadow-camera-far={2000} shadow-camera-near={10} shadow-camera-left={-5} shadow-camera-right={5} shadow-camera-top={5} shadow-camera-bottom={-5} />
         {[...Array(11).keys()].map((index) => (
           <mesh
             castShadow
             receiveShadow
             key={index} geometry={nodes.MAC.children[index].geometry}>
-            <meshStandardMaterial map={bakedTexture} map-flipY={false}></meshStandardMaterial>
+            <meshBasicMaterial map={bakedTexture} map-flipY={false}></meshBasicMaterial>
           </mesh>
         ))}
 

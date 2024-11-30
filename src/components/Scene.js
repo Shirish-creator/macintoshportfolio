@@ -64,14 +64,14 @@ const Scene = ({ orbitControlsActive,cameraStart, handleOrbitControlsToggle,hand
 
               <Selection>
     <EffectComposer multisampling={0} autoClear={false} enableNormalPass>
-    <Vignette
+    {/* <Vignette
     offset={0.3}
     darkness={0.8}/>
     <Glitch
     delay={[4,4]}
     duration={[0.01, 0.03]}
     strength={[2,2]}
-    />
+    /> */}
    
     
     <Noise
@@ -83,13 +83,13 @@ blendFunction={BlendFunction.NORMAL} // blend mode
 offset={[0.0010, 0.0016]} // color offset
 />
 <Outline blur visibleEdgeColor="white" edgeStrength={10} width={1000} />
-
+{/* 
 <Grid
 blendFunction={BlendFunction.OVERLAY} // blend mode
 scale={2.0} // grid pattern scale
 lineWidth={0.0} // grid pattern line width
 // size={{ 10, height }} // overrides the default pass width and height
-/>
+/> */}
 {!playStationActive && 
 <>
           {/* <Miles/> 
@@ -146,12 +146,12 @@ lineWidth={0.0} // grid pattern line width
       map={bakedPlaneTexture} map-flipY={false} 
       ></meshStandardMaterial>
     </mesh>
-    <pointLight color="white" castShadow  position={[0, -2, 5]} 
+    {/* <pointLight color="white" castShadow  position={[0, -2, 5]} 
       intensity={isPortfolioActive? 200:600} 
-     distance={15} />
-
+     distance={15} /> */}
+{/* 
       <pointLight color="purple" castShadow  position={[15, -2, 5]}   intensity={500} distance={0} />
-      <pointLight color="orange" castShadow  position={[-10, -2, 5]}   intensity={400} distance={0} />
+      <pointLight color="orange" castShadow  position={[-10, -2, 5]}   intensity={400} distance={0} /> */}
       {/* <Iphone/> */}
         {/* <Floor/> */}
     </group>

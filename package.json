@@ -28,6 +28,7 @@
     "react-dom": "^18",
     "react-three-fiber": "^6.0.13",
     "sass": "^1.72.0",
+    "stats.js": "^0.17.0",
     "three": "^0.162.0"
   },
   "devDependencies": {

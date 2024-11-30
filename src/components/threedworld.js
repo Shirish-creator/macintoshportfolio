@@ -1,57 +1,88 @@
-import { Canvas, useThree,Html } from "react-three-fiber";
+import { Canvas } from "react-three-fiber";
+import React, { useRef, useEffect } from "react";
 import { Suspense } from "react";
-import Scene from "./Scene"
-import React, { useRef, useState } from "react";
-import { useFrame } from "react-three-fiber";
-import * as Three from 'three';
-import {useProgress} from '@react-three/drei';
+import * as Three from "three";
+import Stats from "stats.js";
+import { NodeToyTick } from "@nodetoy/react-nodetoy";
 import LoadingScreen from "./Loader";
-// import { Loader } from '@react-three/drei'
-import { NodeToyMaterial,NodeToyTick } from '@nodetoy/react-nodetoy';
+import Scene from "./Scene";
+import { useFrame } from "react-three-fiber";
 
+function StatsUpdater({ statsRef }) {
+  useFrame(() => {
+    statsRef.current?.begin();
+    statsRef.current?.end();
+  });
+  return null;
+}
 
-export default function Threed({handleCameraStart,cameraStart, orbitControlsActive,handleOrbitControlsToggle,handleUiControlsToggle,showUiControls,handleSetLoadedScreen}) {
-const standardCameraPosition=[0, 1, 20];
+export default function Threed({
+  handleCameraStart,
+  cameraStart,
+  orbitControlsActive,
+  handleOrbitControlsToggle,
+  handleUiControlsToggle,
+  showUiControls,
+  handleSetLoadedScreen,
+}) {
+  const canvasRef = useRef(null); // Ref for the canvas
+  const statsRef = useRef(null); // Ref for the Stats instance
 
+  useEffect(() => {
+    // Initialize Stats
+    const stats = new Stats();
+    stats.showPanel(0); // Show FPS panel
+    statsRef.current = stats;
 
+    // Append Stats to the canvas container
+    if (canvasRef.current) {
+      canvasRef.current.appendChild(stats.dom);
+    }
 
-return (
+    return () => {
+      // Clean up Stats DOM element
+      if (canvasRef.current) {
+        canvasRef.current.removeChild(stats.dom);
+      }
+    };
+  }, []);
+
+  return (
     <>
-          <LoadingScreen handleCameraStart={handleCameraStart}  handleSetLoadedScreen={handleSetLoadedScreen}/>
+      <LoadingScreen
+        handleCameraStart={handleCameraStart}
+        handleSetLoadedScreen={handleSetLoadedScreen}
+      />
 
-      <Canvas 
-      gl={{
-        antialias:true,
-    
-      }}
-      shadows 
-        style={{ height: "100vh" }}
-        className="w-full h-screen "
-        camera={{
-          fov:110,
-          near:0.5,
-          far:1000,
-          
-          position: [0, 1, 22]        }}
-      >
-       
-       
-        <color args={['#000000']} attach="background" />
-        <NodeToyTick/>
-        <Suspense 
-        // fallback={<LoadingScreen />} 
+      <div ref={canvasRef} style={{ height: "100vh", width: "100vw" }}>
+        <Canvas
+          gl={{
+            antialias: true,
+          }}
+          shadows
+          camera={{
+            fov: 110,
+            near: 0.5,
+            far: 1000,
+            position: [0, 1, 22],
+          }}
         >
-     
-          <Scene cameraStart={cameraStart} 
-          orbitControlsActive={orbitControlsActive}
-          handleUiControlsToggle={handleUiControlsToggle}
-          showUiControls={showUiControls}
-          handleCameraStart ={handleCameraStart }
-          handleOrbitControlsToggle={handleOrbitControlsToggle} 
-           />
-        </Suspense>
-      </Canvas>
-      
+          <color args={["#000000"]} attach="background" />
+          <NodeToyTick />
+          <Suspense>
+            <Scene
+              cameraStart={cameraStart}
+              orbitControlsActive={orbitControlsActive}
+              handleUiControlsToggle={handleUiControlsToggle}
+              showUiControls={showUiControls}
+              handleCameraStart={handleCameraStart}
+              handleOrbitControlsToggle={handleOrbitControlsToggle}
+            />
+          </Suspense>
+          {/* Add StatsUpdater inside the Canvas */}
+          <StatsUpdater statsRef={statsRef} />
+        </Canvas>
+      </div>
     </>
   );
 }

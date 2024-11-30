@@ -8,6 +8,7 @@ import Uicontrols from "@/components/Uicontrols";
 import LoadingScreen from "@/components/Loader";
 import Script from "next/script";
 import Hotjar from '@hotjar/browser';
+import Stats from "stats.js";
 
 const siteId = 4959837;
 const hotjarVersion = 6;
@@ -69,6 +70,10 @@ const [cameraStart,setCameraStart]=useState(false)
     }
     return () => clearTimeout(timeout);
   }, [orbitControlsActive]);
+
+  
+ 
+ 
 
   return (
     <>
