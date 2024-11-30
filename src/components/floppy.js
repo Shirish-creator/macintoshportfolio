@@ -149,7 +149,7 @@ useFrame(() => {
         </Html>
         
       )}
-{isVisible & !orbitControlsActive && (
+{/* {isVisible & !orbitControlsActive && (
       <Html
           occlude
           position={zoomactive?[5.5, -3,5]:[5.5, -3,5]}
@@ -192,12 +192,12 @@ className="w-6 h-6"
 
 
           </button>
-        </Html>)}
+        </Html>)} */}
 
           <group scale={4} rotation={rotation} ref={groupRef}  position={position} >
             <mesh castShadow receiveShadow ref={ref}>
             <primitive object={nodes.Scene}>
-              <meshStandardMaterial attach="material"   />
+              <meshStandardMaterial attach="material"/>
             </primitive>
             </mesh>
     

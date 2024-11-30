@@ -117,18 +117,53 @@ emissiveIntensity:3,
 });
 
 
-const powerButton = () => {
-  // Toggle the frame activity state
-  setIsFrameActive(!isFrameActive);
 
-  // Play the power click button sound
-  const sound = new Audio('/powerclickbutton.mp3');
-  sound.play();
-  // Activate PlayStation after a delay
-  setTimeout(() => {
+
+const powerButton = () => {
+  if (zoomactive) {
+    // Toggle the frame activity state
+    // setIsFrameActive((prevState) => {
+    //   const newFrameState = !prevState;
+
+    //   // Activate PlayStation functionality immediately after state update
+    //   if (newFrameState) {
+        
+    //   }
+
+    //   return newFrameState;
+    // });
+    setIsFrameActive(!isFrameActive);
+    setTimeout(() => {
       PlaystationActivation();
-  }, 750); // 750 milliseconds delay
+    }, 750); // Slight delay to match the visual effect
+
+    setZoomActive(!zoomactive);
+
+    handleUiControlsToggle();
+
+    // Play the power button sound
+    const sound = new Audio('/powerclickbutton.mp3');
+    sound.play();
+
+    // Adjust camera zoom based on the frame state
+    const targetPosition = { x: 0, y: standardCameraPosition.y, z: standardCameraPosition.z };
+    const targetRotation = { x: standardCameraRotation.x, y: standardCameraRotation.y, z: 0 };
+
+    // Animate camera movement
+    gsap.to(camera.position, {
+      ...targetPosition,
+      duration: 1.5,
+      ease: 'power2.out',
+    });
+
+    gsap.to(camera.rotation, {
+      ...targetRotation,
+      duration: 1.5,
+      ease: 'power2.out',
+    });
+  }
 };
+
 
   return (
     <group  dispose={null}>
