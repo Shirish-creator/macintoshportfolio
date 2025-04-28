@@ -146,9 +146,9 @@ lineWidth={0.0} // grid pattern line width
       map={bakedPlaneTexture} map-flipY={false} 
       ></meshStandardMaterial>
     </mesh>
-    {/* <pointLight color="white" castShadow  position={[0, -2, 5]} 
-      intensity={isPortfolioActive? 200:600} 
-     distance={15} /> */}
+    <pointLight color="white" castShadow  position={[8, -4, 5]} 
+      intensity={10} 
+     distance={15} />
 {/* 
       <pointLight color="purple" castShadow  position={[15, -2, 5]}   intensity={500} distance={0} />
       <pointLight color="orange" castShadow  position={[-10, -2, 5]}   intensity={400} distance={0} /> */}

@@ -201,7 +201,7 @@ className="w-6 h-6"
             </primitive>
             </mesh>
     
-            
+
           </group>
         </>
       );
