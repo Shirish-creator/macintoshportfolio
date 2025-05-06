@@ -17,7 +17,7 @@ export default function Uicontrols({orbitControlsActive,handleOrbitControlsToggl
       }, []);
   return (
     <div className={`controlHeader-${showUiControls ? "active" : "inactive"} controlpanel fixed flex flex-col gap-2`}    >
-        <div className='controlHeader flex flex-row justify-center items-center' style={{fontFamily:'Monument Extended Bold',fontSize:"16px"}}>SHIRISH SHAKYA</div>
+        <div className='controlHeader flex flex-row justify-center items-center' style={{fontFamily:'var(--typography-font-family-serif)',fontStyle:"italic",fontSize:"var(--typography-size-2xl)"}}>Shirish Shakya</div>
         <div className='controlHeader flex flex-row justify-center items-center'>Product Designer/ Creative Developer/ Product Manager</div>
         <div className='controlHeader gap-2 flex flex-row items-center justify-center'>
         <span style={{width:'180px'}}>{time} <span>Local Time</span></span>

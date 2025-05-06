@@ -2,7 +2,7 @@
 
 //this isthe monument Extended Bold Font Woff upload////////////////
 
-@font-face {font-family: "Monument Extended Bold";
+@font-face {font-family: var(--typography-font-family-sansserif);
     src: url("../../public/static/fonts/Monument_Extended_Bold/@font-face/55d433372d270829c51e2577a78ef12d.eot"); /* IE9*/
     src: url("../../public/static/fonts/Monument_Extended_Bold/@font-face/55d433372d270829c51e2577a78ef12d.eot?") format("embedded-opentype"), /* IE6-IE8 */
     url("../../public/static/fonts/Monument_Extended_Bold/@font-face/55d433372d270829c51e2577a78ef12d.woff2") format("woff2"), /* chrome、firefox */
@@ -59,13 +59,13 @@ canvas{
 
 .LoaderScreen{
   position:fixed;
-color: white;
+color: var(--colors-text-primary);
 z-index: 200000000;
-font-family: "Monument Extended Bold";
+font-family: var(--typography-font-family-serif);
 height:100vh;
 font-size:24px;
 width:100%;
-background-color: #161515;
+background-color: var(--colors-surface-background);
 }
 
 .LoaderScreen-active{

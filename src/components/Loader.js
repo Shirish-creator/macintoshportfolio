@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useProgress } from '@react-three/drei'
+import { Button } from "@shirishcreates/skeumorphism-ds";
 
 export default function LoadingScreen({ handleSetLoadedScreen, handleCameraStart }) {
     const { progress } = useProgress()
@@ -47,11 +48,12 @@ export default function LoadingScreen({ handleSetLoadedScreen, handleCameraStart
                 {isDesktop ?
                     <div className='desktopContent flex justify-center gap-2 flex-col items-center'>
                         <div className='flex flex-row ' style={{ fontSize: "224px" }}> {currentProgress.toFixed(0)} <span>%</span></div>
-                        <button onClick={fullyLoad} className={`loadbutton ${loadedScreen ? 'loadbutton-active' : 'loadbutton-inactive'}`}>START EXPERIENCE</button>
+                        {loadedScreen ? <Button theme='light' variant='primary' onClick={fullyLoad}>Start Experience</Button>:''}
+                        {/* <button onClick={fullyLoad} className={`loadbutton ${loadedScreen ? 'loadbutton-active' : 'loadbutton-inactive'}`}>START EXPERIENCE</button> */}
                     </div>
                     :
                     <>
-                        <div className=' flex justify-center gap-6 flex-col items-center' style={{ maxWidth: '340px' }}>
+                        <div className=' flex justify-center gap-6 flex-col items-center color-[var(--colors-text-primary)]' style={{ maxWidth: '340px' }}>
                         <svg
   width={211}
   height={69}
@@ -97,9 +99,9 @@ export default function LoadingScreen({ handleSetLoadedScreen, handleCameraStart
   </defs>
 </svg>
 
-                            <div className='flex flex-row gap-2' style={{ textAlign: "center", fontSize: "18px", fontFamily: "NexaLight" }}>Looks like you're on a small device, please view on a larger device for best experience</div>
-                            <span style={{ textAlign: "center", fontSize: "18px", fontFamily: "NexaLight" }}>or, check out</span>
-                            <a href='https://www.shirishshakya.com' style={{ textAlign: "center", fontWeight: 600, color: "#FB722E", fontSize: "18px", fontFamily: "NexaLight", textDecoration: "underline" }}>www.shirishshakya.com</a>
+                            <div className='flex flex-row gap-2' style={{ textAlign: "center", fontSize: "18px", fontFamily: "var(--typography-font-family-sansserif)" }}>Looks like you're on a small device, please view on a larger device for best experience</div>
+                            <span style={{ textAlign: "center", fontSize: "18px", fontFamily: "var(--typography-font-family-sansserif)" }}>or, check out</span>
+                            <a href='https://www.shirishshakya.com' style={{ textAlign: "center", fontWeight: 600, color: "#FB722E", fontSize: "18px", fontFamily: "var(--typography-font-family-sansserif)", textDecoration: "underline" }}>www.shirishshakya.com</a>
                         </div>
                     </>
                 }
